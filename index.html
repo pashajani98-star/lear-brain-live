@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LEAR Brain — Live</title>
+<style>
+  :root{
+    --brick-red:#d01012; --brick-yellow:#f6c615; --brick-blue:#0a6cc4;
+    --brick-green:#2ca02c; --baseplate:#3a7a34; --stud:#4a9142;
+    --ink:#161a1d; --panel:#ffffff; --muted:#5a6672;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;
+    color:var(--ink); background:#11331a;
+    min-height:100vh;
+  }
+  /* studded baseplate */
+  .floor{
+    background:
+      radial-gradient(circle at 10px 10px, var(--stud) 5px, transparent 6px) 0 0/40px 40px,
+      linear-gradient(var(--baseplate),var(--baseplate));
+    min-height:100vh; padding:0 0 120px;
+  }
+  header{
+    position:sticky; top:0; z-index:20;
+    background:var(--brick-red); color:#fff;
+    padding:14px 18px; display:flex; align-items:center; gap:12px;
+    box-shadow:0 4px 0 #9a0b0c, 0 8px 18px rgba(0,0,0,.3);
+  }
+  header .studs{position:absolute;inset:0;background:radial-gradient(circle at 14px 8px,rgba(255,255,255,.18) 5px,transparent 6px) 0 0/34px 40px;pointer-events:none}
+  header h1{font-size:18px;margin:0;letter-spacing:.5px;font-weight:800}
+  .dot{width:12px;height:12px;border-radius:50%;background:var(--brick-yellow);box-shadow:0 0 0 3px rgba(255,255,255,.25);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+  header .meta{margin-left:auto;font-size:12px;opacity:.9;text-align:right;line-height:1.3}
+
+  .banner{
+    margin:14px; padding:14px 16px; border-radius:10px;
+    background:var(--brick-yellow); color:#3a2c00;
+    border:3px solid #c99f00; font-weight:700; display:none;
+    box-shadow:0 5px 0 #c99f00;
+  }
+  .banner.show{display:block; animation:wiggle .5s ease 2}
+  @keyframes wiggle{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .banner b{display:block;font-size:15px;margin-bottom:4px}
+  .banner .q{font-weight:600;font-size:13px;white-space:pre-wrap}
+
+  .objective{margin:14px;color:#eafbe6;font-size:13px;opacity:.95}
+  .objective span{color:#fff;font-weight:700}
+
+  .grid{
+    display:grid; gap:16px; padding:6px 14px;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    max-width:1100px; margin:0 auto;
+  }
+  .desk{
+    background:var(--panel); border-radius:12px; padding:12px 10px 14px;
+    position:relative; text-align:center;
+    box-shadow:0 5px 0 rgba(0,0,0,.25); transition:transform .3s;
+  }
+  .desk.active{animation:bob 1.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .fig{width:64px;height:78px;margin:0 auto 6px;display:block}
+  .name{font-weight:800;font-size:12px;letter-spacing:.3px}
+  .role{font-size:10px;color:var(--muted);margin-top:1px;min-height:12px}
+  .bubble{
+    margin-top:8px;font-size:11px;line-height:1.3;border-radius:8px;padding:6px 7px;
+    background:#eef3f7;color:#2a3540;min-height:34px;
+  }
+  .desk.active .bubble{background:#fff7d6;color:#5a4a00}
+  .screen{
+    width:34px;height:8px;border-radius:2px;margin:4px auto 0;background:#9fb0bd;
+  }
+  .desk.active .screen{background:var(--brick-green);box-shadow:0 0 10px var(--brick-green)}
+  .typing{display:none;margin-top:5px;height:6px}
+  .desk.active .typing{display:block}
+  .typing i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brick-blue);margin:0 2px;animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+  .tag{position:absolute;top:8px;right:8px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:6px;background:#e7ebef;color:#7a8690}
+  .desk.active .tag{background:var(--brick-green);color:#fff}
+
+  /* manager walking the corridor */
+  .corridor{position:fixed;left:0;right:0;bottom:0;height:96px;background:linear-gradient(#2f6a2b,#285c24);
+    border-top:4px solid #1f4a1c;box-shadow:inset 0 3px 0 rgba(255,255,255,.08);z-index:15;overflow:hidden}
+  .corridor .label{position:absolute;left:12px;top:8px;color:#d7f3cf;font-size:11px;font-weight:700;opacity:.8}
+  .manager{position:absolute;bottom:6px;left:0;width:60px;height:82px;animation:walk 18s linear infinite}
+  @keyframes walk{0%{left:-70px;transform:scaleX(1)}49%{left:calc(100% + 10px);transform:scaleX(1)}50%{left:calc(100% + 10px);transform:scaleX(-1)}99%{left:-70px;transform:scaleX(-1)}100%{left:-70px;transform:scaleX(1)}}
+  .manager .leg{transform-origin:top;animation:step .5s ease-in-out infinite alternate}
+  .manager .leg2{animation-delay:.25s}
+  @keyframes step{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+  footer{position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:10px;color:#cfeac6;padding:4px;z-index:16;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="floor">
+  <header>
+    <div class="studs"></div>
+    <span class="dot"></span>
+    <h1>LEAR BRAIN — LIVE</h1>
+    <div class="meta" id="meta">connecting…</div>
+  </header>
+
+  <div class="banner" id="banner"><b>🚨 The manager needs you — check Telegram</b><div class="q" id="bannerq"></div></div>
+  <div class="objective" id="objective"></div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="corridor">
+  <div class="label" id="corridorLabel">The manager is doing the rounds…</div>
+  <svg class="manager" viewBox="0 0 60 82" id="managerFig">
+    <ellipse cx="30" cy="80" rx="14" ry="3" fill="rgba(0,0,0,.25)"/>
+    <rect class="leg" x="24" y="52" width="5" height="22" rx="2" fill="#1a1a2a"/>
+    <rect class="leg leg2" x="31" y="52" width="5" height="22" rx="2" fill="#1a1a2a"/>
+    <rect x="20" y="30" width="20" height="26" rx="4" fill="#ffffff"/>
+    <rect x="20" y="30" width="20" height="26" rx="4" fill="none" stroke="#cfd6db"/>
+    <rect x="33" y="34" width="9" height="13" rx="1.5" fill="#d7a63a" stroke="#b5861f"/>
+    <rect x="16" y="33" width="6" height="16" rx="3" fill="#ffffff"/>
+    <rect x="38" y="33" width="6" height="16" rx="3" fill="#ffffff"/>
+    <circle cx="30" cy="20" r="11" fill="#f6c615"/>
+    <circle cx="26" cy="19" r="1.6" fill="#3a2c00"/><circle cx="34" cy="19" r="1.6" fill="#3a2c00"/>
+    <path d="M25 24 Q30 27 35 24" stroke="#3a2c00" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <rect x="20" y="7" width="20" height="7" rx="2" fill="#0a6cc4"/>
+  </svg>
+</div>
+<footer id="footer"></footer>
+
+<script>
+const ROSTER=[
+  {id:"lear-seo",name:"SEO",color:"#2ca02c"},
+  {id:"lear-ads",name:"Ads",color:"#d01012"},
+  {id:"lear-content",name:"Content",color:"#0a6cc4"},
+  {id:"lear-webdev",name:"Web Dev",color:"#7a3ea8"},
+  {id:"lear-reviews",name:"Reviews",color:"#f6a400"},
+  {id:"lear-outreach",name:"Outreach",color:"#0a9ea0"},
+  {id:"lear-social",name:"Social",color:"#e0398a"},
+  {id:"lear-competitors",name:"Competitors",color:"#8a6d3b"},
+  {id:"lear-reports",name:"Reports",color:"#4a5a66"},
+  {id:"lear-monitor",name:"Monitor (QC)",color:"#111"}
+];
+function fig(color){
+  return `<svg class="fig" viewBox="0 0 64 78">
+    <ellipse cx="32" cy="76" rx="15" ry="3" fill="rgba(0,0,0,.18)"/>
+    <rect x="26" y="50" width="5" height="22" rx="2" fill="#2b2f45"/>
+    <rect x="33" y="50" width="5" height="22" rx="2" fill="#2b2f45"/>
+    <rect x="21" y="28" width="22" height="26" rx="4" fill="${color}"/>
+    <rect x="17" y="31" width="6" height="16" rx="3" fill="${color}"/>
+    <rect x="41" y="31" width="6" height="16" rx="3" fill="${color}"/>
+    <circle cx="32" cy="18" r="12" fill="#f6c615"/>
+    <circle cx="27.5" cy="17" r="1.7" fill="#3a2c00"/><circle cx="36.5" cy="17" r="1.7" fill="#3a2c00"/>
+    <path d="M27 22 Q32 25 37 22" stroke="#3a2c00" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+    <rect x="22" y="4" width="20" height="7" rx="2" fill="${color}"/>
+    <circle cx="27" cy="4" r="2" fill="${color}"/><circle cx="37" cy="4" r="2" fill="${color}"/>
+  </svg>`;
+}
+const grid=document.getElementById('grid');
+ROSTER.forEach(a=>{
+  const d=document.createElement('div');
+  d.className='desk'; d.id='desk-'+a.id;
+  d.innerHTML=`<span class="tag">idle</span>${fig(a.color)}
+    <div class="name">${a.name}</div><div class="role" id="role-${a.id}"></div>
+    <div class="screen"></div>
+    <div class="typing"><i></i><i></i><i></i></div>
+    <div class="bubble" id="bub-${a.id}">waiting for a job…</div>`;
+  grid.appendChild(d);
+});
+
+function ago(iso){ if(!iso) return ''; const s=Math.max(0,(Date.now()-new Date(iso))/1000);
+  if(s<60) return Math.round(s)+'s ago'; if(s<3600) return Math.round(s/60)+'m ago'; return Math.round(s/3600)+'h ago'; }
+
+async function tick(){
+  try{
+    const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});
+    const s=await r.json();
+    const active=new Set(s.agents_active||[]);
+    const objective=(s.objective||'').trim();
+    ROSTER.forEach(a=>{
+      const d=document.getElementById('desk-'+a.id);
+      const on=active.has(a.id);
+      d.classList.toggle('active',on);
+      d.querySelector('.tag').textContent=on?'working':'idle';
+      document.getElementById('bub-'+a.id).textContent = on
+        ? (objective? objective.slice(0,90) : 'on the job…')
+        : 'idle';
+    });
+    // manager + objective + banner
+    const mgrNote=s.manager_note||(s.state==='working'?'coordinating the team…':'doing the rounds…');
+    document.getElementById('corridorLabel').textContent='Manager: '+mgrNote;
+    document.getElementById('objective').innerHTML = objective? ('Currently: <span>'+objective.replace(/</g,'&lt;')+'</span>') : '';
+    const banner=document.getElementById('banner');
+    if(s.needs_pasha){ banner.classList.add('show'); document.getElementById('bannerq').textContent=(s.last_summary||'').slice(0,400); }
+    else banner.classList.remove('show');
+    let state=s.state||'idle';
+    if(s.paused) state='paused'; if(s.usage_limited) state='usage limit — resuming later';
+    document.getElementById('meta').innerHTML='state: <b>'+state+'</b><br>updated '+ago(s.updated);
+    document.getElementById('footer').textContent='LEAR brain · '+(s.updated? new Date(s.updated).toLocaleString():'')+' · auto-refresh';
+  }catch(e){
+    document.getElementById('meta').textContent='waiting for first status…';
+  }
+}
+tick(); setInterval(tick,12000);
+</script>
+</body>
+</html>
