@@ -3,132 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LEAR Brain — Live</title>
+<title>LEAR Brain — Live Office</title>
 <style>
   :root{
-    --brick-red:#d01012; --brick-yellow:#f6c615; --brick-blue:#0a6cc4;
-    --brick-green:#2ca02c; --baseplate:#3a7a34; --stud:#4a9142;
-    --ink:#161a1d; --panel:#ffffff; --muted:#5a6672;
+    --red:#d01012;--yellow:#f6c615;--ink:#13181c;--muted:#64717c;
+    --floor:#c79b6e;--floor2:#bb8e60;--wall:#e8edf1;--wall2:#d4dde3;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;
-    color:var(--ink); background:#11331a;
-    min-height:100vh;
-  }
-  /* studded baseplate */
-  .floor{
-    background:
-      radial-gradient(circle at 10px 10px, var(--stud) 5px, transparent 6px) 0 0/40px 40px,
-      linear-gradient(var(--baseplate),var(--baseplate));
-    min-height:100vh; padding:0 0 120px;
-  }
-  header{
-    position:sticky; top:0; z-index:20;
-    background:var(--brick-red); color:#fff;
-    padding:14px 18px; display:flex; align-items:center; gap:12px;
-    box-shadow:0 4px 0 #9a0b0c, 0 8px 18px rgba(0,0,0,.3);
-  }
-  header .studs{position:absolute;inset:0;background:radial-gradient(circle at 14px 8px,rgba(255,255,255,.18) 5px,transparent 6px) 0 0/34px 40px;pointer-events:none}
-  header h1{font-size:18px;margin:0;letter-spacing:.5px;font-weight:800}
-  .dot{width:12px;height:12px;border-radius:50%;background:var(--brick-yellow);box-shadow:0 0 0 3px rgba(255,255,255,.25);animation:pulse 1.4s infinite}
+  html,body{margin:0;height:100%}
+  body{font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;color:#fff;background:#1a2b23;overflow:hidden}
+  header{position:fixed;top:0;left:0;right:0;z-index:30;background:var(--red);
+    padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 0 #9a0b0c,0 6px 16px rgba(0,0,0,.35)}
+  header h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.4px}
+  .dot{width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 3px rgba(255,255,255,.25);animation:pulse 1.4s infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
-  header .meta{margin-left:auto;font-size:12px;opacity:.9;text-align:right;line-height:1.3}
+  header .meta{margin-left:auto;font-size:11px;opacity:.95;text-align:right;line-height:1.35}
+  .banner{position:fixed;top:46px;left:0;right:0;z-index:29;background:var(--yellow);color:#3a2c00;
+    padding:10px 16px;font-weight:700;display:none;box-shadow:0 4px 0 #c99f00}
+  .banner.show{display:block}
+  .banner .q{font-weight:600;font-size:12px;white-space:pre-wrap;margin-top:3px}
 
-  .banner{
-    margin:14px; padding:14px 16px; border-radius:10px;
-    background:var(--brick-yellow); color:#3a2c00;
-    border:3px solid #c99f00; font-weight:700; display:none;
-    box-shadow:0 5px 0 #c99f00;
-  }
-  .banner.show{display:block; animation:wiggle .5s ease 2}
-  @keyframes wiggle{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-  .banner b{display:block;font-size:15px;margin-bottom:4px}
-  .banner .q{font-weight:600;font-size:13px;white-space:pre-wrap}
+  .stage{position:fixed;inset:0;top:46px;display:flex;align-items:center;justify-content:center}
+  svg{width:100%;height:100%;touch-action:manipulation}
+  .agent{cursor:pointer}
+  .agent .body{transition:transform .2s}
+  .agent.active .fig{animation:bob 1.1s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .scr{fill:#9fb0bd}
+  .active .scr{fill:#2ec27a;filter:drop-shadow(0 0 6px #2ec27a)}
+  .nameplate{font:800 13px 'Trebuchet MS',sans-serif;fill:#20262b}
+  .role{font:600 10px 'Trebuchet MS',sans-serif;fill:#6a7682}
+  .tag{font:800 9px sans-serif;fill:#8a95a0}
+  .active .tag{fill:#19a05a}
 
-  .objective{margin:14px;color:#eafbe6;font-size:13px;opacity:.95}
-  .objective span{color:#fff;font-weight:700}
-
-  .grid{
-    display:grid; gap:16px; padding:6px 14px;
-    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-    max-width:1100px; margin:0 auto;
-  }
-  .desk{
-    background:var(--panel); border-radius:12px; padding:12px 10px 14px;
-    position:relative; text-align:center;
-    box-shadow:0 5px 0 rgba(0,0,0,.25); transition:transform .3s;
-  }
-  .desk.active{animation:bob 1.2s ease-in-out infinite}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-  .fig{width:64px;height:78px;margin:0 auto 6px;display:block}
-  .name{font-weight:800;font-size:12px;letter-spacing:.3px}
-  .role{font-size:10px;color:var(--muted);margin-top:1px;min-height:12px}
-  .bubble{
-    margin-top:8px;font-size:11px;line-height:1.3;border-radius:8px;padding:6px 7px;
-    background:#eef3f7;color:#2a3540;min-height:34px;
-  }
-  .desk.active .bubble{background:#fff7d6;color:#5a4a00}
-  .screen{
-    width:34px;height:8px;border-radius:2px;margin:4px auto 0;background:#9fb0bd;
-  }
-  .desk.active .screen{background:var(--brick-green);box-shadow:0 0 10px var(--brick-green)}
-  .typing{display:none;margin-top:5px;height:6px}
-  .desk.active .typing{display:block}
-  .typing i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brick-blue);margin:0 2px;animation:blink 1s infinite}
-  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
-  @keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
-  .tag{position:absolute;top:8px;right:8px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:6px;background:#e7ebef;color:#7a8690}
-  .desk.active .tag{background:var(--brick-green);color:#fff}
-
-  /* manager walking the corridor */
-  .corridor{position:fixed;left:0;right:0;bottom:0;height:96px;background:linear-gradient(#2f6a2b,#285c24);
-    border-top:4px solid #1f4a1c;box-shadow:inset 0 3px 0 rgba(255,255,255,.08);z-index:15;overflow:hidden}
-  .corridor .label{position:absolute;left:12px;top:8px;color:#d7f3cf;font-size:11px;font-weight:700;opacity:.8}
-  .manager{position:absolute;bottom:6px;left:0;width:60px;height:82px;animation:walk 18s linear infinite}
-  @keyframes walk{0%{left:-70px;transform:scaleX(1)}49%{left:calc(100% + 10px);transform:scaleX(1)}50%{left:calc(100% + 10px);transform:scaleX(-1)}99%{left:-70px;transform:scaleX(-1)}100%{left:-70px;transform:scaleX(1)}}
-  .manager .leg{transform-origin:top;animation:step .5s ease-in-out infinite alternate}
-  .manager .leg2{animation-delay:.25s}
-  @keyframes step{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
-  footer{position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:10px;color:#cfeac6;padding:4px;z-index:16;pointer-events:none}
+  /* side panel */
+  .panel{position:fixed;top:0;right:0;height:100%;width:min(360px,88vw);background:#fff;color:var(--ink);
+    z-index:40;transform:translateX(104%);transition:transform .28s cubic-bezier(.2,.8,.2,1);
+    box-shadow:-10px 0 30px rgba(0,0,0,.35);display:flex;flex-direction:column}
+  .panel.open{transform:none}
+  .panel .ph{padding:16px;color:#fff;display:flex;align-items:center;gap:12px}
+  .panel .ph .close{margin-left:auto;background:rgba(255,255,255,.2);border:0;color:#fff;font-size:20px;
+    width:32px;height:32px;border-radius:8px;cursor:pointer}
+  .panel .pname{font-weight:800;font-size:18px}.panel .prole{font-size:12px;opacity:.9}
+  .panel .pb{padding:16px;overflow:auto;flex:1}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;background:#eef3f7;color:#415260}
+  .pill.on{background:#d9f7e6;color:#127a43}
+  .sect{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:#90a0ac;margin:16px 0 6px;font-weight:700}
+  .task{background:#f3f6f8;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.45;color:#2a3540;white-space:pre-wrap}
+  .compose textarea{width:100%;min-height:84px;border:2px solid #dde5ea;border-radius:10px;padding:10px;
+    font:inherit;font-size:13px;resize:vertical}
+  .send{display:block;width:100%;margin-top:8px;background:var(--red);color:#fff;border:0;border-radius:10px;
+    padding:12px;font-weight:800;font-size:14px;cursor:pointer;text-align:center;text-decoration:none}
+  .send:active{transform:translateY(1px)}
+  .hint{font-size:11px;color:#8a97a2;margin-top:8px;line-height:1.4}
 </style>
 </head>
 <body>
-<div class="floor">
-  <header>
-    <div class="studs"></div>
-    <span class="dot"></span>
-    <h1>LEAR BRAIN — LIVE</h1>
-    <div class="meta" id="meta">connecting…</div>
-  </header>
+<header>
+  <span class="dot"></span><h1>LEAR BRAIN — OFFICE</h1>
+  <div class="meta" id="meta">connecting…</div>
+</header>
+<div class="banner" id="banner"><b>🚨 The manager needs you — check Telegram</b><div class="q" id="bannerq"></div></div>
 
-  <div class="banner" id="banner"><b>🚨 The manager needs you — check Telegram</b><div class="q" id="bannerq"></div></div>
-  <div class="objective" id="objective"></div>
+<div class="stage"><svg id="scene" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid meet"></svg></div>
 
-  <div class="grid" id="grid"></div>
+<div class="panel" id="panel">
+  <div class="ph" id="ph">
+    <div><div class="pname" id="pName">Agent</div><div class="prole" id="pRole"></div></div>
+    <button class="close" onclick="closePanel()">×</button>
+  </div>
+  <div class="pb">
+    <span class="pill" id="pStatus">idle</span>
+    <div class="sect">What they're working on</div>
+    <div class="task" id="pTask">—</div>
+    <div class="compose">
+      <div class="sect">Send them a task</div>
+      <textarea id="pMsg" placeholder="e.g. check the dishwasher page rankings and suggest 3 fixes"></textarea>
+      <a class="send" id="pSend" target="_blank" rel="noopener">Send via Telegram ✈</a>
+      <div class="hint">Opens your @Pashasbrainbot chat with the message ready — hit send there and the agent replies in Telegram. The manager sees every reply.</div>
+    </div>
+  </div>
 </div>
-
-<div class="corridor">
-  <div class="label" id="corridorLabel">The manager is doing the rounds…</div>
-  <svg class="manager" viewBox="0 0 60 82" id="managerFig">
-    <ellipse cx="30" cy="80" rx="14" ry="3" fill="rgba(0,0,0,.25)"/>
-    <rect class="leg" x="24" y="52" width="5" height="22" rx="2" fill="#1a1a2a"/>
-    <rect class="leg leg2" x="31" y="52" width="5" height="22" rx="2" fill="#1a1a2a"/>
-    <rect x="20" y="30" width="20" height="26" rx="4" fill="#ffffff"/>
-    <rect x="20" y="30" width="20" height="26" rx="4" fill="none" stroke="#cfd6db"/>
-    <rect x="33" y="34" width="9" height="13" rx="1.5" fill="#d7a63a" stroke="#b5861f"/>
-    <rect x="16" y="33" width="6" height="16" rx="3" fill="#ffffff"/>
-    <rect x="38" y="33" width="6" height="16" rx="3" fill="#ffffff"/>
-    <circle cx="30" cy="20" r="11" fill="#f6c615"/>
-    <circle cx="26" cy="19" r="1.6" fill="#3a2c00"/><circle cx="34" cy="19" r="1.6" fill="#3a2c00"/>
-    <path d="M25 24 Q30 27 35 24" stroke="#3a2c00" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-    <rect x="20" y="7" width="20" height="7" rx="2" fill="#0a6cc4"/>
-  </svg>
-</div>
-<footer id="footer"></footer>
 
 <script>
+const BOT="Pashasbrainbot";
 const ROSTER=[
   {id:"lear-seo",name:"SEO",color:"#2ca02c"},
   {id:"lear-ads",name:"Ads",color:"#d01012"},
@@ -139,69 +97,122 @@ const ROSTER=[
   {id:"lear-social",name:"Social",color:"#e0398a"},
   {id:"lear-competitors",name:"Competitors",color:"#8a6d3b"},
   {id:"lear-reports",name:"Reports",color:"#4a5a66"},
-  {id:"lear-monitor",name:"Monitor (QC)",color:"#111"}
+  {id:"lear-monitor",name:"Monitor (QC)",color:"#222a30"}
 ];
-function fig(color){
-  return `<svg class="fig" viewBox="0 0 64 78">
-    <ellipse cx="32" cy="76" rx="15" ry="3" fill="rgba(0,0,0,.18)"/>
-    <rect x="26" y="50" width="5" height="22" rx="2" fill="#2b2f45"/>
-    <rect x="33" y="50" width="5" height="22" rx="2" fill="#2b2f45"/>
-    <rect x="21" y="28" width="22" height="26" rx="4" fill="${color}"/>
-    <rect x="17" y="31" width="6" height="16" rx="3" fill="${color}"/>
-    <rect x="41" y="31" width="6" height="16" rx="3" fill="${color}"/>
-    <circle cx="32" cy="18" r="12" fill="#f6c615"/>
-    <circle cx="27.5" cy="17" r="1.7" fill="#3a2c00"/><circle cx="36.5" cy="17" r="1.7" fill="#3a2c00"/>
-    <path d="M27 22 Q32 25 37 22" stroke="#3a2c00" stroke-width="1.7" fill="none" stroke-linecap="round"/>
-    <rect x="22" y="4" width="20" height="7" rx="2" fill="${color}"/>
-    <circle cx="27" cy="4" r="2" fill="${color}"/><circle cx="37" cy="4" r="2" fill="${color}"/>
-  </svg>`;
+// isometric helpers
+const OX=500, OY=120, TX=96, TY=50;
+const iso=(gx,gy)=>[OX+(gx-gy)*TX, OY+(gx+gy)*TY];
+function poly(pts,fill,extra=""){return `<polygon points="${pts.map(p=>p.join(',')).join(' ')}" fill="${fill}" ${extra}/>`;}
+// isometric box: top face + left + right, at grid (gx,gy), footprint w/d (in tiles), height h(px)
+function isoBox(gx,gy,w,d,h,top,left,right){
+  const a=iso(gx,gy), b=iso(gx+w,gy), c=iso(gx+w,gy+d), e=iso(gx,gy+d);
+  const A=[a[0],a[1]-h],B=[b[0],b[1]-h],C=[c[0],c[1]-h],E=[e[0],e[1]-h];
+  return poly([A,B,C,E],top)+poly([E,C,[c[0],c[1]],[e[0],e[1]]],left)+poly([B,C,[c[0],c[1]],[b[0],b[1]]],right);
 }
-const grid=document.getElementById('grid');
-ROSTER.forEach(a=>{
-  const d=document.createElement('div');
-  d.className='desk'; d.id='desk-'+a.id;
-  d.innerHTML=`<span class="tag">idle</span>${fig(a.color)}
-    <div class="name">${a.name}</div><div class="role" id="role-${a.id}"></div>
-    <div class="screen"></div>
-    <div class="typing"><i></i><i></i><i></i></div>
-    <div class="bubble" id="bub-${a.id}">waiting for a job…</div>`;
-  grid.appendChild(d);
-});
+// a seated worker (head+torso) sitting at the FAR side of the desk
+function worker(gx,gy,color){
+  const [x,y]=iso(gx+0.5,gy-0.15);
+  return `<g class="fig">
+    <ellipse cx="${x}" cy="${y+6}" rx="20" ry="8" fill="rgba(0,0,0,.14)"/>
+    <rect x="${x-15}" y="${y-30}" width="30" height="34" rx="7" fill="${color}"/>
+    <circle cx="${x}" cy="${y-40}" r="13" fill="#f6c615"/>
+    <circle cx="${x-4.5}" cy="${y-41}" r="1.7" fill="#3a2c00"/><circle cx="${x+4.5}" cy="${y-41}" r="1.7" fill="#3a2c00"/>
+    <path d="M${x-5} ${y-36} Q${x} ${y-33} ${x+5} ${y-36}" stroke="#3a2c00" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+    <rect x="${x-13}" y="${y-54}" width="26" height="7" rx="2" fill="${color}"/>
+  </g>`;
+}
+function deskUnit(a,gx,gy){
+  // chair, desk, monitor, worker, nameplate — grouped & clickable
+  const deskTop="#e9edf0",deskL="#b9c2c9",deskR="#cfd7dd";
+  const [mx,my]=iso(gx+0.5,gy+0.35);
+  const [nx,ny]=iso(gx+0.5,gy+0.9);
+  return `<g class="agent" id="ag-${a.id}" data-id="${a.id}" onclick="openPanel('${a.id}')">
+    ${isoBox(gx+0.08,gy+0.08,0.84,0.7,30,deskTop,deskL,deskR)}
+    <!-- monitor -->
+    ${isoBox(gx+0.38,gy+0.18,0.26,0.06,26,'#2a3038','#20252c','#333b45')}
+    <rect class="scr" x="${mx-20}" y="${my-54}" width="40" height="24" rx="2"/>
+    ${worker(gx,gy,a.color)}
+    <text class="nameplate" x="${nx}" y="${ny}" text-anchor="middle">${a.name}</text>
+    <text class="tag" x="${nx}" y="${ny+13}" text-anchor="middle" id="tag-${a.id}">idle</text>
+  </g>`;
+}
+function managerFig(){
+  return `<g id="manager">
+    <ellipse cx="0" cy="8" rx="16" ry="6" fill="rgba(0,0,0,.2)"/>
+    <rect x="-13" y="-30" width="26" height="32" rx="7" fill="#ffffff" stroke="#cfd6db"/>
+    <rect x="2" y="-26" width="10" height="14" rx="1.5" fill="#d7a63a" stroke="#b5861f"/>
+    <circle cx="0" cy="-40" r="13" fill="#f6c615"/>
+    <circle cx="-4.5" cy="-41" r="1.7" fill="#3a2c00"/><circle cx="4.5" cy="-41" r="1.7" fill="#3a2c00"/>
+    <path d="M-5 -36 Q0 -33 5 -36" stroke="#3a2c00" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+    <rect x="-13" y="-54" width="26" height="7" rx="2" fill="#0a6cc4"/>
+    <text x="0" y="22" text-anchor="middle" font="700 10px sans-serif" fill="#20262b" style="font:700 10px sans-serif">Manager</text>
+  </g>`;
+}
+function buildScene(){
+  // room floor (big iso diamond) + two walls
+  const f1=iso(-1.2,-1.2),f2=iso(6.2,-1.2),f3=iso(6.2,6.2),f4=iso(-1.2,6.2);
+  let s=poly([f1,f2,f3,f4],'var(--floor)');
+  // floor tiles
+  for(let gx=-1;gx<6;gx++)for(let gy=-1;gy<6;gy++){ if((gx+gy)%2===0){const p=[iso(gx,gy),iso(gx+1,gy),iso(gx+1,gy+1),iso(gx,gy+1)];s+=poly(p,'var(--floor2)');}}
+  // back walls
+  const wl=[iso(-1.2,-1.2),iso(6.2,-1.2)]; const wlTop=[[wl[0][0],wl[0][1]-150],[wl[1][0],wl[1][1]-150]];
+  s+=poly([wl[0],wl[1],wlTop[1],wlTop[0]],'var(--wall)');
+  const wr=[iso(6.2,-1.2),iso(6.2,6.2)]; const wrTop=[[wr[0][0],wr[0][1]-150],[wr[1][0],wr[1][1]-150]];
+  s+=poly([wr[0],wr[1],wrTop[1],wrTop[0]],'var(--wall2)');
+  // windows on left wall
+  for(let i=0;i<3;i++){const a=iso(-0.6+i*2,-1.2);s+=`<rect x="${a[0]-26}" y="${a[1]-120}" width="52" height="46" rx="3" fill="#bfe3f2" stroke="#9cc7da" stroke-width="2" transform="skewY(-27)"/>`;}
+  // desks: two columns (gx 0.3 and gx 3.3), 5 rows, drawn back-to-front for correct overlap
+  const cols=[0.3,3.3];
+  let units=[];
+  ROSTER.forEach((a,i)=>{const col=i%2, row=Math.floor(i/2); units.push({a,gx:cols[col],gy:row*1.0});});
+  units.sort((u,v)=>(u.gx+u.gy)-(v.gx+v.gy));
+  units.forEach(u=>{s+=deskUnit(u.a,u.gx,u.gy);});
+  // manager placed on the aisle, animated via JS
+  s+=`<g id="mgrWrap">${managerFig()}</g>`;
+  document.getElementById('scene').innerHTML=s;
+  animateManager();
+}
+function animateManager(){
+  const wrap=document.getElementById('mgrWrap'); let t=0;
+  setInterval(()=>{ t+=0.02; const gy=2.2+2.0*Math.sin(t); const p=iso(2.1,gy);
+    wrap.setAttribute('transform',`translate(${p[0]},${p[1]})`); },40);
+}
+buildScene();
 
-function ago(iso){ if(!iso) return ''; const s=Math.max(0,(Date.now()-new Date(iso))/1000);
-  if(s<60) return Math.round(s)+'s ago'; if(s<3600) return Math.round(s/60)+'m ago'; return Math.round(s/3600)+'h ago'; }
-
+// ---- live status ----
+let STATUS={};
+function ago(iso){if(!iso)return'';const s=Math.max(0,(Date.now()-new Date(iso))/1000);
+  return s<60?Math.round(s)+'s ago':s<3600?Math.round(s/60)+'m ago':Math.round(s/3600)+'h ago';}
 async function tick(){
   try{
-    const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});
-    const s=await r.json();
-    const active=new Set(s.agents_active||[]);
-    const objective=(s.objective||'').trim();
-    ROSTER.forEach(a=>{
-      const d=document.getElementById('desk-'+a.id);
-      const on=active.has(a.id);
-      d.classList.toggle('active',on);
-      d.querySelector('.tag').textContent=on?'working':'idle';
-      document.getElementById('bub-'+a.id).textContent = on
-        ? (objective? objective.slice(0,90) : 'on the job…')
-        : 'idle';
-    });
-    // manager + objective + banner
-    const mgrNote=s.manager_note||(s.state==='working'?'coordinating the team…':'doing the rounds…');
-    document.getElementById('corridorLabel').textContent='Manager: '+mgrNote;
-    document.getElementById('objective').innerHTML = objective? ('Currently: <span>'+objective.replace(/</g,'&lt;')+'</span>') : '';
-    const banner=document.getElementById('banner');
-    if(s.needs_pasha){ banner.classList.add('show'); document.getElementById('bannerq').textContent=(s.last_summary||'').slice(0,400); }
-    else banner.classList.remove('show');
-    let state=s.state||'idle';
-    if(s.paused) state='paused'; if(s.usage_limited) state='usage limit — resuming later';
-    document.getElementById('meta').innerHTML='state: <b>'+state+'</b><br>updated '+ago(s.updated);
-    document.getElementById('footer').textContent='LEAR brain · '+(s.updated? new Date(s.updated).toLocaleString():'')+' · auto-refresh';
-  }catch(e){
-    document.getElementById('meta').textContent='waiting for first status…';
-  }
+    const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});STATUS=await r.json();
+    const active=new Set(STATUS.agents_active||[]);
+    ROSTER.forEach(a=>{const g=document.getElementById('ag-'+a.id);const on=active.has(a.id);
+      g.classList.toggle('active',on);document.getElementById('tag-'+a.id).textContent=on?'working':'idle';});
+    let state=STATUS.state||'idle';if(STATUS.paused)state='paused';if(STATUS.usage_limited)state='usage limit';
+    document.getElementById('meta').innerHTML='state: <b>'+state+'</b> · '+(active.size||0)+' working<br>updated '+ago(STATUS.updated);
+    const b=document.getElementById('banner');
+    if(STATUS.needs_pasha){b.classList.add('show');document.getElementById('bannerq').textContent=(STATUS.last_summary||'').slice(0,400);}else b.classList.remove('show');
+    if(document.getElementById('panel').classList.contains('open'))refreshPanel();
+  }catch(e){document.getElementById('meta').textContent='waiting for first status…';}
 }
-tick(); setInterval(tick,12000);
+let CURRENT=null;
+function openPanel(id){CURRENT=id;const a=ROSTER.find(x=>x.id===id);
+  document.getElementById('ph').style.background=a.color;
+  document.getElementById('pName').textContent=a.name;
+  document.getElementById('pRole').textContent=a.id;
+  refreshPanel();document.getElementById('panel').classList.add('open');}
+function refreshPanel(){const a=ROSTER.find(x=>x.id===CURRENT);if(!a)return;
+  const on=(STATUS.agents_active||[]).includes(a.id);
+  const ps=document.getElementById('pStatus');ps.textContent=on?'working':'idle';ps.className='pill'+(on?' on':'');
+  document.getElementById('pTask').textContent=on?((STATUS.objective||'on a task').slice(0,240)):'Idle — assign them something below.';
+  const msg=document.getElementById('pMsg').value.trim();
+  const text=a.name+': '+(msg||'');
+  document.getElementById('pSend').href='https://t.me/'+BOT+'?text='+encodeURIComponent(text);
+}
+document.getElementById('pMsg').addEventListener('input',refreshPanel);
+function closePanel(){document.getElementById('panel').classList.remove('open');CURRENT=null;}
+tick();setInterval(tick,10000);
 </script>
 </body>
 </html>
