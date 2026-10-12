@@ -1,16 +1,8 @@
 {
-  "updated": "2026-10-12T22:31:53Z",
-  "state": "idle",
-  "objective": "All three specialists are now running in parallel (lear-seo on Search Console movers, lear-strategist on the GA4 pulse, lear-webdev on the l",
-  "manager_note": "reviewing / doing the rounds",
-  "agents_active": [
-    "lear-seo",
-    "lear-strategist",
-    "lear-webdev",
-    "lear-monitor"
-  ],
-  "last_summary": "All three specialists are now running in parallel (lear-seo on Search Console movers, lear-strategist on the GA4 pulse, lear-webdev on the live-site spot-check). I'll wait for their reports, then send everything to lear-monitor for review before composing the final status message.\n\nThe Search Console report is in \u2014 organic clicks up 5.8% week-on-week, the \"appliance repair near me\" commercial cluster jumped 6\u201310 positions into striking distance, and a few programmatic combo pages are swinging. Still waiting on the GA4 pulse and the technical spot-check before the monitor review.\n\nGA4 pulse is ",
-  "needs_pasha": false,
+  "state": "working",
   "paused": false,
-  "usage_limited": false
+  "usage_limited": false,
+  "manager_note": "coordinating the team on a task",
+  "needs_pasha": false,
+  "updated": "2026-10-12T22:34:08Z"
 }
