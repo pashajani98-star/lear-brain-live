@@ -190,7 +190,8 @@ async function tick(){
     ROSTER.forEach(a=>{const g=document.getElementById('ag-'+a.id);const on=active.has(a.id);
       g.classList.toggle('active',on);document.getElementById('tag-'+a.id).textContent=on?'working':'idle';});
     let state=STATUS.state||'idle';if(STATUS.paused)state='paused';if(STATUS.usage_limited)state='usage limit';
-    document.getElementById('meta').innerHTML='state: <b>'+state+'</b> · '+(active.size||0)+' working<br>updated '+ago(STATUS.updated);
+    const note=(state==='working'&&active.size===0)?'team cycle running…':(active.size+' working');
+    document.getElementById('meta').innerHTML='state: <b>'+state+'</b> · '+note+'<br>updated '+ago(STATUS.updated);
     const b=document.getElementById('banner');
     if(STATUS.needs_pasha){b.classList.add('show');document.getElementById('bannerq').textContent=(STATUS.last_summary||'').slice(0,400);}else b.classList.remove('show');
     if(document.getElementById('panel').classList.contains('open'))refreshPanel();
