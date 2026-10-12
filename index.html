@@ -164,7 +164,7 @@ function buildScene(){
   // desks: two columns (gx 0.3 and gx 3.3), 5 rows, drawn back-to-front for correct overlap
   const cols=[0.3,3.3];
   let units=[];
-  ROSTER.forEach((a,i)=>{const col=i%2, row=Math.floor(i/2); units.push({a,gx:cols[col],gy:row*1.0});});
+  ROSTER.forEach((a,i)=>{const col=i%2, row=Math.floor(i/2); units.push({a,gx:cols[col],gy:row*1.35});});
   units.sort((u,v)=>(u.gx+u.gy)-(v.gx+v.gy));
   units.forEach(u=>{s+=deskUnit(u.a,u.gx,u.gy);});
   // manager placed on the aisle, animated via JS
