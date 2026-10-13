@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LEAR Brain">
+<meta name="theme-color" content="#04080f">
 <title>LEAR BRAIN // MISSION CONTROL</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -368,6 +372,20 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
 .fx-in { opacity:0; animation:fadein .5s forwards; }
 @keyframes fadein { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
 
+/* ── Pull-to-refresh (home-screen app) ──────────────────────────────────── */
+#ptr {
+  position:fixed; top:0; left:0; right:0; z-index:95;
+  display:flex; align-items:flex-end; justify-content:center;
+  height:0; overflow:hidden; pointer-events:none;
+  background:linear-gradient(180deg, rgba(0,229,255,.12), transparent);
+  transition:height .15s;
+}
+#ptr .ptr-ico {
+  font-family:var(--font-mono); font-size:13px; letter-spacing:2px; color:var(--cyan);
+  padding-bottom:10px; text-shadow:0 0 10px var(--cyan-dim);
+}
+#ptr.spin .ptr-ico::before { content:'↻ '; display:inline-block; animation:spin 0.8s linear infinite; }
+
 /* ── Mobile ─────────────────────────────────────────────────────────────── */
 #mobile-note { display:none; }
 @media (max-width: 820px) {
@@ -533,6 +551,7 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
 </div>
 
 <div id="toast"></div>
+<div id="ptr"><span class="ptr-ico" id="ptr-text"></span></div>
 
 <script>
 'use strict';
@@ -1209,6 +1228,46 @@ document.querySelectorAll('.panel').forEach(p=>{
   makeDraggable(p, p.querySelector('.panel-head'), p.id);
 });
 window.addEventListener('resize', ()=>{ positionCore(); drawLinks(); });
+
+/* ═══════════════════ PULL-TO-REFRESH (home-screen app) ═══════════════════ */
+(function(){
+  const ptr = document.getElementById('ptr');
+  const ptrText = document.getElementById('ptr-text');
+  const THRESH = 80;
+  let startY = null, pulling = false;
+  document.addEventListener('touchstart', e=>{
+    if (window.scrollY <= 0 && !document.getElementById('drawer').classList.contains('open')){
+      startY = e.touches[0].clientY; pulling = false;
+    } else startY = null;
+  }, {passive:true});
+  document.addEventListener('touchmove', e=>{
+    if (startY === null) return;
+    const dy = e.touches[0].clientY - startY;
+    if (dy > 12 && window.scrollY <= 0){
+      pulling = true;
+      const h = Math.min(dy * 0.5, 110);
+      ptr.style.height = h + 'px';
+      ptrText.textContent = dy > THRESH ? (LANG==='fa' ? 'رها کنید' : 'RELEASE TO REFRESH')
+                                        : (LANG==='fa' ? 'بکشید…' : '↓ PULL');
+    }
+  }, {passive:true});
+  document.addEventListener('touchend', e=>{
+    if (startY === null || !pulling){ startY = null; return; }
+    const dy = e.changedTouches[0].clientY - startY;
+    startY = null; pulling = false;
+    if (dy > THRESH){
+      ptr.classList.add('spin');
+      ptr.style.height = '54px';
+      ptrText.textContent = LANG==='fa' ? 'به‌روزرسانی…' : 'REFRESHING';
+      // Re-pull live data immediately, then reload the page itself so a new
+      // app version is also picked up.
+      try { poll(); fetchEarnings(true); } catch(err){}
+      setTimeout(()=> location.reload(), 600);
+    } else {
+      ptr.style.height = '0';
+    }
+  }, {passive:true});
+})();
 
 /* ═══════════════════ BOOT ═══════════════════ */
 const bootLines = [
