@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T20:58:07Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T21:57:56.927510",
-      "agent": "lear-competitors",
-      "agent_label": "Competitor intel",
-      "task": "[SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair london' and 'washing machine repair london'. Note who",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T20:59:46Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 1,
     "haiku": 12,
@@ -110,14 +100,23 @@
     "lear-competitors": {
       "id": "lear-competitors",
       "label": "Competitor intel",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair london' and 'washing machine repair london'. Note who",
+      "recent_activity": [
+        "[SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair lon"
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:57:56Z"
+      "last_update": "2026-10-13T20:59:44Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:59:44Z",
+      "agent": "lear-competitors",
+      "type": "ok",
+      "description": "Completed (haiku): [SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair lon",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:57:56Z",
       "agent": "lear-competitors",
@@ -193,13 +192,6 @@
       "agent": "lear-webdev",
       "type": "info",
       "description": "Task from mission scheduler: [Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:35:13Z",
-      "agent": "lear-social",
-      "type": "info",
-      "description": "Task from mission scheduler: [Social and GBP post] Write one complete Google Business Profile post and one Instagram caption for LEAR (seasonal angle",
       "status": "completed"
     }
   ],
