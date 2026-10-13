@@ -1,33 +1,34 @@
 {
-  "timestamp": "2026-10-13T21:08:19Z",
+  "timestamp": "2026-10-13T21:09:54Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T22:07:53.767863",
-      "agent": "lear-strategist",
-      "agent_label": "Strategy",
-      "task": "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search Console, last 7 days vs prior 7; paid is LSA only, ",
-      "model": "haiku",
+      "timestamp": "2026-10-13T22:09:53.830227",
+      "agent": "lear-monitor",
+      "agent_label": "Quality control",
+      "task": "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, or risky (claims of b",
+      "model": "ollama",
       "status": "running",
       "elapsed": 0
     }
   ],
   "model_summary": {
-    "ollama": 1,
+    "ollama": 2,
     "haiku": 16,
-    "total": 17
+    "total": 18
   },
   "agents": {
     "lear-strategist": {
       "id": "lear-strategist",
       "label": "Strategy",
       "recent_activity": [
+        "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search C",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last"
       ],
-      "status": "working",
-      "current_task": "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search Console, last 7 days vs prior 7; paid is LSA only, ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T21:07:53Z"
+      "last_update": "2026-10-13T21:09:51Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -129,9 +130,32 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T21:04:38Z"
+    },
+    "lear-monitor": {
+      "id": "lear-monitor",
+      "label": "Quality control",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, or risky (claims of b",
+      "current_model": "ollama",
+      "last_update": "2026-10-13T21:09:53Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T21:09:53Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from mission scheduler: [Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, o",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T21:09:51Z",
+      "agent": "lear-strategist",
+      "type": "ok",
+      "description": "Completed (haiku): [Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search C",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T21:07:53Z",
       "agent": "lear-strategist",
@@ -201,23 +225,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrivals, drop-off, anything that loo",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:54:05Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:50:56Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from mission scheduler: [Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post losing the most clicks/position. ",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 17,
+  "total_tasks_logged": 18,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
