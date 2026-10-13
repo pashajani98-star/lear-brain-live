@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T20:41:56Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T20:42:15Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T21:41:56.024815",
+      "agent": "lear-codereview",
+      "agent_label": "Code review",
+      "task": "[Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) theme inc/ modules, (2) lear-job-manager money/REST code, (3) the other plugins, (4) telegram-brain scripts and the dashboard. Pick whichever you reviewed longest ago (say which). Hunt real bugs, security holes and robustness problems - trace actual inputs, lint what you can. Report findings by severity with file:line and the exact ready-made patch; end with 'Reply YES to proceed' if you propose applying one. A clean pass is a 3-line report.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.\nBegin your reply with exactly one line: TLDR: <the outcome in one short, plain, everyday-words sentence>. The detail goes after it.",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 7,
-    "total": 8
+    "haiku": 8,
+    "total": 9
   },
   "agents": {
     "lear-strategist": {
@@ -71,9 +81,25 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:40:50Z"
+    },
+    "lear-codereview": {
+      "id": "lear-codereview",
+      "label": "Code review",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) theme inc/ modules, (2) lear-job-manager money/REST code, (3) the other plugins, (4) telegram-brain scripts and the dashboard. Pick whichever you reviewed longest ago (say which). Hunt real bugs, security holes and robustness problems - trace actual inputs, lint what you can. Report findings by severity with file:line and the exact ready-made patch; end with 'Reply YES to proceed' if you propose applying one. A clean pass is a 3-line report.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.\nBegin your reply with exactly one line: TLDR: <the outcome in one short, plain, everyday-words sentence>. The detail goes after it.",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T20:41:56Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:41:56Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from mission scheduler: [Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) theme inc/ modules, (2) lear-jo",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:40:50Z",
       "agent": "lear-social",
@@ -150,16 +176,9 @@
       "type": "ok",
       "description": "Completed (haiku): [GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:04:32Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from mission scheduler: [GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last 7 days vs prior 7: users, ses",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 8,
+  "total_tasks_logged": 9,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
