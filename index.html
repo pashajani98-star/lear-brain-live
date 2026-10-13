@@ -250,8 +250,22 @@ function pickVoice(){
       || vs.find(v=>/UK English Male/i.test(v.name))
       || vs.find(v=>/en/i.test(v.lang));
 }
+let CURAUDIO=null;
 function speakBrief(){
-  if(!('speechSynthesis' in window)){alert('This browser has no speech support.');return;}
+  const btn=document.getElementById('briefBtn');
+  const done=()=>{btn.classList.remove('talking');btn.textContent='◉ BRIEF ME';};
+  if(CURAUDIO){try{CURAUDIO.pause();}catch(e){}CURAUDIO=null;}
+  try{speechSynthesis&&speechSynthesis.cancel();}catch(e){}
+  // play the pre-rendered deep neural briefing (same voice as Telegram)
+  const a=new Audio('brief.mp3?t='+Date.now());
+  CURAUDIO=a;
+  btn.classList.add('talking');btn.textContent='◉ SPEAKING…';
+  a.onended=done;
+  a.onerror=()=>{done();fallbackSpeak();};
+  a.play().catch(()=>{done();fallbackSpeak();});
+}
+function fallbackSpeak(){
+  if(!('speechSynthesis' in window)){return;}
   const act=STATUS.agents_active||[];
   const names=act.map(id=>{const a=ROSTER.find(x=>x.id===id);return a?a.name.toLowerCase():id;});
   const h=new Date().getHours();
