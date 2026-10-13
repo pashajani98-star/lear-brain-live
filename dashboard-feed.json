@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T22:32:13Z",
+  "timestamp": "2026-10-13T22:34:49Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T23:31:49.359100",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "timestamp": "2026-10-13T23:34:34.503316",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 22,
-    "total": 24
+    "haiku": 23,
+    "total": 25
   },
   "agents": {
     "lear-strategist": {
@@ -25,10 +25,10 @@
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "current_model": "haiku",
-      "last_update": "2026-10-13T21:09:51Z"
+      "last_update": "2026-10-13T22:34:34Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -105,12 +105,13 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los"
       ],
-      "status": "working",
-      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:31:49Z"
+      "last_update": "2026-10-13T22:34:22Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -148,6 +149,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:34:34Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:34:22Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:31:49Z",
       "agent": "lear-content",
@@ -217,23 +232,9 @@
       "type": "info",
       "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:12:30Z",
-      "agent": "lear-monitor",
-      "type": "ok",
-      "description": "Completed (ollama): [Fleet quality audit] Review the recent agent activity log provided below. Flag anything o",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:09:53Z",
-      "agent": "lear-monitor",
-      "type": "info",
-      "description": "Task from mission scheduler: [Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, o",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 24,
+  "total_tasks_logged": 25,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
