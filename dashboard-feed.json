@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T22:34:49Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T23:34:34.503316",
-      "agent": "lear-strategist",
-      "agent_label": "Strategy",
-      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T22:35:55Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 2,
     "haiku": 23,
@@ -21,14 +11,15 @@
       "id": "lear-strategist",
       "label": "Strategy",
       "recent_activity": [
+        "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search C",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last"
       ],
-      "status": "working",
-      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:34:34Z"
+      "last_update": "2026-10-13T22:35:51Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -150,6 +141,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-13T22:35:51Z",
+      "agent": "lear-strategist",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-13T22:34:34Z",
       "agent": "lear-strategist",
       "type": "info",
@@ -224,13 +222,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:52:49Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
       "status": "completed"
     }
   ],
