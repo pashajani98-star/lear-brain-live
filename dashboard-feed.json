@@ -1,15 +1,6 @@
 {
-  "timestamp": "2026-10-13T20:27:38Z",
+  "timestamp": "2026-10-13T20:31:22Z",
   "current_tasks": [
-    {
-      "timestamp": "2026-10-13T21:27:13.353095",
-      "agent": "lear-security",
-      "agent_label": "Security & health",
-      "task": "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, /book/, 2 random combo pages and the latest blog post (expect 200 + real content); check /jobs-app/ redirects to login; gh run list for failed GitHub Actions; scan the last 200 lines of bridge.log and publisher.log for repeated errors. Report anything broken with the exact fix, ready to apply; end with 'Reply YES to proceed' if the fix touches the live site.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    },
     {
       "timestamp": "2026-10-13T21:21:12.458860",
       "agent": "lear-security",
@@ -41,14 +32,23 @@
     "lear-security": {
       "id": "lear-security",
       "label": "Security & health",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, /book/, 2 random combo pages and the latest blog post (expect 200 + real content); check /jobs-app/ redirects to login; gh run list for failed GitHub Actions; scan the last 200 lines of bridge.log and publisher.log for repeated errors. Report anything broken with the exact fix, ready to apply; end with 'Reply YES to proceed' if the fix touches the live site.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "recent_activity": [
+        "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:27:13Z"
+      "last_update": "2026-10-13T20:31:22Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:31:22Z",
+      "agent": "lear-security",
+      "type": "ok",
+      "description": "Completed (haiku): [Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:27:13Z",
       "agent": "lear-security",
