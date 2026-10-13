@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T23:01:22Z",
+  "timestamp": "2026-10-13T23:01:56Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T00:01:20.505091",
-      "agent": "lear-monitor",
-      "agent_label": "Quality control",
-      "task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
+      "timestamp": "2026-10-14T00:01:50.535910",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -83,13 +83,14 @@
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
+        "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Social and GBP post] Write one complete Google Business Profile post and one Instagram ca"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:58:57Z"
+      "last_update": "2026-10-13T23:01:45Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -134,10 +135,10 @@
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr"
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:00:42Z"
+      "last_update": "2026-10-13T23:01:50Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -173,16 +174,45 @@
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
+        "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything o"
       ],
-      "status": "working",
-      "current_task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:01:20Z"
+      "last_update": "2026-10-13T23:01:25Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:01:50Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:01:45Z",
+      "agent": "lear-social",
+      "type": "error",
+      "description": "Failed/stopped: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:01:35Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:01:25Z",
+      "agent": "lear-monitor",
+      "type": "error",
+      "description": "Failed/stopped: [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T23:01:20Z",
       "agent": "lear-monitor",
@@ -237,34 +267,6 @@
       "agent": "lear-webdev",
       "type": "error",
       "description": "Failed/stopped: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:00:20Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:00:10Z",
-      "agent": "lear-reviews",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:00:05Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:59:58Z",
-      "agent": "lear-competitors",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: competitor pricing check] Check the published call-out and price pages of the t",
       "status": "failed"
     }
   ],
