@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T23:41:45Z",
+  "timestamp": "2026-10-13T23:42:49Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T00:41:22.453592",
-      "agent": "lear-monitor",
-      "agent_label": "Quality control",
-      "task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
+      "timestamp": "2026-10-14T00:42:37.481580",
+      "agent": "lear-social",
+      "agent_label": "Social",
+      "task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -87,10 +87,10 @@
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:25:32Z"
+      "last_update": "2026-10-13T23:42:37Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -172,19 +172,33 @@
       "label": "Quality control",
       "recent_activity": [
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
-        "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
+        "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr"
       ],
-      "status": "working",
-      "current_task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:41:22Z"
+      "last_update": "2026-10-13T23:42:22Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:42:37Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:42:22Z",
+      "agent": "lear-monitor",
+      "type": "ok",
+      "description": "Completed (haiku): [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:41:22Z",
       "agent": "lear-monitor",
@@ -253,20 +267,6 @@
       "agent": "lear-reviews",
       "type": "ok",
       "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:31:22Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:31:13Z",
-      "agent": "lear-competitors",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
       "status": "completed"
     }
   ],
