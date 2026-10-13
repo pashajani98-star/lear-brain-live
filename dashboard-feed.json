@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-13T22:58:30Z",
+  "timestamp": "2026-10-13T22:59:04Z",
   "current_tasks": [],
   "model_summary": {
     "ollama": 1,
@@ -71,13 +71,14 @@
       "recent_activity": [
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
+        "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Social and GBP post] Write one complete Google Business Profile post and one Instagram ca"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:56:09Z"
+      "last_update": "2026-10-13T22:58:57Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -157,16 +158,45 @@
       "recent_activity": [
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
+        "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything o"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:55:58Z"
+      "last_update": "2026-10-13T22:58:38Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:58:57Z",
+      "agent": "lear-social",
+      "type": "error",
+      "description": "Failed/stopped: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:58:50Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:58:38Z",
+      "agent": "lear-monitor",
+      "type": "error",
+      "description": "Failed/stopped: [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:58:35Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:58:25Z",
       "agent": "lear-codereview",
@@ -221,34 +251,6 @@
       "agent": "lear-webdev",
       "type": "info",
       "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:57:25Z",
-      "agent": "lear-reviews",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T22:57:20Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:57:12Z",
-      "agent": "lear-competitors",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T22:57:05Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
       "status": "completed"
     }
   ],
