@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T22:12:40Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T22:23:48Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T23:23:40.054261",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 17,
-    "total": 19
+    "haiku": 18,
+    "total": 20
   },
   "agents": {
     "lear-strategist": {
@@ -51,10 +61,10 @@
         "[Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
         "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
       "current_model": "haiku",
-      "last_update": "2026-10-13T21:55:18Z"
+      "last_update": "2026-10-13T22:23:40Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -136,6 +146,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-13T22:23:40Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-13T21:55:18Z",
       "agent": "lear-seo",
       "type": "ok",
@@ -211,16 +228,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Content gap post] From Search Console queries with impressions but no dedicated page, or common London appliance faults",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:59:44Z",
-      "agent": "lear-competitors",
-      "type": "ok",
-      "description": "Completed (haiku): [SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair lon",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 19,
+  "total_tasks_logged": 20,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
