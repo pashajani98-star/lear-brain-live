@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-13T23:15:21Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T23:15:54Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T00:15:51.642081",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -61,10 +71,10 @@
         "Failed: [Standing: title and snippet CTR check] Using the Search Console API (",
         "Failed: [Standing: keyword cluster gaps] Using the Search Console API (sc-doma"
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:13:29Z"
+      "last_update": "2026-10-13T23:15:51Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -80,7 +90,7 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:12:43Z"
+      "last_update": "2026-10-13T23:15:27Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -118,17 +128,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
-        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr"
+        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
+        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data "
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:14:27Z"
+      "last_update": "2026-10-13T23:15:44Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -175,6 +185,41 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:15:51Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:15:44Z",
+      "agent": "lear-content",
+      "type": "error",
+      "description": "Failed/stopped: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:15:36Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:15:27Z",
+      "agent": "lear-social",
+      "type": "error",
+      "description": "Failed/stopped: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:15:21Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:15:13Z",
       "agent": "lear-monitor",
@@ -223,41 +268,6 @@
       "type": "error",
       "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
       "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:14:21Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:14:14Z",
-      "agent": "lear-webdev",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:14:06Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:13:56Z",
-      "agent": "lear-reviews",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:13:51Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
     }
   ],
   "total_tasks_logged": 50,
