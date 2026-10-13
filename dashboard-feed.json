@@ -1,15 +1,6 @@
 {
-  "timestamp": "2026-10-13T20:33:36Z",
+  "timestamp": "2026-10-13T20:35:03Z",
   "current_tasks": [
-    {
-      "timestamp": "2026-10-13T21:33:13.425162",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with meaningful impressions but low clicks. Pick the best one, then produce the READY-MADE fix: the exact page, the new title tag, meta description, and any heading/paragraph edits, written out in brand voice and ready to deploy.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    },
     {
       "timestamp": "2026-10-13T21:21:12.458860",
       "agent": "lear-security",
@@ -63,14 +54,23 @@
     "lear-seo": {
       "id": "lear-seo",
       "label": "Search operations",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with meaningful impressions but low clicks. Pick the best one, then produce the READY-MADE fix: the exact page, the new title tag, meta description, and any heading/paragraph edits, written out in brand voice and ready to deploy.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "recent_activity": [
+        "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:33:13Z"
+      "last_update": "2026-10-13T20:34:56Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:34:56Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:33:13Z",
       "agent": "lear-seo",
