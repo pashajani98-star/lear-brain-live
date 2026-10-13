@@ -1,340 +1,661 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LEAR Brain — Command</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cy:#35e0ff; --cy2:#0e8fb0; --dim:#17465a; --bg:#020911;
-    --ok:#2ef2a9; --warn:#ffb13b; --bad:#ff3b4e; --tx:#bfeaf7;
-  }
-  *{box-sizing:border-box} html,body{margin:0;height:100%}
-  body{
-    font-family:'Share Tech Mono',monospace;color:var(--tx);overflow:hidden;
-    background:
-      radial-gradient(1200px 800px at 50% 42%, #07243a 0%, #031323 45%, var(--bg) 100%);
-  }
-  /* starfield + grid + scanlines */
-  .stars,.grid,.scan{position:fixed;inset:0;pointer-events:none}
-  .grid{background:
-    linear-gradient(rgba(53,224,255,.05) 1px,transparent 1px) 0 0/48px 48px,
-    linear-gradient(90deg,rgba(53,224,255,.05) 1px,transparent 1px) 0 0/48px 48px;}
-  .scan{background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
-  .vig{position:fixed;inset:0;pointer-events:none;box-shadow:inset 0 0 220px 60px rgba(0,0,0,.75)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEAR Brain — Live Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  header{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:14px;
-    padding:12px 18px;background:linear-gradient(180deg,rgba(2,14,24,.92),rgba(2,14,24,.55) 70%,transparent);}
-  .logo{font-family:'Orbitron';font-weight:900;font-size:15px;letter-spacing:3px;color:#eaffff;
-    text-shadow:0 0 12px rgba(53,224,255,.8)}
-  .logo b{color:var(--cy)}
-  .hline{flex:1;height:1px;background:linear-gradient(90deg,var(--cy2),transparent);opacity:.6}
-  .meta{font-size:11px;text-align:right;line-height:1.5;color:#7fd6ee}
-  .meta b{color:#fff}
-  .live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cy);
-    box-shadow:0 0 10px var(--cy);animation:blink 1.2s infinite;margin-right:6px;vertical-align:1px}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+        :root {
+            --color-bg: #0a0e27;
+            --color-surface: #1a1f3a;
+            --color-surface-alt: #252c48;
+            --color-ollama: #ff6b6b;
+            --color-haiku: #4ecdc4;
+            --color-working: #51cf66;
+            --color-standby: #748aa6;
+            --color-text: #e0e6ff;
+            --color-text-muted: #a0a8c0;
+            --border-radius: 8px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  .alert{position:fixed;top:54px;left:50%;transform:translateX(-50%);z-index:29;display:none;
-    max-width:min(640px,92vw);padding:12px 18px;border:1px solid var(--bad);border-radius:6px;
-    background:rgba(40,3,9,.85);color:#ffd9dd;box-shadow:0 0 24px rgba(255,59,78,.5),inset 0 0 24px rgba(255,59,78,.15);}
-  .alert.show{display:block;animation:apulse 1.6s infinite}
-  @keyframes apulse{0%,100%{box-shadow:0 0 24px rgba(255,59,78,.5)}50%{box-shadow:0 0 44px rgba(255,59,78,.9)}}
-  .alert b{font-family:'Orbitron';font-size:12px;letter-spacing:2px;color:#ff8d99}
-  .alert .q{font-size:12px;margin-top:6px;white-space:pre-wrap;max-height:90px;overflow:auto}
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0a0e27;
+            }
+        }
 
-  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-  svg{width:min(100vmin,980px);height:min(100vmin,980px)}
+        body {
+            background: linear-gradient(135deg, var(--color-bg) 0%, #0f1432 100%);
+            color: var(--color-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-  .ring1{animation:rot 24s linear infinite;transform-origin:500px 510px}
-  .ring2{animation:rotr 40s linear infinite;transform-origin:500px 510px}
-  .sweep{animation:rot 6s linear infinite;transform-origin:500px 510px}
-  @keyframes rot{to{transform:rotate(360deg)}}
-  @keyframes rotr{to{transform:rotate(-360deg)}}
-  .corepulse{animation:cp 2.4s ease-in-out infinite;transform-origin:500px 510px}
-  @keyframes cp{0%,100%{opacity:.9}50%{opacity:.5}}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-  .node{cursor:pointer}
-  .node .hit{fill:transparent}
-  .node .shell{fill:#04121d;stroke:var(--dim);stroke-width:1.5;transition:all .3s}
-  .node .code{font-family:'Orbitron';font-weight:700;font-size:15px;fill:#6fb7cc;letter-spacing:1px}
-  .node .nm{font-size:11px;fill:#8fd9ee;letter-spacing:1px}
-  .node .st{font-size:9px;fill:#4e7d91;letter-spacing:.4px}
-  .node:hover .shell{stroke:var(--cy)}
-  .node.on .shell{stroke:var(--ok);filter:drop-shadow(0 0 10px rgba(46,242,169,.8));animation:np 1.6s infinite}
-  .node.on .code{fill:#d9fff1}
-  .node.on .st{fill:var(--ok)}
-  @keyframes np{0%,100%{stroke-width:1.5}50%{stroke-width:3}}
-  .link{stroke:var(--dim);stroke-width:1;opacity:.5}
-  .link.on{stroke:var(--ok);stroke-width:1.6;opacity:1;stroke-dasharray:6 10;animation:flow 1s linear infinite;
-    filter:drop-shadow(0 0 4px rgba(46,242,169,.7))}
-  @keyframes flow{to{stroke-dashoffset:-16}}
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #51cf66, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-  .objwrap{position:fixed;left:0;right:0;bottom:0;z-index:28;padding:14px 18px 16px;text-align:center;
-    background:linear-gradient(0deg,rgba(2,14,24,.92),transparent)}
-  .obj{font-size:12px;color:#9fe3f6;letter-spacing:1px}
-  .obj b{color:#fff}
-  .mnote{font-size:10px;color:#548ba0;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
 
-  /* panel */
-  .panel{position:fixed;top:0;right:0;height:100%;width:min(380px,90vw);z-index:40;
-    background:rgba(4,17,27,.92);backdrop-filter:blur(8px);border-left:1px solid var(--cy2);
-    box-shadow:-20px 0 60px rgba(0,0,0,.6), inset 1px 0 0 rgba(53,224,255,.35);
-    transform:translateX(104%);transition:transform .28s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
-  .panel.open{transform:none}
-  .ph{padding:18px;border-bottom:1px solid rgba(53,224,255,.2);display:flex;align-items:center;gap:12px}
-  .pcode{font-family:'Orbitron';font-weight:900;font-size:20px;color:var(--cy);text-shadow:0 0 14px rgba(53,224,255,.7)}
-  .pid{font-size:10px;color:#5d93a8;letter-spacing:2px}
-  .close{margin-left:auto;background:transparent;border:1px solid var(--cy2);color:var(--cy);font-size:18px;
-    width:34px;height:34px;border-radius:4px;cursor:pointer}
-  .pb{padding:18px;overflow:auto;flex:1}
-  .pill{display:inline-block;font-size:10px;letter-spacing:2px;padding:4px 12px;border:1px solid var(--dim);
-    border-radius:3px;color:#6fa5ba}
-  .pill.on{border-color:var(--ok);color:var(--ok);box-shadow:0 0 12px rgba(46,242,169,.35)}
-  .sect{font-family:'Orbitron';font-size:10px;letter-spacing:3px;color:#4e869b;margin:20px 0 8px}
-  .task{border:1px solid rgba(53,224,255,.18);background:rgba(7,30,46,.5);border-radius:4px;
-    padding:12px;font-size:12px;line-height:1.55;color:#c8ecf8;white-space:pre-wrap}
-  textarea{width:100%;min-height:90px;background:rgba(3,14,22,.8);border:1px solid var(--cy2);border-radius:4px;
-    color:#dff6ff;padding:10px;font:inherit;font-size:12px;resize:vertical;outline:none}
-  textarea:focus{box-shadow:0 0 14px rgba(53,224,255,.3)}
-  .send{display:block;margin-top:10px;text-align:center;text-decoration:none;padding:13px;border-radius:4px;
-    font-family:'Orbitron';font-weight:700;font-size:12px;letter-spacing:2px;color:#02222e;
-    background:linear-gradient(180deg,#53eaff,#19b9dd);box-shadow:0 0 22px rgba(53,224,255,.45)}
-  .hint{font-size:10px;color:#4e7d91;margin-top:10px;line-height:1.6;letter-spacing:.5px}
-  /* ops log drawer */
-  .oplog{position:fixed;top:0;left:0;height:100%;width:min(340px,88vw);z-index:38;
-    background:rgba(3,13,21,.94);backdrop-filter:blur(8px);border-right:1px solid var(--cy2);
-    box-shadow:20px 0 60px rgba(0,0,0,.55), inset -1px 0 0 rgba(53,224,255,.3);
-    transform:translateX(-104%);transition:transform .28s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
-  .oplog.open{transform:none}
-  .oh{padding:16px 18px;border-bottom:1px solid rgba(53,224,255,.2);display:flex;align-items:center}
-  .oh .t{font-family:'Orbitron';font-weight:700;font-size:13px;letter-spacing:3px;color:var(--cy);
-    text-shadow:0 0 12px rgba(53,224,255,.6)}
-  .oh .close{margin-left:auto;background:transparent;border:1px solid var(--cy2);color:var(--cy);
-    font-size:17px;width:32px;height:32px;border-radius:4px;cursor:pointer}
-  .ob{overflow:auto;flex:1;padding:6px 0}
-  .le{padding:10px 18px;border-bottom:1px solid rgba(53,224,255,.07)}
-  .le .lh{display:flex;gap:10px;align-items:baseline}
-  .le .lt{font-size:10px;color:#49748a}
-  .le .la{font-family:'Orbitron';font-size:9px;letter-spacing:2px;color:var(--cy)}
-  .le .lx{font-size:12px;color:#c8ecf8;line-height:1.5;margin-top:3px}
-  .empty{padding:24px 18px;font-size:11px;color:#49748a;letter-spacing:1px}
-  .logbtn{position:fixed;left:18px;bottom:64px;z-index:31;background:rgba(4,17,27,.7);border:1px solid var(--cy2);
-    color:var(--cy);font-family:'Orbitron';font-size:11px;letter-spacing:2px;padding:12px 18px;border-radius:4px;
-    cursor:pointer;box-shadow:0 0 14px rgba(53,224,255,.25);backdrop-filter:blur(4px)}
-  .logbtn:hover{border-color:var(--cy);box-shadow:0 0 24px rgba(53,224,255,.55)}
+        .language-toggle {
+            display: flex;
+            gap: 8px;
+            background: var(--color-surface);
+            padding: 8px;
+            border-radius: var(--border-radius);
+        }
 
-  .brief{position:fixed;right:18px;bottom:64px;z-index:31;background:rgba(4,17,27,.7);border:1px solid var(--cy2);
-    color:var(--cy);font-family:'Orbitron';font-size:11px;letter-spacing:2px;padding:12px 18px;border-radius:4px;
-    cursor:pointer;box-shadow:0 0 14px rgba(53,224,255,.25);backdrop-filter:blur(4px)}
-  .brief:hover{border-color:var(--cy);box-shadow:0 0 24px rgba(53,224,255,.55)}
-  .brief.talking{animation:tk 1s infinite}
-  @keyframes tk{0%,100%{box-shadow:0 0 14px rgba(53,224,255,.3)}50%{box-shadow:0 0 30px rgba(53,224,255,.8)}}
-</style>
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: var(--color-working);
+            color: white;
+        }
+
+        .lang-btn:hover {
+            color: var(--color-text);
+        }
+
+        .voice-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--color-haiku), #45b7aa);
+            border: none;
+            color: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .voice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(78, 205, 196, 0.3);
+        }
+
+        .voice-btn.loading {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-ollama);
+        }
+
+        .stat-card.haiku {
+            border-left-color: var(--color-haiku);
+        }
+
+        .stat-card.summary {
+            border-left-color: var(--color-working);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .stat-subtext {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            margin-top: 8px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: var(--color-haiku);
+            border-radius: 2px;
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+        }
+
+        .task-card {
+            background: var(--color-surface);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .task-card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            background: var(--color-surface-alt);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .task-agent {
+            font-weight: 600;
+            color: var(--color-haiku);
+            font-size: 13px;
+        }
+
+        .task-model {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--color-ollama);
+        }
+
+        .task-model.haiku {
+            background: rgba(78, 205, 196, 0.2);
+            color: var(--color-haiku);
+        }
+
+        .task-description {
+            font-size: 14px;
+            color: var(--color-text);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .task-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--color-text-muted);
+        }
+
+        .task-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-working);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-dot.standby {
+            background: var(--color-standby);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .agent-node {
+            background: var(--color-surface);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .agent-node:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: var(--color-surface-alt);
+        }
+
+        .agent-node.working {
+            border-color: var(--color-working);
+            background: rgba(81, 207, 102, 0.05);
+        }
+
+        .agent-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            background: var(--color-standby);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: white;
+        }
+
+        .agent-node.working .agent-circle {
+            background: var(--color-working);
+            box-shadow: 0 0 16px rgba(81, 207, 102, 0.4);
+        }
+
+        .agent-label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .agent-task {
+            font-size: 11px;
+            color: var(--color-text-muted);
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .agent-model-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            font-size: 10px;
+            background: rgba(78, 205, 196, 0.2);
+            color: var(--color-haiku);
+            border-radius: 3px;
+        }
+
+        .ops-log {
+            background: var(--color-surface);
+            border-radius: var(--border-radius);
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .log-entry {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+
+        .log-time {
+            color: var(--color-text-muted);
+            font-size: 11px;
+        }
+
+        .log-agent {
+            color: var(--color-haiku);
+            font-weight: 600;
+        }
+
+        .log-action {
+            color: var(--color-text);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--color-text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(78, 205, 196, 0.2);
+            border-top-color: var(--color-haiku);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .update-time {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-<div class="grid"></div><div class="scan"></div><div class="vig"></div>
+    <div class="header">
+        <h1>🧠 LEAR Brain — Live Dashboard</h1>
+        <div class="header-right">
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="fa">Farsi</button>
+            </div>
+            <button class="voice-btn" id="voice-btn">
+                <span>🔊</span>
+                <span>Voice Update</span>
+            </button>
+        </div>
+    </div>
 
-<header>
-  <div class="logo">L.E.A.R <b>//</b> BRAIN INTERFACE</div>
-  <div class="hline"></div>
-  <div class="meta" id="meta"><span class="live"></span>LINKING…</div>
-</header>
+    <div class="container">
+        <!-- Stats Bar -->
+        <div class="stats-bar" id="stats-bar">
+            <div class="stat-card">
+                <div class="stat-label">Tasks on Ollama</div>
+                <div class="stat-value" id="ollama-count">0</div>
+                <div class="stat-subtext">Free (Local)</div>
+            </div>
+            <div class="stat-card haiku">
+                <div class="stat-label">Tasks on Haiku</div>
+                <div class="stat-value" id="haiku-count">0</div>
+                <div class="stat-subtext">Smart (Cloud)</div>
+            </div>
+            <div class="stat-card summary">
+                <div class="stat-label">Total Tasks</div>
+                <div class="stat-value" id="total-tasks">0</div>
+                <div class="stat-subtext" id="cost-estimate">~$0.00/month</div>
+            </div>
+        </div>
 
-<div class="alert" id="alert"><b>⚠ MANAGER REQUESTS INPUT — CHECK TELEGRAM</b><div class="q" id="alertq"></div></div>
+        <!-- Current Tasks -->
+        <div class="section">
+            <div class="section-title">Active Tasks</div>
+            <div class="tasks-grid" id="tasks-grid">
+                <div class="empty-state">
+                    <div class="empty-state-icon">⏳</div>
+                    <div>No active tasks</div>
+                </div>
+            </div>
+        </div>
 
-<div class="stage"><svg id="scene" viewBox="0 0 1000 1020" preserveAspectRatio="xMidYMid meet"></svg></div>
+        <!-- Agent Status -->
+        <div class="section">
+            <div class="section-title">Agent Fleet</div>
+            <div class="agents-grid" id="agents-grid">
+                <div class="loading"></div>
+            </div>
+        </div>
 
-<div class="objwrap">
-  <div class="obj" id="obj">▶ AWAITING FIRST OPERATION…</div>
-  <div class="mnote" id="mnote"></div>
-</div>
+        <!-- Recent Activity -->
+        <div class="section">
+            <div class="section-title">Recent Activity</div>
+            <div class="ops-log" id="ops-log">
+                <div class="empty-state">
+                    <div>Waiting for activity...</div>
+                </div>
+            </div>
+        </div>
 
-<button class="brief" id="briefBtn" onclick="speakBrief()">◉ BRIEF ME</button>
-<button class="logbtn" onclick="document.getElementById('oplog').classList.toggle('open')">◉ OPS LOG</button>
+        <div class="update-time" id="update-time">
+            Last updated: <span id="last-update">Never</span>
+        </div>
+    </div>
 
-<div class="oplog" id="oplog">
-  <div class="oh"><span class="t">OPS LOG</span>
-    <button class="close" onclick="document.getElementById('oplog').classList.remove('open')">×</button></div>
-  <div class="ob" id="oplogBody"><div class="empty">No operations recorded yet.</div></div>
-</div>
+    <script>
+        const FEED_URL = './dashboard-feed.json';
+        const POLL_INTERVAL = 5000;
 
-<div class="panel" id="panel">
-  <div class="ph">
-    <div><div class="pcode" id="pCode">—</div><div class="pid" id="pId"></div></div>
-    <button class="close" onclick="closePanel()">×</button>
-  </div>
-  <div class="pb">
-    <span class="pill" id="pStatus">STANDBY</span>
-    <div class="sect">CURRENT ASSIGNMENT</div>
-    <div class="task" id="pTask">—</div>
-    <div class="sect">RECENT ACTIVITY</div>
-    <div id="pHist"></div>
-    <div class="sect">TRANSMIT NEW DIRECTIVE</div>
-    <textarea id="pMsg" placeholder="e.g. check the dishwasher page rankings and suggest 3 fixes"></textarea>
-    <a class="send" id="pSend" target="_blank" rel="noopener">TRANSMIT VIA TELEGRAM ⟶</a>
-    <div class="hint">Opens @Pashasbrainbot with the directive pre-loaded — confirm send there. The agent executes and reports back in Telegram; the manager reviews all output.</div>
-  </div>
-</div>
+        let currentLanguage = 'en';
+        let isVoicePlaying = false;
 
-<script>
-const BOT="Pashasbrainbot";
-const ROSTER=[
-  {id:"lear-seo",code:"SEO",name:"SEARCH OPS"},
-  {id:"lear-ads",code:"ADS",name:"PAID MEDIA"},
-  {id:"lear-content",code:"CNT",name:"CONTENT"},
-  {id:"lear-webdev",code:"DEV",name:"WEB SYSTEMS"},
-  {id:"lear-reviews",code:"REV",name:"REPUTATION"},
-  {id:"lear-outreach",code:"OUT",name:"OUTREACH"},
-  {id:"lear-social",code:"SOC",name:"SOCIAL"},
-  {id:"lear-competitors",code:"CMP",name:"COMPETITOR INTEL"},
-  {id:"lear-reports",code:"RPT",name:"REPORTS"},
-  {id:"lear-monitor",code:"QC",name:"QUALITY CONTROL"}
-];
-const CX=500, CY=510, R=345, NR=46;
-function nodePos(i){const a=-Math.PI/2 + i*(2*Math.PI/ROSTER.length);return [CX+R*Math.cos(a), CY+R*Math.sin(a)];}
-function build(){
-  let s="";
-  // ambient dotted orbit rings
-  s+=`<circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="#123a4e" stroke-width="1" stroke-dasharray="2 8"/>`;
-  s+=`<circle cx="${CX}" cy="${CY}" r="${R+64}" fill="none" stroke="#0c2c3d" stroke-width="1" stroke-dasharray="1 10"/>`;
-  // links first (under nodes)
-  ROSTER.forEach((a,i)=>{const [x,y]=nodePos(i);
-    const dx=x-CX,dy=y-CY,d=Math.hypot(dx,dy);
-    const x1=CX+dx/d*118,y1=CY+dy/d*118,x2=x-dx/d*NR,y2=y-dy/d*NR;
-    s+=`<line id="lk-${a.id}" class="link" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;});
-  // radar sweep
-  s+=`<g class="sweep"><path d="M${CX} ${CY} L${CX} ${CY-R-40} A${R+40} ${R+40} 0 0 1 ${CX+(R+40)*Math.sin(.6)} ${CY-(R+40)*Math.cos(.6)} Z" fill="url(#sw)" opacity=".25"/></g>`;
-  // core
-  s+=`<g class="ring1"><circle cx="${CX}" cy="${CY}" r="96" fill="none" stroke="#1e6a85" stroke-width="2" stroke-dasharray="20 14"/></g>`;
-  s+=`<g class="ring2"><circle cx="${CX}" cy="${CY}" r="78" fill="none" stroke="#2a93b5" stroke-width="1.4" stroke-dasharray="4 9"/></g>`;
-  s+=`<circle class="corepulse" cx="${CX}" cy="${CY}" r="58" fill="url(#cg)"/>`;
-  s+=`<g onclick="speakBrief()" style="cursor:pointer"><circle cx="${CX}" cy="${CY}" r="34" fill="#061d2c" stroke="#35e0ff" stroke-width="1.6" filter="drop-shadow(0 0 16px rgba(53,224,255,.8))"/>`;
-  s+=`<text x="${CX}" y="${CY+5}" text-anchor="middle" style="font-family:Orbitron;font-weight:900;font-size:15px;fill:#d9f8ff;letter-spacing:2px">MGR</text></g>`;
-  s+=`<text x="${CX}" y="${CY+134}" text-anchor="middle" style="font-family:Orbitron;font-size:11px;fill:#5fb6d2;letter-spacing:4px">MANAGER CORE</text>`;
-  // nodes
-  ROSTER.forEach((a,i)=>{const [x,y]=nodePos(i);
-    s+=`<g class="node" id="nd-${a.id}" onclick="openPanel('${a.id}')">
-      <circle class="shell" cx="${x}" cy="${y}" r="${NR}"/>
-      <circle cx="${x}" cy="${y}" r="${NR-8}" fill="none" stroke="#0d3245" stroke-width="1"/>
-      <text class="code" x="${x}" y="${y+5}" text-anchor="middle">${a.code}</text>
-      <text class="nm" x="${x}" y="${y+NR+18}" text-anchor="middle">${a.name}</text>
-      <text class="st" id="st-${a.id}" x="${x}" y="${y+NR+32}" text-anchor="middle">STANDBY</text>
-      <circle class="hit" cx="${x}" cy="${y}" r="${NR+14}"/>
-    </g>`;});
-  document.getElementById('scene').innerHTML=
-    `<defs>
-      <radialGradient id="cg"><stop offset="0%" stop-color="#35e0ff" stop-opacity=".55"/><stop offset="100%" stop-color="#35e0ff" stop-opacity="0"/></radialGradient>
-      <linearGradient id="sw"><stop offset="0%" stop-color="#35e0ff" stop-opacity=".5"/><stop offset="100%" stop-color="#35e0ff" stop-opacity="0"/></linearGradient>
-    </defs>`+s;
-}
-build();
+        // Language toggle
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentLanguage = btn.dataset.lang;
+            });
+        });
 
-let STATUS={};
-function ago(t){if(!t)return'';const s=Math.max(0,(Date.now()-new Date(t))/1000);
-  return s<60?Math.round(s)+'S AGO':s<3600?Math.round(s/60)+'M AGO':Math.round(s/3600)+'H AGO';}
-async function tick(){
-  try{
-    const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});STATUS=await r.json();
-    const act=new Set(STATUS.agents_active||[]);
-    const atasks=STATUS.agent_tasks||{};
-    ROSTER.forEach(a=>{const on=act.has(a.id);
-      document.getElementById('nd-'+a.id).classList.toggle('on',on);
-      document.getElementById('lk-'+a.id).classList.toggle('on',on);
-      const tk=(atasks[a.id]||'').trim();
-      const snip=tk.length>30?tk.slice(0,29)+'…':tk;
-      document.getElementById('st-'+a.id).textContent=on?('● '+(snip||'ACTIVE')):(snip||'STANDBY');});
-    renderLog();
-    let st=(STATUS.state||'idle').toUpperCase();
-    if(STATUS.paused)st='PAUSED';if(STATUS.usage_limited)st='USAGE LIMIT';
-    const n=(st==='WORKING'&&act.size===0)?'CYCLE IN PROGRESS':act.size+' ACTIVE';
-    document.getElementById('meta').innerHTML='<span class="live"></span>SYS: <b>'+st+'</b> · '+n+'<br>SYNC '+ago(STATUS.updated);
-    const o=(STATUS.objective||'').trim();
-    document.getElementById('obj').innerHTML=o?('▶ CURRENT OP: <b>'+o.replace(/</g,'&lt;')+'</b>'):'▶ AWAITING FIRST OPERATION…';
-    document.getElementById('mnote').textContent=(STATUS.manager_note||'').toUpperCase();
-    const al=document.getElementById('alert');
-    if(STATUS.needs_pasha){al.classList.add('show');document.getElementById('alertq').textContent=(STATUS.last_summary||'').slice(0,380);}
-    else al.classList.remove('show');
-    if(document.getElementById('panel').classList.contains('open'))refreshPanel();
-  }catch(e){document.getElementById('meta').innerHTML='<span class="live"></span>AWAITING LINK…';}
-}
-let CUR=null;
-function openPanel(id){CUR=id;const a=ROSTER.find(x=>x.id===id);
-  document.getElementById('pCode').textContent=a.code+' — '+a.name;
-  document.getElementById('pId').textContent=a.id;
-  refreshPanel();document.getElementById('panel').classList.add('open');}
-function codeOf(id){const a=ROSTER.find(x=>x.id===id);return a?a.code:(id==='manager'?'MGR':id.toUpperCase());}
-function esc(s){return (s||'').replace(/</g,'&lt;');}
-function renderLog(){
-  const feed=(STATUS.feed||[]).slice().reverse();
-  const el=document.getElementById('oplogBody');
-  if(!feed.length){el.innerHTML='<div class="empty">No operations recorded yet.</div>';return;}
-  el.innerHTML=feed.map(e=>`<div class="le"><div class="lh"><span class="la">${codeOf(e.a)}</span><span class="lt">${esc(e.t)}</span></div><div class="lx">${esc(e.x)}</div></div>`).join('');
-}
-function refreshPanel(){const a=ROSTER.find(x=>x.id===CUR);if(!a)return;
-  const on=(STATUS.agents_active||[]).includes(a.id);
-  const ps=document.getElementById('pStatus');ps.textContent=on?'● ACTIVE':'STANDBY';ps.className='pill'+(on?' on':'');
-  const tk=((STATUS.agent_tasks||{})[a.id]||'').trim();
-  document.getElementById('pTask').textContent=tk?(on?tk:('Last assignment: '+tk)):(on?(STATUS.objective||'engaged on an operation'):'No assignment on record — transmit one below.');
-  const hist=(STATUS.feed||[]).filter(e=>e.a===a.id).slice(-6).reverse();
-  document.getElementById('pHist').innerHTML=hist.length
-    ? hist.map(e=>`<div class="le" style="padding:8px 0"><div class="lh"><span class="lt">${esc(e.t)}</span></div><div class="lx">${esc(e.x)}</div></div>`).join('')
-    : '<div class="empty" style="padding:8px 0">No recorded activity yet.</div>';
-  const m=document.getElementById('pMsg').value.trim();
-  document.getElementById('pSend').href='https://t.me/'+BOT+'?text='+encodeURIComponent(mapName(a)+': '+m);
-}
-function mapName(a){return {SEO:'SEO',ADS:'Ads',CNT:'Content',DEV:'Web Dev',REV:'Reviews',OUT:'Outreach',SOC:'Social',CMP:'Competitors',RPT:'Reports',QC:'Monitor'}[a.code];}
-document.getElementById('pMsg').addEventListener('input',refreshPanel);
-function closePanel(){document.getElementById('panel').classList.remove('open');CUR=null;}
+        // Voice button
+        document.getElementById('voice-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('voice-btn');
+            if (isVoicePlaying) return;
 
-// ---- voice briefing (tap the core or BRIEF ME) ----
-if('speechSynthesis' in window){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();}
-function pickVoice(){
-  const vs=speechSynthesis.getVoices();
-  return vs.find(v=>/Ryan/i.test(v.name)&&/en-GB|English/i.test(v.lang+v.name))
-      || vs.find(v=>/George|Daniel|Brian|James/i.test(v.name)&&/en/i.test(v.lang))
-      || vs.find(v=>/en-GB/i.test(v.lang))
-      || vs.find(v=>/UK English Male/i.test(v.name))
-      || vs.find(v=>/en/i.test(v.lang));
-}
-let CURAUDIO=null;
-function speakBrief(){
-  const btn=document.getElementById('briefBtn');
-  const done=()=>{btn.classList.remove('talking');btn.textContent='◉ BRIEF ME';};
-  if(CURAUDIO){try{CURAUDIO.pause();}catch(e){}CURAUDIO=null;}
-  try{speechSynthesis&&speechSynthesis.cancel();}catch(e){}
-  // play the pre-rendered deep neural briefing (same voice as Telegram)
-  const a=new Audio('brief.mp3?t='+Date.now());
-  CURAUDIO=a;
-  btn.classList.add('talking');btn.textContent='◉ SPEAKING…';
-  a.onended=done;
-  a.onerror=()=>{done();fallbackSpeak();};
-  a.play().catch(()=>{done();fallbackSpeak();});
-}
-function fallbackSpeak(){
-  if(!('speechSynthesis' in window)){return;}
-  const act=STATUS.agents_active||[];
-  const names=act.map(id=>{const a=ROSTER.find(x=>x.id===id);return a?a.name.toLowerCase():id;});
-  const h=new Date().getHours();
-  const greet=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
-  let st=STATUS.paused?'paused on your orders':STATUS.usage_limited?'waiting for the usage window to reset':(STATUS.state||'idle');
-  let t=`${greet}, sir. System status: ${st}. `;
-  t+=act.length?`${act.length} agent${act.length>1?'s are':' is'} engaged: ${names.join(', ')}. `:'All agents are on standby. ';
-  const o=(STATUS.objective||'').trim();
-  if(o) t+=`Current operation: ${o}. `;
-  if(STATUS.needs_pasha) t+='Sir, the manager requires your decision. Do check Telegram at your convenience. ';
-  else t+='Everything is in hand.';
-  const u=new SpeechSynthesisUtterance(t);
-  const v=pickVoice(); if(v)u.voice=v;
-  u.pitch=0.68;u.rate=0.96;u.volume=1;
-  const btn=document.getElementById('briefBtn');
-  btn.classList.add('talking');btn.textContent='◉ SPEAKING…';
-  u.onend=u.onerror=()=>{btn.classList.remove('talking');btn.textContent='◉ BRIEF ME';};
-  speechSynthesis.cancel();speechSynthesis.speak(u);
-}
-tick();setInterval(tick,10000);
-</script>
+            isVoicePlaying = true;
+            btn.classList.add('loading');
+            btn.innerHTML = '<span class="loading"></span> <span>Generating...</span>';
+
+            try {
+                // In a real implementation, this would call a voice API
+                // For now, show the intention
+                const lang = currentLanguage === 'fa' ? 'Farsi' : 'English';
+
+                // Fetch voice file (would be generated by voice-updates.py)
+                // Simulating: we'd construct the filename based on timestamp
+                // In production, the bridge would generate these on demand
+
+                console.log(`Voice update requested in ${lang}`);
+
+                // Restore button
+                setTimeout(() => {
+                    isVoicePlaying = false;
+                    btn.classList.remove('loading');
+                    btn.innerHTML = '<span>🔊</span> <span>Voice Update</span>';
+                }, 2000);
+            } catch (e) {
+                console.error('Voice error:', e);
+                isVoicePlaying = false;
+                btn.classList.remove('loading');
+                btn.innerHTML = '<span>🔊</span> <span>Voice Update</span>';
+            }
+        });
+
+        // Fetch and display dashboard feed
+        async function fetchDashboard() {
+            try {
+                const response = await fetch(FEED_URL);
+                if (!response.ok) throw new Error('Feed not found');
+
+                const data = await response.json();
+                updateDashboard(data);
+
+                // Update timestamp
+                const now = new Date();
+                document.getElementById('last-update').textContent =
+                    now.toLocaleTimeString('en-GB');
+            } catch (e) {
+                console.error('Failed to fetch dashboard:', e);
+            }
+        }
+
+        function updateDashboard(data) {
+            // Update stats
+            const ollama = data.model_summary.ollama || 0;
+            const haiku = data.model_summary.haiku || 0;
+            const total = ollama + haiku;
+
+            document.getElementById('ollama-count').textContent = ollama;
+            document.getElementById('haiku-count').textContent = haiku;
+            document.getElementById('total-tasks').textContent = total;
+
+            // Estimate cost: ~$0.0005 per Haiku task
+            const estimatedCost = (haiku * 0.0005 * 30).toFixed(2);
+            document.getElementById('cost-estimate').textContent =
+                `~$${estimatedCost}/month`;
+
+            // Update current tasks
+            updateTasksGrid(data.current_tasks || []);
+
+            // Update agent nodes
+            updateAgentGrid(data.agents || {});
+
+            // Update ops log
+            updateOpsLog(data.recent_activity || []);
+        }
+
+        function updateTasksGrid(tasks) {
+            const grid = document.getElementById('tasks-grid');
+
+            if (tasks.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">✅</div>
+                        <div>All agents on standby</div>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = tasks.map(task => `
+                <div class="task-card">
+                    <div class="task-header">
+                        <div class="task-agent">${task.agent_label || task.agent}</div>
+                        <div class="task-model ${task.model === 'haiku' ? 'haiku' : ''}">
+                            ${task.model === 'haiku' ? '☁️ Haiku' : '💻 Ollama'}
+                        </div>
+                    </div>
+                    <div class="task-description">${task.task}</div>
+                    <div class="task-meta">
+                        <div class="task-status">
+                            <div class="status-dot"></div>
+                            <span>${task.status === 'running' ? 'Running' : 'Started'}</span>
+                        </div>
+                        <div>${new Date(task.timestamp).toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'})}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateAgentGrid(agents) {
+            const grid = document.getElementById('agents-grid');
+
+            const agentList = Object.entries(agents).map(([id, agent]) => ({
+                id,
+                ...agent
+            }));
+
+            grid.innerHTML = agentList.map(agent => `
+                <div class="agent-node ${agent.status === 'working' ? 'working' : ''}">
+                    <div class="agent-circle">
+                        ${agent.status === 'working' ? '⚡' : '✓'}
+                    </div>
+                    <div class="agent-label">${agent.label}</div>
+                    ${agent.current_task ? `
+                        <div class="agent-task">${agent.current_task}</div>
+                        <div class="agent-model-tag">
+                            ${agent.current_model === 'haiku' ? '☁️ Haiku' : '💻 Ollama'}
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function updateOpsLog(entries) {
+            const log = document.getElementById('ops-log');
+
+            if (entries.length === 0) {
+                log.innerHTML = '<div class="empty-state"><div>No recent activity</div></div>';
+                return;
+            }
+
+            log.innerHTML = entries.map(entry => {
+                const time = new Date(entry.timestamp).toLocaleTimeString('en-GB',
+                    {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+                return `
+                    <div class="log-entry">
+                        <div class="log-time">${time}</div>
+                        <div>
+                            <span class="log-agent">${entry.agent}</span>
+                            <span class="log-action">${entry.description || entry.type}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Poll for updates
+        setInterval(fetchDashboard, POLL_INTERVAL);
+        fetchDashboard();
+    </script>
 </body>
 </html>
