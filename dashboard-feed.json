@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T23:05:53Z",
+  "timestamp": "2026-10-13T23:06:27Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T00:05:50.833060",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "timestamp": "2026-10-14T00:06:20.859762",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -28,10 +28,10 @@
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 ",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:03:41Z"
+      "last_update": "2026-10-13T23:06:20Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -100,13 +100,13 @@
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+        "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "working",
-      "current_task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:05:50Z"
+      "last_update": "2026-10-13T23:05:56Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -128,17 +128,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
-        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data "
+        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
+        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:04:41Z"
+      "last_update": "2026-10-13T23:06:12Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +185,34 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:06:20Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:06:12Z",
+      "agent": "lear-content",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:06:05Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:05:56Z",
+      "agent": "lear-webdev",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T23:05:50Z",
       "agent": "lear-webdev",
@@ -239,34 +267,6 @@
       "agent": "lear-seo",
       "type": "error",
       "description": "Failed/stopped: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:04:50Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:04:41Z",
-      "agent": "lear-content",
-      "type": "error",
-      "description": "Failed/stopped: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:04:35Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:04:32Z",
-      "agent": "lear-social",
-      "type": "error",
-      "description": "Failed/stopped: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
       "status": "failed"
     }
   ],
