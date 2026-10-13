@@ -405,6 +405,7 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
   <div class="top-stat"><span class="lbl" data-i18n="clock">London</span><span class="val" id="clock">--:--:--</span></div>
   <div class="top-stat"><span class="lbl" data-i18n="lastsync">Last sync</span><span class="val" id="sync-time">—</span></div>
   <div class="top-stat"><span class="lbl" data-i18n="uplink">Uplink</span><span class="val"><span class="online-dot" id="online-dot"></span></span></div>
+  <div class="top-stat"><span class="lbl" data-i18n="allowance">Claude</span><span class="val" id="allowance" style="color:var(--text-dim)">—</span></div>
   <div class="spacer"></div>
   <div class="lang-wrap">
     <button class="hbtn active" id="lang-en">EN</button>
@@ -548,7 +549,7 @@ const STALE_MS   = 2 * 60 * 1000;
 const ROSTER = [
   { id:'lear-strategist',  label:'STRATEGIST',  role:'Strategy' },
   { id:'lear-seo',         label:'SEO',         role:'Search operations' },
-  { id:'lear-ads',         label:'ADS',         role:'Paid media' },
+  { id:'lear-security',    label:'SECURITY',    role:'Security & health' },
   { id:'lear-content',     label:'CONTENT',     role:'Content' },
   { id:'lear-webdev',      label:'WEBDEV',      role:'Web systems' },
   { id:'lear-reviews',     label:'REVIEWS',     role:'Reputation' },
@@ -583,6 +584,7 @@ const I18N = {
     e_today:'Today', e_week:'This week', e_month:'This month', e_lastmonth:'Last month',
     e_year:'This year', e_all:'All time', e_outstanding:'Outstanding', e_avg:'Avg job (month)',
     e_parts:'Parts mark-up (mo)', e_run:'RUN', e_err:'Earnings fetch failed — check the key',
+    allowance:'Claude', al_ok:'OK', al_limited:'LIMITED → local',
     none:'standby — no task assigned', paused_banner:'⏸ FLEET PAUSED',
     demo_banner:'◈ DEMO DATA — LIVE FEED UNREACHABLE ◈',
     cmd_sent:'Command queued ✓ — the brain will pick it up shortly',
@@ -611,6 +613,7 @@ const I18N = {
     e_today:'امروز', e_week:'این هفته', e_month:'این ماه', e_lastmonth:'ماه قبل',
     e_year:'امسال', e_all:'کل', e_outstanding:'وصول‌نشده', e_avg:'میانگین هر کار (ماه)',
     e_parts:'سود قطعات (ماه)', e_run:'اجرا', e_err:'دریافت درآمد ناموفق — کلید را بررسی کنید',
+    allowance:'کلود', al_ok:'آزاد', al_limited:'محدود ← محلی',
     none:'آماده‌باش — وظیفه‌ای ندارد', paused_banner:'⏸ ناوگان متوقف است',
     demo_banner:'◈ داده نمایشی — فید زنده در دسترس نیست ◈',
     cmd_sent:'دستور صف شد ✓ — مغز به‌زودی اجرا می‌کند',
@@ -956,6 +959,17 @@ function renderBanners(){
 function renderUplink(){
   const ok = !DEMO && (Date.now()-lastFetchOk < STALE_MS);
   document.getElementById('online-dot').classList.toggle('ok', ok);
+  const al = FEED && FEED.claude_allowance;
+  const el = document.getElementById('allowance');
+  if (!al){ el.textContent = '—'; el.style.color = 'var(--text-dim)'; }
+  else if (al.limited){
+    const rt = al.retry_at ? new Date(al.retry_at).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) : '';
+    el.textContent = t('al_limited') + (rt ? ' · ' + rt : '');
+    el.style.color = 'var(--amber)';
+  } else {
+    el.textContent = t('al_ok');
+    el.style.color = 'var(--green)';
+  }
 }
 function renderAll(){
   renderCards(); renderMetrics(); renderQueue(); renderFeedLog(); renderBanners(); renderUplink();
