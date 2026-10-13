@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-13T23:18:46Z",
+  "timestamp": "2026-10-13T23:19:21Z",
   "current_tasks": [],
   "model_summary": {
     "ollama": 0,
@@ -54,17 +54,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
-        "Failed: [Standing: keyword cluster gaps] Using the Search Console API (sc-doma",
         "Failed: [Standing: title and snippet CTR check] Using the Search Console API (",
         "Failed: [Standing: keyword cluster gaps] Using the Search Console API (sc-doma",
         "Failed: [Standing: title and snippet CTR check] Using the Search Console API (",
         "Failed: [Standing: keyword cluster gaps] Using the Search Console API (sc-doma",
-        "Failed: [Standing: title and snippet CTR check] Using the Search Console API ("
+        "Failed: [Standing: title and snippet CTR check] Using the Search Console API (",
+        "Failed: [Standing: keyword cluster gaps] Using the Search Console API (sc-doma"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:18:45Z"
+      "last_update": "2026-10-13T23:19:00Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -144,7 +144,7 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:16:31Z"
+      "last_update": "2026-10-13T23:19:14Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -175,6 +175,34 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:19:14Z",
+      "agent": "lear-competitors",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: competitor pricing check] Check the published call-out and price pages of the t",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:19:06Z",
+      "agent": "lear-competitors",
+      "type": "info",
+      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:19:00Z",
+      "agent": "lear-seo",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:18:51Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:18:45Z",
       "agent": "lear-seo",
@@ -229,34 +257,6 @@
       "agent": "lear-monitor",
       "type": "info",
       "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:17:43Z",
-      "agent": "lear-codereview",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:17:36Z",
-      "agent": "lear-codereview",
-      "type": "info",
-      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:17:28Z",
-      "agent": "lear-strategist",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:17:21Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
       "status": "completed"
     }
   ],
