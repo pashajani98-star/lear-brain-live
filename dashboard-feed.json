@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T22:52:46Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T22:53:20Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T23:53:19.843430",
+      "agent": "lear-social",
+      "agent_label": "Social",
+      "task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 34,
-    "total": 36
+    "haiku": 37,
+    "total": 39
   },
   "agents": {
     "lear-strategist": {
@@ -69,10 +79,10 @@
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Social and GBP post] Write one complete Google Business Profile post and one Instagram ca"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:39:45Z"
+      "last_update": "2026-10-13T22:53:19Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -91,13 +101,14 @@
       "id": "lear-codereview",
       "label": "Code review",
       "recent_activity": [
+        "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
         "[Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) t"
       ],
-      "status": "standby",
+      "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:37:41Z"
+      "last_update": "2026-10-13T22:52:54Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -141,16 +152,52 @@
       "id": "lear-monitor",
       "label": "Quality control",
       "recent_activity": [
+        "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything o"
       ],
-      "status": "standby",
+      "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:38:56Z"
+      "last_update": "2026-10-13T22:53:10Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:53:19Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:53:10Z",
+      "agent": "lear-monitor",
+      "type": "error",
+      "description": "Failed/stopped: [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:53:04Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:52:54Z",
+      "agent": "lear-codereview",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:52:49Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:52:42Z",
       "agent": "lear-strategist",
@@ -199,44 +246,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:45:34Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:45:23Z",
-      "agent": "lear-competitors",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:43:49Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:43:47Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:42:19Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 36,
+  "total_tasks_logged": 39,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
