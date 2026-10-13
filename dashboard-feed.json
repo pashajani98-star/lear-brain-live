@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-13T23:08:45Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T23:09:22Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T00:09:21.104532",
+      "agent": "lear-codereview",
+      "agent_label": "Code review",
+      "task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -21,7 +31,7 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:06:28Z"
+      "last_update": "2026-10-13T23:09:11Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -109,26 +119,26 @@
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain"
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:06:43Z"
+      "last_update": "2026-10-13T23:09:21Z"
     },
     "lear-content": {
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
-        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data "
+        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
+        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:07:30Z"
+      "last_update": "2026-10-13T23:08:59Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -175,6 +185,41 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:09:21Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:09:11Z",
+      "agent": "lear-strategist",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:09:06Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:08:59Z",
+      "agent": "lear-content",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:08:51Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:08:42Z",
       "agent": "lear-webdev",
@@ -223,41 +268,6 @@
       "type": "error",
       "description": "Failed/stopped: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
       "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:50Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:42Z",
-      "agent": "lear-seo",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:35Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:30Z",
-      "agent": "lear-content",
-      "type": "error",
-      "description": "Failed/stopped: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:20Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
-      "status": "completed"
     }
   ],
   "total_tasks_logged": 50,
