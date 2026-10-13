@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T22:35:55Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T22:36:28Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T23:36:04.528050",
+      "agent": "lear-codereview",
+      "agent_label": "Code review",
+      "task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 23,
-    "total": 25
+    "haiku": 24,
+    "total": 26
   },
   "agents": {
     "lear-strategist": {
@@ -87,10 +97,10 @@
       "recent_activity": [
         "[Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) t"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:45:55Z"
+      "last_update": "2026-10-13T22:36:04Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -140,6 +150,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:36:04Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:35:51Z",
       "agent": "lear-strategist",
@@ -216,16 +233,9 @@
       "type": "info",
       "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:55:18Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 25,
+  "total_tasks_logged": 26,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
