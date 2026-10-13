@@ -61,7 +61,7 @@
   .node .shell{fill:#04121d;stroke:var(--dim);stroke-width:1.5;transition:all .3s}
   .node .code{font-family:'Orbitron';font-weight:700;font-size:15px;fill:#6fb7cc;letter-spacing:1px}
   .node .nm{font-size:11px;fill:#8fd9ee;letter-spacing:1px}
-  .node .st{font-size:9px;fill:#4e7d91;letter-spacing:2px}
+  .node .st{font-size:9px;fill:#4e7d91;letter-spacing:.4px}
   .node:hover .shell{stroke:var(--cy)}
   .node.on .shell{stroke:var(--ok);filter:drop-shadow(0 0 10px rgba(46,242,169,.8));animation:np 1.6s infinite}
   .node.on .code{fill:#d9fff1}
@@ -103,6 +103,29 @@
     font-family:'Orbitron';font-weight:700;font-size:12px;letter-spacing:2px;color:#02222e;
     background:linear-gradient(180deg,#53eaff,#19b9dd);box-shadow:0 0 22px rgba(53,224,255,.45)}
   .hint{font-size:10px;color:#4e7d91;margin-top:10px;line-height:1.6;letter-spacing:.5px}
+  /* ops log drawer */
+  .oplog{position:fixed;top:0;left:0;height:100%;width:min(340px,88vw);z-index:38;
+    background:rgba(3,13,21,.94);backdrop-filter:blur(8px);border-right:1px solid var(--cy2);
+    box-shadow:20px 0 60px rgba(0,0,0,.55), inset -1px 0 0 rgba(53,224,255,.3);
+    transform:translateX(-104%);transition:transform .28s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+  .oplog.open{transform:none}
+  .oh{padding:16px 18px;border-bottom:1px solid rgba(53,224,255,.2);display:flex;align-items:center}
+  .oh .t{font-family:'Orbitron';font-weight:700;font-size:13px;letter-spacing:3px;color:var(--cy);
+    text-shadow:0 0 12px rgba(53,224,255,.6)}
+  .oh .close{margin-left:auto;background:transparent;border:1px solid var(--cy2);color:var(--cy);
+    font-size:17px;width:32px;height:32px;border-radius:4px;cursor:pointer}
+  .ob{overflow:auto;flex:1;padding:6px 0}
+  .le{padding:10px 18px;border-bottom:1px solid rgba(53,224,255,.07)}
+  .le .lh{display:flex;gap:10px;align-items:baseline}
+  .le .lt{font-size:10px;color:#49748a}
+  .le .la{font-family:'Orbitron';font-size:9px;letter-spacing:2px;color:var(--cy)}
+  .le .lx{font-size:12px;color:#c8ecf8;line-height:1.5;margin-top:3px}
+  .empty{padding:24px 18px;font-size:11px;color:#49748a;letter-spacing:1px}
+  .logbtn{position:fixed;left:18px;bottom:64px;z-index:31;background:rgba(4,17,27,.7);border:1px solid var(--cy2);
+    color:var(--cy);font-family:'Orbitron';font-size:11px;letter-spacing:2px;padding:12px 18px;border-radius:4px;
+    cursor:pointer;box-shadow:0 0 14px rgba(53,224,255,.25);backdrop-filter:blur(4px)}
+  .logbtn:hover{border-color:var(--cy);box-shadow:0 0 24px rgba(53,224,255,.55)}
+
   .brief{position:fixed;right:18px;bottom:64px;z-index:31;background:rgba(4,17,27,.7);border:1px solid var(--cy2);
     color:var(--cy);font-family:'Orbitron';font-size:11px;letter-spacing:2px;padding:12px 18px;border-radius:4px;
     cursor:pointer;box-shadow:0 0 14px rgba(53,224,255,.25);backdrop-filter:blur(4px)}
@@ -130,6 +153,13 @@
 </div>
 
 <button class="brief" id="briefBtn" onclick="speakBrief()">◉ BRIEF ME</button>
+<button class="logbtn" onclick="document.getElementById('oplog').classList.toggle('open')">◉ OPS LOG</button>
+
+<div class="oplog" id="oplog">
+  <div class="oh"><span class="t">OPS LOG</span>
+    <button class="close" onclick="document.getElementById('oplog').classList.remove('open')">×</button></div>
+  <div class="ob" id="oplogBody"><div class="empty">No operations recorded yet.</div></div>
+</div>
 
 <div class="panel" id="panel">
   <div class="ph">
@@ -140,6 +170,8 @@
     <span class="pill" id="pStatus">STANDBY</span>
     <div class="sect">CURRENT ASSIGNMENT</div>
     <div class="task" id="pTask">—</div>
+    <div class="sect">RECENT ACTIVITY</div>
+    <div id="pHist"></div>
     <div class="sect">TRANSMIT NEW DIRECTIVE</div>
     <textarea id="pMsg" placeholder="e.g. check the dishwasher page rankings and suggest 3 fixes"></textarea>
     <a class="send" id="pSend" target="_blank" rel="noopener">TRANSMIT VIA TELEGRAM ⟶</a>
@@ -207,10 +239,14 @@ async function tick(){
   try{
     const r=await fetch('status.json?t='+Date.now(),{cache:'no-store'});STATUS=await r.json();
     const act=new Set(STATUS.agents_active||[]);
+    const atasks=STATUS.agent_tasks||{};
     ROSTER.forEach(a=>{const on=act.has(a.id);
       document.getElementById('nd-'+a.id).classList.toggle('on',on);
       document.getElementById('lk-'+a.id).classList.toggle('on',on);
-      document.getElementById('st-'+a.id).textContent=on?'● ACTIVE':'STANDBY';});
+      const tk=(atasks[a.id]||'').trim();
+      const snip=tk.length>30?tk.slice(0,29)+'…':tk;
+      document.getElementById('st-'+a.id).textContent=on?('● '+(snip||'ACTIVE')):(snip||'STANDBY');});
+    renderLog();
     let st=(STATUS.state||'idle').toUpperCase();
     if(STATUS.paused)st='PAUSED';if(STATUS.usage_limited)st='USAGE LIMIT';
     const n=(st==='WORKING'&&act.size===0)?'CYCLE IN PROGRESS':act.size+' ACTIVE';
@@ -229,10 +265,23 @@ function openPanel(id){CUR=id;const a=ROSTER.find(x=>x.id===id);
   document.getElementById('pCode').textContent=a.code+' — '+a.name;
   document.getElementById('pId').textContent=a.id;
   refreshPanel();document.getElementById('panel').classList.add('open');}
+function codeOf(id){const a=ROSTER.find(x=>x.id===id);return a?a.code:(id==='manager'?'MGR':id.toUpperCase());}
+function esc(s){return (s||'').replace(/</g,'&lt;');}
+function renderLog(){
+  const feed=(STATUS.feed||[]).slice().reverse();
+  const el=document.getElementById('oplogBody');
+  if(!feed.length){el.innerHTML='<div class="empty">No operations recorded yet.</div>';return;}
+  el.innerHTML=feed.map(e=>`<div class="le"><div class="lh"><span class="la">${codeOf(e.a)}</span><span class="lt">${esc(e.t)}</span></div><div class="lx">${esc(e.x)}</div></div>`).join('');
+}
 function refreshPanel(){const a=ROSTER.find(x=>x.id===CUR);if(!a)return;
   const on=(STATUS.agents_active||[]).includes(a.id);
   const ps=document.getElementById('pStatus');ps.textContent=on?'● ACTIVE':'STANDBY';ps.className='pill'+(on?' on':'');
-  document.getElementById('pTask').textContent=on?((STATUS.objective||'engaged on an operation').slice(0,240)):'No active assignment — transmit one below.';
+  const tk=((STATUS.agent_tasks||{})[a.id]||'').trim();
+  document.getElementById('pTask').textContent=tk?(on?tk:('Last assignment: '+tk)):(on?(STATUS.objective||'engaged on an operation'):'No assignment on record — transmit one below.');
+  const hist=(STATUS.feed||[]).filter(e=>e.a===a.id).slice(-6).reverse();
+  document.getElementById('pHist').innerHTML=hist.length
+    ? hist.map(e=>`<div class="le" style="padding:8px 0"><div class="lh"><span class="lt">${esc(e.t)}</span></div><div class="lx">${esc(e.x)}</div></div>`).join('')
+    : '<div class="empty" style="padding:8px 0">No recorded activity yet.</div>';
   const m=document.getElementById('pMsg').value.trim();
   document.getElementById('pSend').href='https://t.me/'+BOT+'?text='+encodeURIComponent(mapName(a)+': '+m);
 }
