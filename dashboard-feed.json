@@ -1,19 +1,19 @@
 {
-  "timestamp": "2026-10-13T22:57:23Z",
+  "timestamp": "2026-10-13T22:57:56Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T23:57:20.184070",
-      "agent": "lear-reviews",
-      "agent_label": "Reputation",
-      "task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
+      "timestamp": "2026-10-13T23:57:50.214426",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
     }
   ],
   "model_summary": {
-    "ollama": 2,
-    "haiku": 48,
+    "ollama": 1,
+    "haiku": 49,
     "total": 50
   },
   "agents": {
@@ -49,14 +49,15 @@
       "label": "Reputation",
       "recent_activity": [
         "Failed: [Standing: review themes] Read the latest public Google reviews for Lo",
+        "Failed: [Standing: review themes] Read the latest public Google reviews for Lo",
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
         "[Reviews check] Check for new Google reviews for London Emergency Appliance Repair (public"
       ],
-      "status": "working",
-      "current_task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:57:20Z"
+      "last_update": "2026-10-13T22:57:25Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -93,6 +94,7 @@
       "label": "Web systems",
       "recent_activity": [
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
+        "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival"
@@ -100,7 +102,7 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:54:56Z"
+      "last_update": "2026-10-13T22:57:41Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -127,10 +129,10 @@
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:56:25Z"
+      "last_update": "2026-10-13T22:57:50Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -174,6 +176,34 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:57:50Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:57:41Z",
+      "agent": "lear-webdev",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:57:35Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:57:25Z",
+      "agent": "lear-reviews",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T22:57:20Z",
       "agent": "lear-reviews",
@@ -228,34 +258,6 @@
       "agent": "lear-content",
       "type": "error",
       "description": "Failed/stopped: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T22:56:20Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:56:09Z",
-      "agent": "lear-social",
-      "type": "error",
-      "description": "Failed/stopped: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T22:56:05Z",
-      "agent": "lear-social",
-      "type": "info",
-      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:55:58Z",
-      "agent": "lear-monitor",
-      "type": "error",
-      "description": "Failed/stopped: [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
       "status": "failed"
     }
   ],
