@@ -1,14 +1,42 @@
 {
-  "timestamp": "2026-10-13T20:02:50Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T20:03:02Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T21:02:50.399815",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last 7 days vs prior 7: users, sessions, top landing pages, booking/conversion events. Flag anything abnormal and give one specific, ready-to-apply recommendation.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 0,
-    "total": 0
+    "haiku": 1,
+    "total": 1
   },
-  "agents": {},
-  "recent_activity": [],
-  "total_tasks_logged": 0,
+  "agents": {
+    "lear-strategist": {
+      "id": "lear-strategist",
+      "label": "Strategy",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last 7 days vs prior 7: users, sessions, top landing pages, booking/conversion events. Flag anything abnormal and give one specific, ready-to-apply recommendation.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T20:02:50Z"
+    }
+  },
+  "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:02:50Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from mission scheduler: [GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last 7 days vs prior 7: users, ses",
+      "status": "completed"
+    }
+  ],
+  "total_tasks_logged": 1,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
