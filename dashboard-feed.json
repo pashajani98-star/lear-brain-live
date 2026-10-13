@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-13T19:38:22Z",
+  "timestamp": "2026-10-13T20:01:03Z",
   "current_tasks": [],
   "model_summary": {
     "ollama": 0,
@@ -8,5 +8,9 @@
   },
   "agents": {},
   "recent_activity": [],
-  "total_tasks_logged": 0
+  "total_tasks_logged": 0,
+  "claude_allowance": {
+    "limited": false,
+    "retry_at": null
+  }
 }
