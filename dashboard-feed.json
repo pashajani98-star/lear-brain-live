@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-13T23:39:29Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T23:40:05Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T00:39:37.432873",
+      "agent": "lear-codereview",
+      "agent_label": "Code review",
+      "task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -109,10 +119,10 @@
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:24:08Z"
+      "last_update": "2026-10-13T23:39:37Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -175,6 +185,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:39:37Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:39:27Z",
       "agent": "lear-strategist",
@@ -250,13 +267,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:27:37Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
       "status": "completed"
     }
   ],
