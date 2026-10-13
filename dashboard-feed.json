@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T20:59:46Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T21:00:23Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T21:59:56.977820",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Content gap post] From Search Console queries with impressions but no dedicated page, or common London appliance faults not yet covered, wr",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 12,
-    "total": 13
+    "haiku": 13,
+    "total": 14
   },
   "agents": {
     "lear-strategist": {
@@ -92,10 +102,10 @@
       "recent_activity": [
         "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Content gap post] From Search Console queries with impressions but no dedicated page, or common London appliance faults not yet covered, wr",
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:54:05Z"
+      "last_update": "2026-10-13T20:59:56Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -110,6 +120,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:59:56Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from mission scheduler: [Content gap post] From Search Console queries with impressions but no dedicated page, or common London appliance faults",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:59:44Z",
       "agent": "lear-competitors",
@@ -186,16 +203,9 @@
       "type": "ok",
       "description": "Completed (ollama): [Social and GBP post] Write one complete Google Business Profile post and one Instagram ca",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:36:14Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from mission scheduler: [Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP ",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 13,
+  "total_tasks_logged": 14,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
