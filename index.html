@@ -540,8 +540,11 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
 const GH_OWNER = 'pashajani98-star';
 const GH_REPO  = 'lear-brain-live';
 const GH_BRANCH= 'main';
-const FEED_URL   = './dashboard-feed.json';
-const STATUS_URL = './status.json';
+// Data comes from raw.githubusercontent (updates seconds after a push) rather
+// than the Pages copy, which lags behind the Pages build queue.
+const RAW_BASE   = `https://raw.githubusercontent.com/${'pashajani98-star'}/${'lear-brain-live'}/main/`;
+const FEED_URL   = RAW_BASE + 'dashboard-feed.json';
+const STATUS_URL = RAW_BASE + 'status.json';
 const CMDS_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/commands.json`;
 const POLL_MS    = 20000;
 const STALE_MS   = 2 * 60 * 1000;
@@ -697,7 +700,7 @@ async function poll(){
 }
 async function fetchPendingCommands(){
   try {
-    const data = await fetchJSON('./commands.json');
+    const data = await fetchJSON(RAW_BASE + 'commands.json');
     pendingCmds = {};
     (data.commands||[]).forEach(c=>{ if(c.status==='pending') pendingCmds[c.agent||'_fleet'] = true; });
   } catch(e){ /* no commands.json yet — fine */ }
@@ -1178,7 +1181,7 @@ setInterval(()=>{
 }, 1000);
 /* voice — plays the brief in the selected language (brief-fa.mp3 for Farsi) */
 document.getElementById('voice-btn').onclick = ()=>{
-  const file = LANG === 'fa' ? './brief-fa.mp3' : './brief.mp3';
+  const file = RAW_BASE + (LANG === 'fa' ? 'brief-fa.mp3' : 'brief.mp3');
   const audio = new Audio(file + '?t=' + Math.floor(Date.now()/600000));
   audio.play().catch(()=> toast(LANG==='fa' ? 'گزارش صوتی در دسترس نیست' : 'No voice brief available', 'err'));
 };
