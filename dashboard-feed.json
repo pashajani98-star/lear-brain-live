@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T20:55:24Z",
+  "timestamp": "2026-10-13T20:58:07Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T21:54:56.847020",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrivals, drop-off, anything that looks broken. If someth",
+      "timestamp": "2026-10-13T21:57:56.927510",
+      "agent": "lear-competitors",
+      "agent_label": "Competitor intel",
+      "task": "[SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair london' and 'washing machine repair london'. Note who",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 11,
-    "total": 12
+    "haiku": 12,
+    "total": 13
   },
   "agents": {
     "lear-strategist": {
@@ -77,11 +77,13 @@
     "lear-webdev": {
       "id": "lear-webdev",
       "label": "Web systems",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrivals, drop-off, anything that looks broken. If someth",
+      "recent_activity": [
+        "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival"
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:54:56Z"
+      "last_update": "2026-10-13T20:57:49Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -104,9 +106,32 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:54:05Z"
+    },
+    "lear-competitors": {
+      "id": "lear-competitors",
+      "label": "Competitor intel",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair london' and 'washing machine repair london'. Note who",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T20:57:56Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:57:56Z",
+      "agent": "lear-competitors",
+      "type": "info",
+      "description": "Task from mission scheduler: [SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair london' and 'washing machine repa",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T20:57:49Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:54:56Z",
       "agent": "lear-webdev",
@@ -176,23 +201,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Social and GBP post] Write one complete Google Business Profile post and one Instagram caption for LEAR (seasonal angle",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:34:56Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:33:13Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from mission scheduler: [Striking-distance keywords] Using Search Console, find queries in positions 5-15 with meaningful impressions but low cl",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 12,
+  "total_tasks_logged": 13,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
