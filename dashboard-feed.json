@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T22:53:53Z",
+  "timestamp": "2026-10-13T22:54:27Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T23:53:49.875382",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
+      "timestamp": "2026-10-13T23:54:19.899094",
+      "agent": "lear-competitors",
+      "agent_label": "Competitor intel",
+      "task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 39,
-    "total": 41
+    "haiku": 41,
+    "total": 43
   },
   "agents": {
     "lear-strategist": {
@@ -60,17 +60,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
+        "Failed: [Standing: title and snippet CTR check] Using the Search Console API (",
+        "Failed: [Standing: keyword cluster gaps] Using the Search Console API (sc-doma",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-        "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappl",
-        "[Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
-        "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
+        "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappl"
       ],
-      "status": "working",
-      "current_task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:53:49Z"
+      "last_update": "2026-10-13T22:54:09Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -134,10 +134,10 @@
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "[SERP and competitor watch] Check the live Google SERP for 'emergency appliance repair lon"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:45:23Z"
+      "last_update": "2026-10-13T22:54:19Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -165,6 +165,34 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:54:19Z",
+      "agent": "lear-competitors",
+      "type": "info",
+      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:54:09Z",
+      "agent": "lear-seo",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:54:04Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:53:57Z",
+      "agent": "lear-seo",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T22:53:49Z",
       "agent": "lear-seo",
@@ -220,37 +248,9 @@
       "type": "error",
       "description": "Failed/stopped: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
       "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T22:52:49Z",
-      "agent": "lear-codereview",
-      "type": "info",
-      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:52:42Z",
-      "agent": "lear-strategist",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T22:52:34Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:52:22Z",
-      "agent": "lear-content",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-      "status": "failed"
     }
   ],
-  "total_tasks_logged": 41,
+  "total_tasks_logged": 43,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
