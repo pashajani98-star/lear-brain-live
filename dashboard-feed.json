@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T23:22:49Z",
+  "timestamp": "2026-10-13T23:24:35Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T00:22:37.026337",
-      "agent": "lear-codereview",
-      "agent_label": "Code review",
-      "task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "timestamp": "2026-10-14T00:24:22.064060",
+      "agent": "lear-monitor",
+      "agent_label": "Quality control",
+      "task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -112,17 +112,17 @@
       "id": "lear-codereview",
       "label": "Code review",
       "recent_activity": [
-        "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
+        "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain"
       ],
-      "status": "working",
-      "current_task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:22:37Z"
+      "last_update": "2026-10-13T23:24:08Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -178,13 +178,27 @@
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr"
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:18:00Z"
+      "last_update": "2026-10-13T23:24:22Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:24:22Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:24:08Z",
+      "agent": "lear-codereview",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:22:37Z",
       "agent": "lear-codereview",
@@ -253,20 +267,6 @@
       "agent": "lear-competitors",
       "type": "error",
       "description": "Failed/stopped: [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:19:06Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:19:00Z",
-      "agent": "lear-seo",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
       "status": "failed"
     }
   ],
