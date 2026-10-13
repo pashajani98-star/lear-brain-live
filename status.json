@@ -1,8 +1,16 @@
 {
-  "state": "working",
+  "state": "idle",
   "paused": false,
   "usage_limited": false,
-  "manager_note": "coordinating the team on a task",
+  "manager_note": "reviewing / doing the rounds",
   "needs_pasha": false,
-  "updated": "2026-10-13T11:16:11Z"
+  "updated": "2026-10-13T11:23:46Z",
+  "agents_active": [
+    "lear-seo",
+    "lear-strategist",
+    "lear-webdev",
+    "lear-monitor"
+  ],
+  "objective": "All three specialists are working. I'll wait for their completion notifications, then run the lear-monitor review and post the final status.",
+  "last_summary": "All three specialists are working. I'll wait for their completion notifications, then run the lear-monitor review and post the final status.\n\nGA4 pulse is in: traffic slightly soft (-10% users WoW), form leads up 73%, but paid bookings down 40% and yesterday had near-zero conversions. Still waiting on the SEO movers and technical spot-check before the monitor review.\n\nConfirmed \u2014 the 3.1s was a one-off cold cache; warm hits are ~40ms. Technical check is now fully verified: all five money pages 200, no redirects, fast. Waiting on the SEO agent before the monitor review.\n\nForm renders fine and t"
 }
