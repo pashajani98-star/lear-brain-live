@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T21:05:02Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T22:04:53.397658",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com), compare the last 7 days vs the p",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T21:07:44Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 1,
     "haiku": 15,
@@ -55,13 +45,14 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
+        "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappl",
         "[Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
         "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
       ],
-      "status": "working",
-      "current_task": "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com), compare the last 7 days vs the p",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T21:04:53Z"
+      "last_update": "2026-10-13T21:07:33Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -131,6 +122,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T21:07:33Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappl",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T21:04:53Z",
       "agent": "lear-seo",
@@ -206,13 +204,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:45:56Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from mission scheduler: [Indexing health check] Using Search Console, check indexing of the money pages (homepage, main service pages, /book/) a",
       "status": "completed"
     }
   ],
