@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T22:23:48Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T23:23:40.054261",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T22:25:19Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 2,
     "haiku": 18,
@@ -61,8 +51,8 @@
         "[Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
         "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
       ],
-      "status": "working",
-      "current_task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T22:23:40Z"
     },
