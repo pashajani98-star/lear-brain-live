@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T20:46:20Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T21:45:56.112408",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Indexing health check] Using Search Console, check indexing of the money pages (homepage, main service pages, /book/) and the 5 newest blog posts. If anything dropped out or shows errors, produce the exact fix ready to apply; otherwise report all-clear in 3 lines.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.\nBegin your reply with exactly one line: TLDR: <the outcome in one short, plain, everyday-words sentence>. The detail goes after it.",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T20:50:54Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 1,
     "haiku": 9,
@@ -55,12 +45,13 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
+        "[Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
         "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
       ],
-      "status": "working",
-      "current_task": "[Indexing health check] Using Search Console, check indexing of the money pages (homepage, main service pages, /book/) and the 5 newest blog posts. If anything dropped out or shows errors, produce the exact fix ready to apply; otherwise report all-clear in 3 lines.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.\nBegin your reply with exactly one line: TLDR: <the outcome in one short, plain, everyday-words sentence>. The detail goes after it.",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:45:56Z"
+      "last_update": "2026-10-13T20:50:40Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -95,6 +86,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:50:40Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:45:56Z",
       "agent": "lear-seo",
@@ -170,13 +168,6 @@
       "agent": "lear-security",
       "type": "ok",
       "description": "Completed (haiku): [Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:27:13Z",
-      "agent": "lear-security",
-      "type": "info",
-      "description": "Task from mission scheduler: [Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, /book/, 2 random combo pages a",
       "status": "completed"
     }
   ],
