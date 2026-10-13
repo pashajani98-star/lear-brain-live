@@ -1,35 +1,26 @@
 {
-  "timestamp": "2026-10-13T22:50:38Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T23:50:34.753614",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T22:52:46Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 2,
-    "haiku": 33,
-    "total": 35
+    "haiku": 34,
+    "total": 36
   },
   "agents": {
     "lear-strategist": {
       "id": "lear-strategist",
       "label": "Strategy",
       "recent_activity": [
+        "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 ",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search C",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last"
       ],
-      "status": "standby",
+      "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:35:51Z"
+      "last_update": "2026-10-13T22:52:42Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -112,14 +103,15 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los"
       ],
-      "status": "working",
-      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:50:34Z"
+      "last_update": "2026-10-13T22:52:22Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -159,6 +151,27 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:52:42Z",
+      "agent": "lear-strategist",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T22:52:34Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:52:22Z",
+      "agent": "lear-content",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T22:50:34Z",
       "agent": "lear-content",
@@ -221,30 +234,9 @@
       "type": "info",
       "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:42:14Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:40:19Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:40:18Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 35,
+  "total_tasks_logged": 36,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
