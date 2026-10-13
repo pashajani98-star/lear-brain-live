@@ -1,10 +1,10 @@
 {
-  "state": "idle",
+  "state": "working",
   "paused": false,
   "usage_limited": false,
-  "manager_note": "reviewing / doing the rounds",
+  "manager_note": "coordinating the team on a task",
   "needs_pasha": false,
-  "updated": "2026-10-13T11:23:46Z",
+  "updated": "2026-10-13T11:25:51Z",
   "agents_active": [
     "lear-seo",
     "lear-strategist",
