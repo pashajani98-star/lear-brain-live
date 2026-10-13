@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T22:39:11Z",
+  "timestamp": "2026-10-13T22:40:18Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T23:39:04.576745",
-      "agent": "lear-social",
-      "agent_label": "Social",
-      "task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
+      "timestamp": "2026-10-13T23:39:49.591514",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 26,
-    "total": 28
+    "haiku": 27,
+    "total": 29
   },
   "agents": {
     "lear-strategist": {
@@ -72,12 +72,13 @@
       "id": "lear-social",
       "label": "Social",
       "recent_activity": [
+        "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Social and GBP post] Write one complete Google Business Profile post and one Instagram ca"
       ],
-      "status": "working",
-      "current_task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:39:04Z"
+      "last_update": "2026-10-13T22:39:45Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -110,10 +111,10 @@
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:34:22Z"
+      "last_update": "2026-10-13T22:39:49Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -152,6 +153,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:39:49Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:39:45Z",
+      "agent": "lear-social",
+      "type": "ok",
+      "description": "Completed (haiku): [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:39:04Z",
       "agent": "lear-social",
@@ -221,23 +236,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:27:49Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:27:45Z",
-      "agent": "lear-reviews",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 28,
+  "total_tasks_logged": 29,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
