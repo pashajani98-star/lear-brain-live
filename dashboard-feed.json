@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T20:09:12Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T20:21:31Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T21:21:12.458860",
+      "agent": "lear-security",
+      "agent_label": "Security & health",
+      "task": "[Security sweep] Run a security sweep of the LEAR estate: live site HTTPS and security headers, wp-login/xmlrpc exposure, no debug or error leakage on key pages, Engineer App REST guarded (lear/v1/jobs 401 logged out, earnings-summary 403 on a bad key), the public dashboard repo free of secrets or money data. Report findings by severity with the exact ready-made fix for each; all-clear in 3 lines if nothing found.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 2,
-    "total": 2
+    "haiku": 3,
+    "total": 3
   },
   "agents": {
     "lear-strategist": {
@@ -18,9 +28,25 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:07:08Z"
+    },
+    "lear-security": {
+      "id": "lear-security",
+      "label": "Security & health",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Security sweep] Run a security sweep of the LEAR estate: live site HTTPS and security headers, wp-login/xmlrpc exposure, no debug or error leakage on key pages, Engineer App REST guarded (lear/v1/jobs 401 logged out, earnings-summary 403 on a bad key), the public dashboard repo free of secrets or money data. Report findings by severity with the exact ready-made fix for each; all-clear in 3 lines if nothing found.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T20:21:12Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:21:12Z",
+      "agent": "lear-security",
+      "type": "info",
+      "description": "Task from mission scheduler: [Security sweep] Run a security sweep of the LEAR estate: live site HTTPS and security headers, wp-login/xmlrpc exposure",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:07:08Z",
       "agent": "lear-strategist",
@@ -50,7 +76,7 @@
       "status": "completed"
     }
   ],
-  "total_tasks_logged": 2,
+  "total_tasks_logged": 3,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
