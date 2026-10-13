@@ -1,8 +1,7 @@
 {
-  "state": "working",
-  "paused": false,
-  "usage_limited": false,
-  "manager_note": "coordinating the team on a task",
-  "needs_pasha": false,
-  "updated": "2026-10-13T11:36:52Z"
+  "state": "paused",
+  "paused": true,
+  "manager_note": "paused by Pasha",
+  "agents_active": [],
+  "updated": "2026-10-13T11:44:51Z"
 }
