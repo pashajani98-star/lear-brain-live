@@ -235,6 +235,37 @@ body.rtl .mono, body.rtl .log-line { direction:ltr; text-align:left; }
 .qitem .qm { font-family:var(--font-mono); font-size:9px; color:var(--text-dim); margin-top:3px; display:flex; justify-content:space-between; }
 .qempty { color:var(--text-dim); font-size:12px; font-style:italic; padding:6px 0; }
 
+/* earnings */
+#panel-earnings { width:280px; }
+.erow { display:flex; justify-content:space-between; align-items:baseline; padding:5px 0; border-bottom:1px dotted rgba(255,255,255,.06); }
+.erow .k { font-size:11px; letter-spacing:1.5px; color:var(--text-dim); text-transform:uppercase; }
+.erow .v { font-family:var(--font-mono); font-size:14px; font-weight:600; color:var(--green); }
+.erow .v small { color:var(--text-dim); font-weight:400; font-size:10px; }
+.erow.neg .v { color:var(--red); }
+.money-hidden .erow .v, .money-hidden #earn-custom-out {
+  filter:blur(7px); user-select:none; pointer-events:none;
+}
+.reveal-btn {
+  width:100%; margin:8px 0 2px; font-family:var(--font-ui); font-weight:700; font-size:11px;
+  letter-spacing:2px; padding:8px; cursor:pointer; text-transform:uppercase;
+  background:transparent; border:1px solid var(--cyan-dim); color:var(--cyan);
+  clip-path:polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+.reveal-btn:hover { background:var(--cyan-faint); }
+.earn-custom { display:flex; gap:5px; margin-top:9px; align-items:center; flex-wrap:wrap; }
+.earn-custom input[type=date] {
+  background:rgba(0,0,0,.35); border:1px solid var(--cyan-dim); color:var(--text);
+  font-family:var(--font-mono); font-size:10px; padding:5px; flex:1; min-width:90px;
+  color-scheme:dark;
+}
+.earn-custom .go {
+  background:transparent; border:1px solid var(--cyan-dim); color:var(--cyan);
+  font-family:var(--font-ui); font-weight:700; font-size:10px; letter-spacing:1px;
+  padding:6px 10px; cursor:pointer;
+}
+#earn-custom-out { font-family:var(--font-mono); font-size:11px; color:var(--green); margin-top:6px; min-height:15px; }
+.earn-note { font-family:var(--font-mono); font-size:9px; color:var(--text-dim); margin-top:7px; line-height:1.5; }
+
 /* activity feed */
 #panel-feed { width:430px; }
 #panel-feed .panel-body { font-family:var(--font-mono); font-size:11px; }
@@ -417,6 +448,32 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
     <div class="hud-corners"><i></i><i></i><i></i><i></i></div>
   </section>
 
+  <section class="panel money-hidden" id="panel-earnings" style="height:380px">
+    <div class="panel-head"><h3 data-i18n="earnings">💷 EARNINGS</h3><span class="pin" data-collapse="panel-earnings">▾</span></div>
+    <div class="panel-body">
+      <div class="qempty" id="earn-nokey" data-i18n="e_nokey">Paste your earnings key in ⚿ Auth to link the Engineer App.</div>
+      <div id="earn-wrap" style="display:none">
+        <button class="reveal-btn" id="earn-reveal" data-i18n="e_reveal">👁 Reveal figures</button>
+        <div class="erow"><span class="k" data-i18n="e_today">Today</span><span class="v" data-e="today">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_week">This week</span><span class="v" data-e="week">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_month">This month</span><span class="v" data-e="month">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_lastmonth">Last month</span><span class="v" data-e="last_month">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_year">This year</span><span class="v" data-e="year">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_all">All time</span><span class="v" data-e="all">—</span></div>
+        <div class="erow neg"><span class="k" data-i18n="e_outstanding">Outstanding</span><span class="v" id="earn-outstanding">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_avg">Avg job (month)</span><span class="v" id="earn-avg">—</span></div>
+        <div class="erow"><span class="k" data-i18n="e_parts">Parts mark-up (mo)</span><span class="v" id="earn-parts">—</span></div>
+        <div class="earn-custom">
+          <input type="date" id="earn-from"><input type="date" id="earn-to">
+          <button class="go" id="earn-run" data-i18n="e_run">RUN</button>
+        </div>
+        <div id="earn-custom-out"></div>
+        <div class="earn-note" id="earn-updated"></div>
+      </div>
+    </div>
+    <div class="hud-corners"><i></i><i></i><i></i><i></i></div>
+  </section>
+
   <section class="panel" id="panel-feed" style="height:260px">
     <div class="panel-head"><h3 data-i18n="activity">ACTIVITY FEED</h3><span class="pin" data-collapse="panel-feed">▾</span></div>
     <div class="panel-body" id="feed-body"><div class="qempty" data-i18n="f_empty">Waiting for activity…</div></div>
@@ -465,6 +522,8 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
       <li data-i18n="t_s4">Paste the token below. It is stored only in this browser.</li>
     </ol>
     <input type="password" id="token-input" placeholder="github_pat_…">
+    <p style="margin-top:4px" data-i18n="t_p2">Earnings key (optional) — links the Engineer App's money figures. While logged into the site as owner, open <a href="https://londonemergencyappliancerepair.com/wp-json/lear/v1/earnings-key" target="_blank" rel="noopener">/wp-json/lear/v1/earnings-key</a> and paste the key here:</p>
+    <input type="password" id="earnkey-input" placeholder="earnings key…">
     <div class="mrow">
       <button class="hbtn" id="token-clear" data-i18n="t_clear">Clear</button>
       <button class="hbtn" id="token-save"  data-i18n="t_save">Save</button>
@@ -518,6 +577,12 @@ const I18N = {
     t_s2:'Repository access: only lear-brain-live', t_s3:'Permissions: Contents → Read and write',
     t_s4:'Paste the token below. It is stored only in this browser.',
     t_clear:'Clear', t_save:'Save',
+    t_p2:'Earnings key (optional) — links the Engineer App\'s money figures. While logged into the site as owner, open <a href="https://londonemergencyappliancerepair.com/wp-json/lear/v1/earnings-key" target="_blank" rel="noopener">/wp-json/lear/v1/earnings-key</a> and paste the key here:',
+    earnings:'💷 EARNINGS', e_nokey:'Paste your earnings key in ⚿ Auth to link the Engineer App.',
+    e_reveal:'👁 Reveal figures', e_hide:'🙈 Hide figures',
+    e_today:'Today', e_week:'This week', e_month:'This month', e_lastmonth:'Last month',
+    e_year:'This year', e_all:'All time', e_outstanding:'Outstanding', e_avg:'Avg job (month)',
+    e_parts:'Parts mark-up (mo)', e_run:'RUN', e_err:'Earnings fetch failed — check the key',
     none:'standby — no task assigned', paused_banner:'⏸ FLEET PAUSED',
     demo_banner:'◈ DEMO DATA — LIVE FEED UNREACHABLE ◈',
     cmd_sent:'Command queued ✓ — the brain will pick it up shortly',
@@ -540,6 +605,12 @@ const I18N = {
     t_s2:'دسترسی مخزن: فقط lear-brain-live', t_s3:'مجوزها: Contents → Read and write',
     t_s4:'توکن را اینجا وارد کنید. فقط در همین مرورگر ذخیره می‌شود.',
     t_clear:'پاک کردن', t_save:'ذخیره',
+    t_p2:'کلید درآمد (اختیاری) — ارقام مالی اپ مهندس را وصل می‌کند. در حالی که به‌عنوان مالک وارد سایت هستید <a href="https://londonemergencyappliancerepair.com/wp-json/lear/v1/earnings-key" target="_blank" rel="noopener">این آدرس</a> را باز کنید و کلید را اینجا بچسبانید:',
+    earnings:'💷 درآمد', e_nokey:'برای اتصال اپ مهندس، کلید درآمد را در ⚿ وارد کنید.',
+    e_reveal:'👁 نمایش ارقام', e_hide:'🙈 پنهان کردن',
+    e_today:'امروز', e_week:'این هفته', e_month:'این ماه', e_lastmonth:'ماه قبل',
+    e_year:'امسال', e_all:'کل', e_outstanding:'وصول‌نشده', e_avg:'میانگین هر کار (ماه)',
+    e_parts:'سود قطعات (ماه)', e_run:'اجرا', e_err:'دریافت درآمد ناموفق — کلید را بررسی کنید',
     none:'آماده‌باش — وظیفه‌ای ندارد', paused_banner:'⏸ ناوگان متوقف است',
     demo_banner:'◈ داده نمایشی — فید زنده در دسترس نیست ◈',
     cmd_sent:'دستور صف شد ✓ — مغز به‌زودی اجرا می‌کند',
@@ -672,9 +743,10 @@ function defaultPositions(){
     const rx = Math.min(W*0.33, 520), ry = Math.min(H*0.36, 330);
     pos[r.id] = { x: cx + Math.cos(ang)*rx - 115, y: cy + Math.sin(ang)*ry - 60 };
   });
-  pos['panel-metrics'] = { x: 14, y: 66 };
-  pos['panel-queue']   = { x: 14, y: 414 };
-  pos['panel-feed']    = { x: W - 448, y: H + 52 - 276 };
+  pos['panel-metrics']  = { x: 14, y: 66 };
+  pos['panel-queue']    = { x: 14, y: 414 };
+  pos['panel-feed']     = { x: W - 448, y: H + 52 - 276 };
+  pos['panel-earnings'] = { x: W - 298, y: 66 };
   return pos;
 }
 function getPos(id){
@@ -985,19 +1057,93 @@ document.getElementById('d-instr').addEventListener('keydown', e=>{ if(e.key==='
 /* token modal */
 function openTokenModal(){
   document.getElementById('token-input').value = getToken();
+  document.getElementById('earnkey-input').value = getEarnKey();
   document.getElementById('modal-token').classList.add('open');
 }
 document.getElementById('token-btn').onclick = openTokenModal;
 document.getElementById('token-save').onclick = ()=>{
-  try { localStorage.setItem('lb_gh_token', document.getElementById('token-input').value.trim()); } catch(e){}
+  try {
+    localStorage.setItem('lb_gh_token', document.getElementById('token-input').value.trim());
+    localStorage.setItem('lb_earn_key', document.getElementById('earnkey-input').value.trim());
+  } catch(e){}
   document.getElementById('modal-token').classList.remove('open');
-  toast('Token saved ✓', 'ok');
+  toast('Saved ✓', 'ok');
+  renderEarningsGate(); fetchEarnings(true);
 };
 document.getElementById('token-clear').onclick = ()=>{
-  try { localStorage.removeItem('lb_gh_token'); } catch(e){}
+  try { localStorage.removeItem('lb_gh_token'); localStorage.removeItem('lb_earn_key'); } catch(e){}
   document.getElementById('token-input').value='';
-  toast('Token cleared', 'ok');
+  document.getElementById('earnkey-input').value='';
+  toast('Cleared', 'ok');
+  renderEarningsGate();
 };
+
+/* ═══════════════════ EARNINGS (Engineer App) ═══════════════════ */
+const EARN_API = 'https://londonemergencyappliancerepair.com/wp-json/lear/v1/earnings-summary';
+let EARN = null, earnRevealed = false, earnHideTimer = null, earnLastFetch = 0;
+function getEarnKey(){ try { return localStorage.getItem('lb_earn_key')||''; } catch(e){ return ''; } }
+function renderEarningsGate(){
+  const has = !!getEarnKey();
+  document.getElementById('earn-nokey').style.display = has ? 'none' : '';
+  document.getElementById('earn-wrap').style.display  = has ? '' : 'none';
+}
+function gbp(n){ return '£' + (Math.round((n||0)*100)/100).toLocaleString('en-GB', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+async function fetchEarnings(force){
+  const key = getEarnKey();
+  if (!key) return;
+  if (!force && Date.now() - earnLastFetch < 5*60*1000) return;
+  try {
+    const r = await fetch(EARN_API + '?key=' + encodeURIComponent(key) + '&t=' + Date.now(), {cache:'no-store'});
+    if (!r.ok) throw new Error(r.status);
+    EARN = await r.json();
+    earnLastFetch = Date.now();
+    renderEarnings();
+  } catch(e){
+    if (force) toast(t('e_err'), 'err');
+  }
+}
+function renderEarnings(){
+  if (!EARN) return;
+  const w = EARN.windows || {};
+  document.querySelectorAll('[data-e]').forEach(el=>{
+    const x = w[el.dataset.e];
+    el.innerHTML = x ? `${gbp(x.collected)} <small>· ${x.jobs}</small>` : '—';
+  });
+  const o = EARN.outstanding || {};
+  document.getElementById('earn-outstanding').innerHTML = `${gbp(o.sum)} <small>· ${o.jobs||0}</small>`;
+  document.getElementById('earn-avg').textContent = gbp(EARN.avg_job_month);
+  const p = EARN.parts_month || {};
+  document.getElementById('earn-parts').textContent = (p.markup<0?'−':'') + gbp(Math.abs(p.markup||0));
+  document.getElementById('earn-updated').textContent =
+    'synced ' + (EARN.updated ? new Date(EARN.updated).toLocaleTimeString('en-GB') : '—');
+  if (w.custom){
+    document.getElementById('earn-custom-out').textContent =
+      `${gbp(w.custom.collected)} · ${w.custom.jobs} jobs in range`;
+  }
+}
+function setRevealed(on){
+  earnRevealed = on;
+  document.getElementById('panel-earnings').classList.toggle('money-hidden', !on);
+  document.getElementById('earn-reveal').textContent = on ? t('e_hide') : t('e_reveal');
+  clearTimeout(earnHideTimer);
+  if (on){
+    fetchEarnings(true);
+    earnHideTimer = setTimeout(()=> setRevealed(false), 90*1000); // auto-hide after 90s
+  }
+}
+document.getElementById('earn-reveal').onclick = ()=> setRevealed(!earnRevealed);
+document.getElementById('earn-run').onclick = async ()=>{
+  const f = document.getElementById('earn-from').value, to = document.getElementById('earn-to').value;
+  if (!f || !to || !getEarnKey()) return;
+  try {
+    const r = await fetch(EARN_API + '?key=' + encodeURIComponent(getEarnKey()) + `&from=${f}&to=${to}&t=` + Date.now(), {cache:'no-store'});
+    if (!r.ok) throw new Error(r.status);
+    EARN = await r.json(); earnLastFetch = Date.now();
+    renderEarnings();
+    if (!earnRevealed) setRevealed(true);
+  } catch(e){ toast(t('e_err'), 'err'); }
+};
+setInterval(()=> fetchEarnings(false), 5*60*1000);
 document.getElementById('modal-token').addEventListener('click', e=>{
   if (e.target.id==='modal-token') e.target.classList.remove('open');
 });
@@ -1070,6 +1216,8 @@ function runBoot(){
 positionCore();
 buildCards();
 applyLang();
+renderEarningsGate();
+fetchEarnings(false);
 runBoot();
 poll();
 setInterval(poll, POLL_MS);
