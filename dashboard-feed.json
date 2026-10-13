@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T23:19:57Z",
+  "timestamp": "2026-10-13T23:20:33Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T00:19:51.959234",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "timestamp": "2026-10-14T00:20:06.989951",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -28,10 +28,10 @@
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 ",
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 "
       ],
-      "status": "error",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:17:28Z"
+      "last_update": "2026-10-13T23:20:06Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -128,17 +128,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
-        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data "
+        "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data ",
+        "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr"
       ],
-      "status": "working",
-      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:19:51Z"
+      "last_update": "2026-10-13T23:19:58Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:20:06Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:19:58Z",
+      "agent": "lear-content",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T23:19:51Z",
       "agent": "lear-content",
@@ -253,20 +267,6 @@
       "agent": "lear-seo",
       "type": "error",
       "description": "Failed/stopped: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:18:36Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:18:27Z",
-      "agent": "lear-content",
-      "type": "error",
-      "description": "Failed/stopped: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
       "status": "failed"
     }
   ],
