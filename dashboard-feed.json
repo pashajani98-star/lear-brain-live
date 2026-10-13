@@ -1,6 +1,24 @@
 {
-  "timestamp": "2026-10-13T20:35:03Z",
+  "timestamp": "2026-10-13T20:37:11Z",
   "current_tasks": [
+    {
+      "timestamp": "2026-10-13T21:36:13.545291",
+      "agent": "lear-webdev",
+      "agent_label": "Web systems",
+      "task": "[Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP 200, full load, sensible title/meta. If something is broken produce the exact fix (file + code) ready to push; end with 'Reply YES to proceed' before deploying.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "model": "haiku",
+      "status": "started",
+      "elapsed": 0
+    },
+    {
+      "timestamp": "2026-10-13T21:35:13.437468",
+      "agent": "lear-social",
+      "agent_label": "Social",
+      "task": "[Social and GBP post] Write one complete Google Business Profile post and one Instagram caption for LEAR (seasonal angle, current month, brand voice per the brand notes provided below). Ready to copy-paste or publish. End with 'Reply YES to proceed'.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "model": "ollama",
+      "status": "running",
+      "elapsed": 0
+    },
     {
       "timestamp": "2026-10-13T21:21:12.458860",
       "agent": "lear-security",
@@ -12,9 +30,9 @@
     }
   ],
   "model_summary": {
-    "ollama": 0,
-    "haiku": 6,
-    "total": 6
+    "ollama": 1,
+    "haiku": 7,
+    "total": 8
   },
   "agents": {
     "lear-strategist": {
@@ -61,9 +79,41 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:34:56Z"
+    },
+    "lear-social": {
+      "id": "lear-social",
+      "label": "Social",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Social and GBP post] Write one complete Google Business Profile post and one Instagram caption for LEAR (seasonal angle, current month, brand voice per the brand notes provided below). Ready to copy-paste or publish. End with 'Reply YES to proceed'.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "current_model": "ollama",
+      "last_update": "2026-10-13T20:35:13Z"
+    },
+    "lear-webdev": {
+      "id": "lear-webdev",
+      "label": "Web systems",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP 200, full load, sensible title/meta. If something is broken produce the exact fix (file + code) ready to push; end with 'Reply YES to proceed' before deploying.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T20:36:14Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:36:14Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from mission scheduler: [Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP ",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T20:35:13Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from mission scheduler: [Social and GBP post] Write one complete Google Business Profile post and one Instagram caption for LEAR (seasonal angle",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:34:56Z",
       "agent": "lear-seo",
@@ -133,16 +183,9 @@
       "type": "ok",
       "description": "Completed (haiku): [GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:02:50Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from mission scheduler: [GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last 7 days vs prior 7: users, ses",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 6,
+  "total_tasks_logged": 8,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
