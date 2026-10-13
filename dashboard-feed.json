@@ -1,25 +1,6 @@
 {
-  "timestamp": "2026-10-13T20:40:54Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T21:36:13.545291",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP 200, full load, sensible title/meta. If something is broken produce the exact fix (file + code) ready to push; end with 'Reply YES to proceed' before deploying.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    },
-    {
-      "timestamp": "2026-10-13T21:21:12.458860",
-      "agent": "lear-security",
-      "agent_label": "Security & health",
-      "task": "[Security sweep] Run a security sweep of the LEAR estate: live site HTTPS and security headers, wp-login/xmlrpc exposure, no debug or error leakage on key pages, Engineer App REST guarded (lear/v1/jobs 401 logged out, earnings-summary 403 on a bad key), the public dashboard repo free of secrets or money data. Report findings by severity with the exact ready-made fix for each; all-clear in 3 lines if nothing found.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T20:41:56Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 1,
     "haiku": 7,
@@ -86,8 +67,8 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [],
-      "status": "working",
-      "current_task": "[Technical spot-check] Fetch the homepage and 2-3 key service pages of londonemergencyappliancerepair.com. Confirm HTTP 200, full load, sensible title/meta. If something is broken produce the exact fix (file + code) ready to push; end with 'Reply YES to proceed' before deploying.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:40:50Z"
     }
