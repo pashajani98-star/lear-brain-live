@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T22:28:18Z",
+  "timestamp": "2026-10-13T22:32:13Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T23:27:49.314113",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "timestamp": "2026-10-13T23:31:49.359100",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 21,
-    "total": 23
+    "haiku": 22,
+    "total": 24
   },
   "agents": {
     "lear-strategist": {
@@ -82,12 +82,13 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [
+        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival"
       ],
-      "status": "working",
-      "current_task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:27:49Z"
+      "last_update": "2026-10-13T22:31:40Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -106,10 +107,10 @@
       "recent_activity": [
         "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:59:56Z"
+      "last_update": "2026-10-13T22:31:49Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -147,6 +148,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:31:49Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:31:40Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:27:49Z",
       "agent": "lear-webdev",
@@ -216,23 +231,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, o",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:09:51Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search C",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:07:53Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from mission scheduler: [Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search Console, last 7 days vs prior 7",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 23,
+  "total_tasks_logged": 24,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
