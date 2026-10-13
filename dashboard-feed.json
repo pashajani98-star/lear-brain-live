@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-13T23:04:46Z",
+  "timestamp": "2026-10-13T23:05:19Z",
   "current_tasks": [],
   "model_summary": {
     "ollama": 0,
@@ -64,7 +64,7 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:02:25Z"
+      "last_update": "2026-10-13T23:05:13Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -176,6 +176,34 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-13T23:05:13Z",
+      "agent": "lear-seo",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:05:05Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:04:55Z",
+      "agent": "lear-seo",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:04:50Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-13T23:04:41Z",
       "agent": "lear-content",
       "type": "error",
@@ -229,34 +257,6 @@
       "agent": "lear-codereview",
       "type": "info",
       "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:03:41Z",
-      "agent": "lear-strategist",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:03:35Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:03:25Z",
-      "agent": "lear-content",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:03:20Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
       "status": "completed"
     }
   ],
