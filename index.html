@@ -101,8 +101,8 @@ body.rtl .mono, body.rtl .log-line { direction:ltr; text-align:left; }
 .lang-wrap { display:flex; gap:4px; }
 
 /* ── Banners ────────────────────────────────────────────────────────────── */
+.banners { position:fixed; top:52px; left:0; right:0; z-index:39; display:flex; flex-direction:column; }
 .banner {
-  position:fixed; top:52px; left:0; right:0; z-index:39;
   text-align:center; font-family:var(--font-mono); font-size:11px; letter-spacing:2px;
   padding:4px; display:none;
 }
@@ -347,7 +347,7 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
   .panel-head { cursor:default; }
   .topbar { flex-wrap:wrap; height:auto; padding:8px 12px; gap:10px; position:fixed; }
   .top-stat { display:none; }
-  .banner { top:48px; }
+  .banners { position:static; }
   .drawer { width:100vw; max-width:100vw; top:0; }
   #panel-feed .panel-body { max-height:300px; }
 }
@@ -384,8 +384,10 @@ body.rtl .modal ol { margin:0 18px 12px 0; }
   <button class="hbtn warn" id="token-btn" data-i18n="auth">⚿ Auth</button>
 </header>
 
-<div class="banner demo" id="banner-demo">◈ DEMO DATA — LIVE FEED UNREACHABLE ◈</div>
-<div class="banner paused" id="banner-paused">⏸ FLEET PAUSED</div>
+<div class="banners">
+  <div class="banner demo" id="banner-demo">◈ DEMO DATA — LIVE FEED UNREACHABLE ◈</div>
+  <div class="banner paused" id="banner-paused">⏸ FLEET PAUSED</div>
+</div>
 
 <!-- ═══ FLOOR ═══ -->
 <main class="floor" id="floor">
