@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-13T23:14:47Z",
+  "timestamp": "2026-10-13T23:15:21Z",
   "current_tasks": [],
   "model_summary": {
     "ollama": 0,
@@ -112,7 +112,7 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:12:12Z"
+      "last_update": "2026-10-13T23:14:56Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -171,10 +171,38 @@
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:12:29Z"
+      "last_update": "2026-10-13T23:15:13Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:15:13Z",
+      "agent": "lear-monitor",
+      "type": "error",
+      "description": "Failed/stopped: [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:15:06Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:14:56Z",
+      "agent": "lear-codereview",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:14:51Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:14:44Z",
       "agent": "lear-strategist",
@@ -229,34 +257,6 @@
       "agent": "lear-reviews",
       "type": "info",
       "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:13:41Z",
-      "agent": "lear-competitors",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:13:36Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:13:29Z",
-      "agent": "lear-seo",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:13:21Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
       "status": "completed"
     }
   ],
