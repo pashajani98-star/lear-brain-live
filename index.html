@@ -1176,10 +1176,11 @@ setInterval(()=>{
   document.getElementById('clock').textContent =
     new Date().toLocaleTimeString('en-GB', { timeZone:'Europe/London' });
 }, 1000);
-/* voice */
+/* voice — plays the brief in the selected language (brief-fa.mp3 for Farsi) */
 document.getElementById('voice-btn').onclick = ()=>{
-  const audio = new Audio('./brief.mp3?t=' + Math.floor(Date.now()/3600000));
-  audio.play().catch(()=> toast('No voice brief available', 'err'));
+  const file = LANG === 'fa' ? './brief-fa.mp3' : './brief.mp3';
+  const audio = new Audio(file + '?t=' + Math.floor(Date.now()/600000));
+  audio.play().catch(()=> toast(LANG==='fa' ? 'گزارش صوتی در دسترس نیست' : 'No voice brief available', 'err'));
 };
 /* panel collapse pins + dragging */
 document.querySelectorAll('.pin').forEach(pin=>{
