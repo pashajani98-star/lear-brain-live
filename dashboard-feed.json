@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T22:27:12Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T23:26:49.288585",
-      "agent": "lear-reviews",
-      "agent_label": "Reputation",
-      "task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T22:27:46Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 2,
     "haiku": 20,
@@ -45,12 +35,13 @@
       "id": "lear-reviews",
       "label": "Reputation",
       "recent_activity": [
+        "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
         "[Reviews check] Check for new Google reviews for London Emergency Appliance Repair (public"
       ],
-      "status": "working",
-      "current_task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:26:49Z"
+      "last_update": "2026-10-13T22:27:45Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -147,6 +138,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-13T22:27:45Z",
+      "agent": "lear-reviews",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-13T22:26:49Z",
       "agent": "lear-reviews",
       "type": "info",
@@ -221,13 +219,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappl",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T21:04:53Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from mission scheduler: [Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com), compare the ",
       "status": "completed"
     }
   ],
