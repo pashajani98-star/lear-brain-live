@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T21:09:54Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-13T22:09:53.830227",
-      "agent": "lear-monitor",
-      "agent_label": "Quality control",
-      "task": "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, or risky (claims of b",
-      "model": "ollama",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T21:12:38Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 2,
     "haiku": 16,
@@ -134,14 +124,23 @@
     "lear-monitor": {
       "id": "lear-monitor",
       "label": "Quality control",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious, or risky (claims of b",
+      "recent_activity": [
+        "[Fleet quality audit] Review the recent agent activity log provided below. Flag anything o"
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "ollama",
-      "last_update": "2026-10-13T21:09:53Z"
+      "last_update": "2026-10-13T21:12:30Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T21:12:30Z",
+      "agent": "lear-monitor",
+      "type": "ok",
+      "description": "Completed (ollama): [Fleet quality audit] Review the recent agent activity log provided below. Flag anything o",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T21:09:53Z",
       "agent": "lear-monitor",
@@ -217,13 +216,6 @@
       "agent": "lear-webdev",
       "type": "ok",
       "description": "Completed (haiku): [Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:54:56Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from mission scheduler: [Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrivals, drop-off, anything that loo",
       "status": "completed"
     }
   ],
