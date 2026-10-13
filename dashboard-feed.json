@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T20:50:54Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T20:51:45Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T21:50:56.215388",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post losing the most clicks/position. Write the refreshed sections in full - new angle, updated copy, in brand voice per BRAND.md/VOICE.md - as a ready-to-publish draft. End with 'Reply YES to proceed' to publish it as a draft via the content workflow.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.\nBegin your reply with exactly one line: TLDR: <the outcome in one short, plain, everyday-words sentence>. The detail goes after it.",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 9,
-    "total": 10
+    "haiku": 10,
+    "total": 11
   },
   "agents": {
     "lear-strategist": {
@@ -83,9 +93,25 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:45:55Z"
+    },
+    "lear-content": {
+      "id": "lear-content",
+      "label": "Content",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post losing the most clicks/position. Write the refreshed sections in full - new angle, updated copy, in brand voice per BRAND.md/VOICE.md - as a ready-to-publish draft. End with 'Reply YES to proceed' to publish it as a draft via the content workflow.\n\nDeliver a READY-MADE result (finished draft, exact fix, real numbers) — not general advice. If executing it would spend money, publish or edit live content, or send anything to a customer or third party, stop at the finished, ready-to-go deliverable and end your reply with exactly: Reply YES to proceed\nWork token-efficiently: go straight at the task, read only the files and data you actually need, no broad exploration, keep the final reply tight.\nBegin your reply with exactly one line: TLDR: <the outcome in one short, plain, everyday-words sentence>. The detail goes after it.",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T20:50:56Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T20:50:56Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from mission scheduler: [Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post losing the most clicks/position. ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T20:50:40Z",
       "agent": "lear-seo",
@@ -162,16 +188,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Reviews check] Check for new Google reviews for London Emergency Appliance Repair (public profile if no API). If there ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:31:22Z",
-      "agent": "lear-security",
-      "type": "ok",
-      "description": "Completed (haiku): [Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, ",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 10,
+  "total_tasks_logged": 11,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
