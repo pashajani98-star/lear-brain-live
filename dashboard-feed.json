@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T22:46:49Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T22:47:22Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T23:46:49.716932",
+      "agent": "lear-webdev",
+      "agent_label": "Web systems",
+      "task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 31,
-    "total": 33
+    "haiku": 32,
+    "total": 34
   },
   "agents": {
     "lear-strategist": {
@@ -80,10 +90,10 @@
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:31:40Z"
+      "last_update": "2026-10-13T22:46:49Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -148,6 +158,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:46:49Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:46:43Z",
       "agent": "lear-reviews",
@@ -224,16 +241,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:39:04Z",
-      "agent": "lear-social",
-      "type": "info",
-      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 33,
+  "total_tasks_logged": 34,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
