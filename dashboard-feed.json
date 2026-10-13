@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T21:03:18Z",
+  "timestamp": "2026-10-13T21:05:02Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T22:02:53.349426",
-      "agent": "lear-outreach",
-      "agent_label": "Outreach",
-      "task": "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick the 2 best next actions (new letting agents to co",
+      "timestamp": "2026-10-13T22:04:53.397658",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com), compare the last 7 days vs the p",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 14,
-    "total": 15
+    "haiku": 15,
+    "total": 16
   },
   "agents": {
     "lear-strategist": {
@@ -58,10 +58,10 @@
         "[Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
         "[Striking-distance keywords] Using Search Console, find queries in positions 5-15 with mea"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com), compare the last 7 days vs the p",
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:50:40Z"
+      "last_update": "2026-10-13T21:04:53Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -121,14 +121,30 @@
     "lear-outreach": {
       "id": "lear-outreach",
       "label": "Outreach",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick the 2 best next actions (new letting agents to co",
+      "recent_activity": [
+        "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick"
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T21:02:53Z"
+      "last_update": "2026-10-13T21:04:38Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T21:04:53Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from mission scheduler: [Search Console weekly movers] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com), compare the ",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T21:04:38Z",
+      "agent": "lear-outreach",
+      "type": "ok",
+      "description": "Completed (haiku): [B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T21:02:53Z",
       "agent": "lear-outreach",
@@ -198,23 +214,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Indexing health check] Using Search Console, check indexing of the money pages (homepage, main service pages, /book/) a",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:45:55Z",
-      "agent": "lear-codereview",
-      "type": "ok",
-      "description": "Completed (haiku): [Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:41:56Z",
-      "agent": "lear-codereview",
-      "type": "info",
-      "description": "Task from mission scheduler: [Code review sweep] Review one area of the LEAR codebase in depth, rotating between: (1) theme inc/ modules, (2) lear-jo",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 15,
+  "total_tasks_logged": 16,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
