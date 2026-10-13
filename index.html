@@ -1,661 +1,1076 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEAR Brain — Live Dashboard</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEAR BRAIN // MISSION CONTROL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════ JARVIS HUD — LEAR BRAIN ════════════════════════ */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-        :root {
-            --color-bg: #0a0e27;
-            --color-surface: #1a1f3a;
-            --color-surface-alt: #252c48;
-            --color-ollama: #ff6b6b;
-            --color-haiku: #4ecdc4;
-            --color-working: #51cf66;
-            --color-standby: #748aa6;
-            --color-text: #e0e6ff;
-            --color-text-muted: #a0a8c0;
-            --border-radius: 8px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+:root {
+  --bg:        #04080f;
+  --bg-2:      #071019;
+  --panel:     rgba(10, 22, 36, 0.72);
+  --panel-2:   rgba(14, 30, 48, 0.85);
+  --cyan:      #00e5ff;
+  --cyan-dim:  rgba(0, 229, 255, 0.35);
+  --cyan-faint:rgba(0, 229, 255, 0.10);
+  --amber:     #ffb300;
+  --red:       #ff3b4b;
+  --green:     #38ef7d;
+  --violet:    #a78bfa;
+  --text:      #d7f0ff;
+  --text-dim:  #6f93ad;
+  --font-hud:  'Orbitron', sans-serif;
+  --font-ui:   'Rajdhani', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-bg: #0a0e27;
-            }
-        }
+html, body { height:100%; overflow:hidden; background:var(--bg); }
+body {
+  color:var(--text);
+  font-family:var(--font-ui);
+  font-size:15px;
+  position:relative;
+}
+body.rtl { direction:rtl; font-family:'Vazirmatn', var(--font-ui); }
+body.rtl .mono, body.rtl .log-line { direction:ltr; text-align:left; }
 
-        body {
-            background: linear-gradient(135deg, var(--color-bg) 0%, #0f1432 100%);
-            color: var(--color-text);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            min-height: 100vh;
-            padding: 20px;
-        }
+/* ── Background layers ─────────────────────────────────────────────────── */
+.bg-grid {
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 85%);
+  -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 85%);
+}
+.bg-glow {
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 45%, rgba(0,80,120,0.25), transparent 70%);
+}
+.scanline {
+  position:fixed; inset:0; pointer-events:none; z-index:60; opacity:.05;
+  background:repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,229,255,.5) 2px 3px);
+}
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+/* ── Top status bar ─────────────────────────────────────────────────────── */
+.topbar {
+  position:fixed; top:0; left:0; right:0; height:52px; z-index:40;
+  display:flex; align-items:center; gap:16px; padding:0 18px;
+  background:linear-gradient(180deg, rgba(5,14,24,0.95), rgba(5,14,24,0.75));
+  border-bottom:1px solid var(--cyan-dim);
+  box-shadow:0 0 25px rgba(0,229,255,0.08);
+  backdrop-filter:blur(8px);
+}
+.topbar::after {
+  content:''; position:absolute; bottom:-1px; left:0; height:1px; width:100%;
+  background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity:.6; animation:sweepbar 6s linear infinite;
+}
+@keyframes sweepbar { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+.brand {
+  font-family:var(--font-hud); font-weight:700; font-size:15px; letter-spacing:3px;
+  color:var(--cyan); text-shadow:0 0 12px var(--cyan-dim); white-space:nowrap;
+}
+.brand small { color:var(--text-dim); font-size:10px; letter-spacing:2px; display:block; }
+.top-stat { display:flex; flex-direction:column; line-height:1.15; min-width:70px; }
+.top-stat .lbl { font-size:9px; letter-spacing:2px; color:var(--text-dim); text-transform:uppercase; }
+.top-stat .val { font-family:var(--font-mono); font-size:13px; color:var(--text); }
+.spacer { flex:1; }
+.online-dot { width:9px; height:9px; border-radius:50%; background:var(--red); box-shadow:0 0 10px var(--red); }
+.online-dot.ok { background:var(--green); box-shadow:0 0 10px var(--green); animation:pulse 2.2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
 
-        h1 {
-            font-size: 28px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #51cf66, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.hbtn {
+  font-family:var(--font-ui); font-weight:600; font-size:12px; letter-spacing:1.5px;
+  background:transparent; border:1px solid var(--cyan-dim); color:var(--cyan);
+  padding:6px 13px; cursor:pointer; text-transform:uppercase;
+  clip-path:polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition:all .2s;
+}
+.hbtn:hover { background:var(--cyan-faint); box-shadow:0 0 14px var(--cyan-dim); }
+.hbtn.warn  { border-color:rgba(255,179,0,.5); color:var(--amber); }
+.hbtn.warn:hover { background:rgba(255,179,0,.1); }
+.hbtn.active { background:var(--cyan); color:#02131c; }
+.lang-wrap { display:flex; gap:4px; }
 
-        .header-right {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
+/* ── Banners ────────────────────────────────────────────────────────────── */
+.banner {
+  position:fixed; top:52px; left:0; right:0; z-index:39;
+  text-align:center; font-family:var(--font-mono); font-size:11px; letter-spacing:2px;
+  padding:4px; display:none;
+}
+.banner.demo   { background:rgba(167,139,250,.15); color:var(--violet); border-bottom:1px solid rgba(167,139,250,.4); }
+.banner.paused { background:rgba(255,179,0,.12); color:var(--amber);  border-bottom:1px solid rgba(255,179,0,.4); }
+.banner.show { display:block; }
 
-        .language-toggle {
-            display: flex;
-            gap: 8px;
-            background: var(--color-surface);
-            padding: 8px;
-            border-radius: var(--border-radius);
-        }
+/* ── Canvas / floor ─────────────────────────────────────────────────────── */
+.floor { position:fixed; inset:52px 0 0 0; z-index:1; overflow:hidden; }
+#linklayer { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; }
 
-        .lang-btn {
-            padding: 8px 16px;
-            border: none;
-            background: transparent;
-            color: var(--color-text-muted);
-            cursor: pointer;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
+/* Brain core */
+.core {
+  position:absolute; width:190px; height:190px; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  pointer-events:none;
+}
+.core .ring { position:absolute; border-radius:50%; border:1px solid var(--cyan-dim); }
+.core .r1 { inset:0;   animation:spin 24s linear infinite; border-top-color:var(--cyan); border-top-width:2px; }
+.core .r2 { inset:18px; animation:spin 14s linear infinite reverse; border-bottom-color:var(--cyan); }
+.core .r3 { inset:38px; border-style:dashed; animation:spin 40s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.core .radar {
+  position:absolute; inset:0; border-radius:50%; overflow:hidden;
+  background:conic-gradient(from 0deg, rgba(0,229,255,.28), transparent 70deg, transparent 360deg);
+  animation:spin 5s linear infinite; opacity:.5;
+  mask-image:radial-gradient(circle, black 0 50%, transparent 72%);
+  -webkit-mask-image:radial-gradient(circle, black 0 50%, transparent 72%);
+}
+.core .label {
+  font-family:var(--font-hud); font-size:11px; font-weight:700; letter-spacing:2px;
+  color:var(--cyan); text-shadow:0 0 14px var(--cyan); text-align:center; z-index:3;
+}
+.core .label small { display:block; font-family:var(--font-mono); font-size:9px; color:var(--text-dim); letter-spacing:1px; margin-top:3px; }
 
-        .lang-btn.active {
-            background: var(--color-working);
-            color: white;
-        }
+/* ── HUD panel chrome (corner brackets) ─────────────────────────────────── */
+.hud-corners { position:absolute; inset:0; pointer-events:none; }
+.hud-corners i { position:absolute; width:12px; height:12px; border:0 solid var(--cyan); opacity:.75; }
+.hud-corners i:nth-child(1){ top:-1px;    left:-1px;  border-top-width:2px; border-left-width:2px; }
+.hud-corners i:nth-child(2){ top:-1px;    right:-1px; border-top-width:2px; border-right-width:2px; }
+.hud-corners i:nth-child(3){ bottom:-1px; left:-1px;  border-bottom-width:2px; border-left-width:2px; }
+.hud-corners i:nth-child(4){ bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px; }
 
-        .lang-btn:hover {
-            color: var(--color-text);
-        }
+/* ── Agent cards ────────────────────────────────────────────────────────── */
+.agent-card {
+  position:absolute; width:230px; z-index:5;
+  background:var(--panel);
+  border:1px solid rgba(0,229,255,.22);
+  backdrop-filter:blur(7px);
+  clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  padding:11px 13px 12px;
+  cursor:grab; user-select:none;
+  transition:box-shadow .25s, border-color .25s;
+}
+.agent-card:hover { border-color:var(--cyan); box-shadow:0 0 22px rgba(0,229,255,.18); }
+.agent-card.dragging { cursor:grabbing; z-index:30; box-shadow:0 0 30px rgba(0,229,255,.3); }
+.agent-card.working { border-color:rgba(56,239,125,.55); animation:workglow 2.4s ease-in-out infinite; }
+@keyframes workglow {
+  0%,100% { box-shadow:0 0 12px rgba(56,239,125,.15); }
+  50%     { box-shadow:0 0 26px rgba(56,239,125,.4); }
+}
+.agent-card.error  { border-color:rgba(255,59,75,.6); }
+.agent-card.pausedA{ border-color:rgba(255,179,0,.5); }
 
-        .voice-btn {
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--color-haiku), #45b7aa);
-            border: none;
-            color: white;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+.ac-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; gap:8px; }
+.ac-name { font-family:var(--font-hud); font-size:11px; font-weight:700; letter-spacing:1px; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.ac-role { font-size:10px; letter-spacing:1.5px; color:var(--text-dim); text-transform:uppercase; margin-bottom:7px; }
+.badge {
+  font-family:var(--font-mono); font-size:9px; letter-spacing:1px; padding:2px 7px;
+  border:1px solid; white-space:nowrap;
+}
+.badge.WORKING { color:var(--green); border-color:rgba(56,239,125,.5); background:rgba(56,239,125,.08); }
+.badge.IDLE    { color:var(--text-dim); border-color:rgba(111,147,173,.4); }
+.badge.PAUSED  { color:var(--amber); border-color:rgba(255,179,0,.5); background:rgba(255,179,0,.07); }
+.badge.ERROR   { color:var(--red); border-color:rgba(255,59,75,.55); background:rgba(255,59,75,.08); }
+.badge.QUEUED  { color:var(--amber); border-color:rgba(255,179,0,.5); animation:pulse 1.4s infinite; }
 
-        .voice-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(78, 205, 196, 0.3);
-        }
+.ac-task {
+  font-size:12px; color:var(--text); line-height:1.35; min-height:17px;
+  margin-bottom:8px; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+}
+.ac-task.none { color:var(--text-dim); font-style:italic; }
+.ac-bar { height:3px; background:rgba(255,255,255,.07); margin-bottom:8px; overflow:hidden; display:none; }
+.ac-bar.show { display:block; }
+.ac-bar b { display:block; height:100%; background:linear-gradient(90deg, var(--cyan), var(--green)); box-shadow:0 0 8px var(--cyan); transition:width .6s; }
+.ac-meta { display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:9px; color:var(--text-dim); }
+.mtag { padding:1px 6px; border:1px solid; letter-spacing:1px; }
+.mtag.local { color:var(--green); border-color:rgba(56,239,125,.4); }
+.mtag.cloud { color:var(--cyan);  border-color:var(--cyan-dim); }
+.ac-dot { width:7px; height:7px; border-radius:50%; background:var(--text-dim); display:inline-block; margin-inline-end:5px; vertical-align:middle; }
+.working .ac-dot { background:var(--green); box-shadow:0 0 8px var(--green); animation:pulse 1.6s infinite; }
 
-        .voice-btn.loading {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+/* ── Floating dock panels ───────────────────────────────────────────────── */
+.panel {
+  position:absolute; z-index:6;
+  background:var(--panel);
+  border:1px solid rgba(0,229,255,.2);
+  backdrop-filter:blur(8px);
+  display:flex; flex-direction:column;
+}
+.panel-head {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 12px; cursor:grab; user-select:none;
+  border-bottom:1px solid rgba(0,229,255,.15);
+  background:linear-gradient(180deg, rgba(0,229,255,.07), transparent);
+}
+.panel-head h3 { font-family:var(--font-hud); font-size:10px; font-weight:700; letter-spacing:2.5px; color:var(--cyan); }
+.panel-head .pin { font-family:var(--font-mono); font-size:10px; color:var(--text-dim); cursor:pointer; padding:0 4px; }
+.panel-body { padding:10px 12px; overflow-y:auto; flex:1; }
+.panel.collapsed .panel-body { display:none; }
+.panel.collapsed { height:auto !important; }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+/* metrics */
+#panel-metrics { width:235px; }
+.metric { margin-bottom:12px; }
+.metric .lbl { font-size:10px; letter-spacing:2px; color:var(--text-dim); text-transform:uppercase; }
+.metric .val { font-family:var(--font-mono); font-size:24px; font-weight:600; color:var(--text); text-shadow:0 0 10px rgba(0,229,255,.25); }
+.metric .val .unit { font-size:11px; color:var(--text-dim); }
+.metric.m-ollama .val { color:var(--green); }
+.metric.m-haiku .val  { color:var(--cyan); }
+#spark { width:100%; height:34px; margin-top:4px; }
 
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
+/* queue */
+#panel-queue { width:300px; }
+.qitem { padding:8px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+.qitem:last-child { border-bottom:none; }
+.qitem .q1 { display:flex; justify-content:space-between; gap:8px; margin-bottom:3px; }
+.qitem .qa { font-weight:700; font-size:12px; color:var(--cyan); letter-spacing:.5px; }
+.qitem .qt { font-size:12px; color:var(--text); line-height:1.3; }
+.qitem .qm { font-family:var(--font-mono); font-size:9px; color:var(--text-dim); margin-top:3px; display:flex; justify-content:space-between; }
+.qempty { color:var(--text-dim); font-size:12px; font-style:italic; padding:6px 0; }
 
-        .stat-card {
-            background: var(--color-surface);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--color-ollama);
-        }
+/* activity feed */
+#panel-feed { width:430px; }
+#panel-feed .panel-body { font-family:var(--font-mono); font-size:11px; }
+.log-line { padding:3px 0; line-height:1.45; border-bottom:1px dotted rgba(255,255,255,.05); word-break:break-word; }
+.log-line .t { color:var(--text-dim); margin-right:7px; }
+.log-line .a { color:var(--cyan); font-weight:600; margin-right:6px; }
+.log-line.lv-err .a { color:var(--red); }
+.log-line.lv-warn .a { color:var(--amber); }
+.log-line.lv-ok .a { color:var(--green); }
 
-        .stat-card.haiku {
-            border-left-color: var(--color-haiku);
-        }
+/* ── Detail drawer ──────────────────────────────────────────────────────── */
+.drawer {
+  position:fixed; top:52px; bottom:0; width:390px; max-width:95vw; z-index:45;
+  background:var(--panel-2); backdrop-filter:blur(12px);
+  border-inline-start:1px solid var(--cyan-dim);
+  box-shadow:-10px 0 40px rgba(0,0,0,.5);
+  display:flex; flex-direction:column;
+  transition:transform .3s cubic-bezier(.3,.9,.3,1);
+  inset-inline-end:0; transform:translateX(105%);
+}
+body.rtl .drawer { transform:translateX(-105%); }
+.drawer.open, body.rtl .drawer.open { transform:translateX(0); }
+.drawer-head { padding:16px 18px 12px; border-bottom:1px solid rgba(0,229,255,.15); position:relative; }
+.drawer-head h2 { font-family:var(--font-hud); font-size:15px; letter-spacing:2px; color:var(--cyan); }
+.drawer-head .role { font-size:11px; letter-spacing:2px; color:var(--text-dim); text-transform:uppercase; margin-top:3px; }
+.drawer-close { position:absolute; top:12px; inset-inline-end:12px; background:none; border:1px solid var(--cyan-dim); color:var(--cyan); width:26px; height:26px; cursor:pointer; font-size:13px; }
+.drawer-body { flex:1; overflow-y:auto; padding:14px 18px; }
+.dsec { margin-bottom:18px; }
+.dsec h4 { font-size:10px; letter-spacing:2.5px; color:var(--text-dim); text-transform:uppercase; margin-bottom:7px; border-bottom:1px solid rgba(255,255,255,.07); padding-bottom:4px; }
+.dsec .cur { font-size:13px; line-height:1.5; color:var(--text); }
+.dsec .mono { font-family:var(--font-mono); font-size:11px; color:var(--text-dim); line-height:1.6; }
+.hist-item { font-size:12px; color:var(--text); padding:5px 0; border-bottom:1px dotted rgba(255,255,255,.07); }
 
-        .stat-card.summary {
-            border-left-color: var(--color-working);
-        }
+/* controls */
+.ctrl-row { display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
+.cbtn {
+  flex:1; min-width:86px; font-family:var(--font-ui); font-weight:700; font-size:12px; letter-spacing:1px;
+  padding:9px 6px; cursor:pointer; text-transform:uppercase; background:transparent;
+  clip-path:polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  border:1px solid; transition:all .2s;
+}
+.cbtn.pause  { color:var(--amber); border-color:rgba(255,179,0,.5); }
+.cbtn.pause:hover  { background:rgba(255,179,0,.12); box-shadow:0 0 12px rgba(255,179,0,.3); }
+.cbtn.resume { color:var(--green); border-color:rgba(56,239,125,.5); }
+.cbtn.resume:hover { background:rgba(56,239,125,.1); box-shadow:0 0 12px rgba(56,239,125,.3); }
+.cbtn.stop   { color:var(--red); border-color:rgba(255,59,75,.55); }
+.cbtn.stop:hover   { background:rgba(255,59,75,.1); box-shadow:0 0 12px rgba(255,59,75,.3); }
+.instr { display:flex; gap:7px; }
+.instr input {
+  flex:1; background:rgba(0,0,0,.35); border:1px solid var(--cyan-dim); color:var(--text);
+  font-family:var(--font-ui); font-size:13px; padding:9px 11px; outline:none;
+}
+.instr input:focus { border-color:var(--cyan); box-shadow:0 0 10px var(--cyan-faint); }
+.instr .cbtn { flex:0 0 auto; min-width:68px; color:var(--cyan); border-color:var(--cyan-dim); }
+.instr .cbtn:hover { background:var(--cyan-faint); }
+.ctrl-note { font-family:var(--font-mono); font-size:9px; color:var(--text-dim); margin-top:8px; line-height:1.5; }
 
-        .stat-label {
-            font-size: 12px;
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
+/* ── Modal (token setup) ────────────────────────────────────────────────── */
+.modal-wrap { position:fixed; inset:0; z-index:70; background:rgba(2,6,12,.8); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; }
+.modal-wrap.open { display:flex; }
+.modal {
+  width:460px; max-width:92vw; background:var(--panel-2); border:1px solid var(--cyan-dim);
+  padding:22px 24px; position:relative;
+  clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+}
+.modal h3 { font-family:var(--font-hud); font-size:13px; letter-spacing:2px; color:var(--cyan); margin-bottom:12px; }
+.modal p { font-size:13px; color:var(--text); line-height:1.6; margin-bottom:10px; }
+.modal ol { margin:0 0 12px 18px; font-size:12px; color:var(--text-dim); line-height:1.7; }
+body.rtl .modal ol { margin:0 18px 12px 0; }
+.modal input { width:100%; background:rgba(0,0,0,.4); border:1px solid var(--cyan-dim); color:var(--text); font-family:var(--font-mono); font-size:12px; padding:10px; margin-bottom:12px; outline:none; }
+.modal .mrow { display:flex; gap:10px; justify-content:flex-end; }
+.modal a { color:var(--cyan); }
 
-        .stat-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--color-text);
-        }
+/* ── Toast ──────────────────────────────────────────────────────────────── */
+#toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); z-index:80;
+  background:var(--panel-2); border:1px solid var(--cyan-dim); color:var(--text);
+  font-family:var(--font-mono); font-size:12px; padding:10px 18px; transition:transform .3s; max-width:90vw;
+}
+#toast.show { transform:translateX(-50%) translateY(0); }
+#toast.err { border-color:var(--red); color:#ffb9bf; }
+#toast.ok  { border-color:var(--green); }
 
-        .stat-subtext {
-            font-size: 12px;
-            color: var(--color-text-muted);
-            margin-top: 8px;
-        }
+/* ── Boot sequence ──────────────────────────────────────────────────────── */
+#boot {
+  position:fixed; inset:0; z-index:100; background:var(--bg);
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .8s; font-family:var(--font-mono);
+}
+#boot.done { opacity:0; pointer-events:none; }
+.boot-inner { width:420px; max-width:88vw; }
+.boot-title { font-family:var(--font-hud); color:var(--cyan); letter-spacing:4px; font-size:16px; text-align:center; margin-bottom:18px; text-shadow:0 0 18px var(--cyan); }
+.boot-lines { font-size:11px; color:var(--text-dim); min-height:110px; }
+.boot-lines div { padding:2px 0; }
+.boot-lines .ok { color:var(--green); }
+.boot-bar { height:2px; background:rgba(255,255,255,.08); margin-top:14px; overflow:hidden; }
+.boot-bar b { display:block; height:100%; width:0; background:var(--cyan); box-shadow:0 0 12px var(--cyan); transition:width .4s; }
 
-        .section {
-            margin-bottom: 30px;
-        }
+/* panels/cards fade in after boot */
+.fx-in { opacity:0; animation:fadein .5s forwards; }
+@keyframes fadein { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
 
-        .section-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--color-text);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 3px;
-            height: 16px;
-            background: var(--color-haiku);
-            border-radius: 2px;
-        }
-
-        .tasks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 15px;
-        }
-
-        .task-card {
-            background: var(--color-surface);
-            padding: 16px;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-        }
-
-        .task-card:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            background: var(--color-surface-alt);
-        }
-
-        .task-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .task-agent {
-            font-weight: 600;
-            color: var(--color-haiku);
-            font-size: 13px;
-        }
-
-        .task-model {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            background: rgba(255, 107, 107, 0.2);
-            color: var(--color-ollama);
-        }
-
-        .task-model.haiku {
-            background: rgba(78, 205, 196, 0.2);
-            color: var(--color-haiku);
-        }
-
-        .task-description {
-            font-size: 14px;
-            color: var(--color-text);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .task-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: var(--color-text-muted);
-        }
-
-        .task-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--color-working);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .status-dot.standby {
-            background: var(--color-standby);
-            animation: none;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .agents-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 12px;
-        }
-
-        .agent-node {
-            background: var(--color-surface);
-            padding: 16px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .agent-node:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-            background: var(--color-surface-alt);
-        }
-
-        .agent-node.working {
-            border-color: var(--color-working);
-            background: rgba(81, 207, 102, 0.05);
-        }
-
-        .agent-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            margin: 0 auto 12px;
-            background: var(--color-standby);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 12px;
-            color: white;
-        }
-
-        .agent-node.working .agent-circle {
-            background: var(--color-working);
-            box-shadow: 0 0 16px rgba(81, 207, 102, 0.4);
-        }
-
-        .agent-label {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-text);
-        }
-
-        .agent-task {
-            font-size: 11px;
-            color: var(--color-text-muted);
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-
-        .agent-model-tag {
-            display: inline-block;
-            padding: 2px 6px;
-            font-size: 10px;
-            background: rgba(78, 205, 196, 0.2);
-            color: var(--color-haiku);
-            border-radius: 3px;
-        }
-
-        .ops-log {
-            background: var(--color-surface);
-            border-radius: var(--border-radius);
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 16px;
-        }
-
-        .log-entry {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .log-entry:last-child {
-            border-bottom: none;
-        }
-
-        .log-time {
-            color: var(--color-text-muted);
-            font-size: 11px;
-        }
-
-        .log-agent {
-            color: var(--color-haiku);
-            font-weight: 600;
-        }
-
-        .log-action {
-            color: var(--color-text);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--color-text-muted);
-        }
-
-        .empty-state-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(78, 205, 196, 0.2);
-            border-top-color: var(--color-haiku);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .update-time {
-            font-size: 12px;
-            color: var(--color-text-muted);
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .icon {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-        }
-    </style>
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
+#mobile-note { display:none; }
+@media (max-width: 820px) {
+  html, body { overflow:auto; }
+  .floor { position:static; height:auto; padding:64px 12px 30px; overflow:visible; }
+  .core, #linklayer { display:none; }
+  .agent-card, .panel { position:static !important; width:100% !important; margin-bottom:12px; cursor:default; }
+  .panel-head { cursor:default; }
+  .topbar { flex-wrap:wrap; height:auto; padding:8px 12px; gap:10px; position:fixed; }
+  .top-stat { display:none; }
+  .banner { top:48px; }
+  .drawer { width:100vw; max-width:100vw; top:0; }
+  #panel-feed .panel-body { max-height:300px; }
+}
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1>🧠 LEAR Brain — Live Dashboard</h1>
-        <div class="header-right">
-            <div class="language-toggle">
-                <button class="lang-btn active" data-lang="en">English</button>
-                <button class="lang-btn" data-lang="fa">Farsi</button>
-            </div>
-            <button class="voice-btn" id="voice-btn">
-                <span>🔊</span>
-                <span>Voice Update</span>
-            </button>
-        </div>
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+<div class="scanline"></div>
+
+<!-- ═══ BOOT ═══ -->
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-title">LEAR BRAIN</div>
+    <div class="boot-lines" id="boot-lines"></div>
+    <div class="boot-bar"><b id="boot-bar"></b></div>
+  </div>
+</div>
+
+<!-- ═══ TOP BAR ═══ -->
+<header class="topbar">
+  <div class="brand">LEAR BRAIN<small data-i18n="subtitle">// MISSION CONTROL</small></div>
+  <div class="top-stat"><span class="lbl" data-i18n="clock">London</span><span class="val" id="clock">--:--:--</span></div>
+  <div class="top-stat"><span class="lbl" data-i18n="lastsync">Last sync</span><span class="val" id="sync-time">—</span></div>
+  <div class="top-stat"><span class="lbl" data-i18n="uplink">Uplink</span><span class="val"><span class="online-dot" id="online-dot"></span></span></div>
+  <div class="spacer"></div>
+  <div class="lang-wrap">
+    <button class="hbtn active" id="lang-en">EN</button>
+    <button class="hbtn" id="lang-fa">FA</button>
+  </div>
+  <button class="hbtn" id="voice-btn" data-i18n="voice">◈ Voice</button>
+  <button class="hbtn" id="layout-btn" data-i18n="resetlayout">Layout ⟲</button>
+  <button class="hbtn warn" id="token-btn" data-i18n="auth">⚿ Auth</button>
+</header>
+
+<div class="banner demo" id="banner-demo">◈ DEMO DATA — LIVE FEED UNREACHABLE ◈</div>
+<div class="banner paused" id="banner-paused">⏸ FLEET PAUSED</div>
+
+<!-- ═══ FLOOR ═══ -->
+<main class="floor" id="floor">
+  <svg id="linklayer"></svg>
+  <div class="core" id="core">
+    <div class="radar"></div>
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <div class="label">BRAIN CORE<small id="core-sub">STANDBY</small></div>
+  </div>
+
+  <!-- Floating panels -->
+  <section class="panel" id="panel-metrics" style="height:330px">
+    <div class="panel-head"><h3 data-i18n="metrics">SYSTEM METRICS</h3><span class="pin" data-collapse="panel-metrics">▾</span></div>
+    <div class="panel-body">
+      <div class="metric m-ollama"><div class="lbl" data-i18n="m_ollama">Ollama · local / free</div><div class="val" id="m-ollama">0</div></div>
+      <div class="metric m-haiku"><div class="lbl" data-i18n="m_haiku">Haiku · cloud</div><div class="val" id="m-haiku">0</div></div>
+      <div class="metric"><div class="lbl" data-i18n="m_total">Total tasks</div><div class="val" id="m-total">0</div></div>
+      <div class="metric"><div class="lbl" data-i18n="m_cost">Est. cost</div><div class="val" id="m-cost">$0.00<span class="unit">/mo</span></div></div>
+      <svg id="spark" viewBox="0 0 200 34" preserveAspectRatio="none"></svg>
     </div>
+    <div class="hud-corners"><i></i><i></i><i></i><i></i></div>
+  </section>
 
-    <div class="container">
-        <!-- Stats Bar -->
-        <div class="stats-bar" id="stats-bar">
-            <div class="stat-card">
-                <div class="stat-label">Tasks on Ollama</div>
-                <div class="stat-value" id="ollama-count">0</div>
-                <div class="stat-subtext">Free (Local)</div>
-            </div>
-            <div class="stat-card haiku">
-                <div class="stat-label">Tasks on Haiku</div>
-                <div class="stat-value" id="haiku-count">0</div>
-                <div class="stat-subtext">Smart (Cloud)</div>
-            </div>
-            <div class="stat-card summary">
-                <div class="stat-label">Total Tasks</div>
-                <div class="stat-value" id="total-tasks">0</div>
-                <div class="stat-subtext" id="cost-estimate">~$0.00/month</div>
-            </div>
-        </div>
+  <section class="panel" id="panel-queue" style="height:300px">
+    <div class="panel-head"><h3 data-i18n="queue">TASK QUEUE</h3><span class="pin" data-collapse="panel-queue">▾</span></div>
+    <div class="panel-body" id="queue-body"><div class="qempty" data-i18n="q_empty">No active tasks</div></div>
+    <div class="hud-corners"><i></i><i></i><i></i><i></i></div>
+  </section>
 
-        <!-- Current Tasks -->
-        <div class="section">
-            <div class="section-title">Active Tasks</div>
-            <div class="tasks-grid" id="tasks-grid">
-                <div class="empty-state">
-                    <div class="empty-state-icon">⏳</div>
-                    <div>No active tasks</div>
-                </div>
-            </div>
-        </div>
+  <section class="panel" id="panel-feed" style="height:260px">
+    <div class="panel-head"><h3 data-i18n="activity">ACTIVITY FEED</h3><span class="pin" data-collapse="panel-feed">▾</span></div>
+    <div class="panel-body" id="feed-body"><div class="qempty" data-i18n="f_empty">Waiting for activity…</div></div>
+    <div class="hud-corners"><i></i><i></i><i></i><i></i></div>
+  </section>
 
-        <!-- Agent Status -->
-        <div class="section">
-            <div class="section-title">Agent Fleet</div>
-            <div class="agents-grid" id="agents-grid">
-                <div class="loading"></div>
-            </div>
-        </div>
+  <!-- agent cards injected here -->
+</main>
 
-        <!-- Recent Activity -->
-        <div class="section">
-            <div class="section-title">Recent Activity</div>
-            <div class="ops-log" id="ops-log">
-                <div class="empty-state">
-                    <div>Waiting for activity...</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="update-time" id="update-time">
-            Last updated: <span id="last-update">Never</span>
-        </div>
+<!-- ═══ DRAWER ═══ -->
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h2 id="d-name">—</h2>
+    <div class="role" id="d-role">—</div>
+    <button class="drawer-close" id="d-close">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div class="dsec">
+      <h4 data-i18n="d_controls">Controls</h4>
+      <div class="ctrl-row">
+        <button class="cbtn pause"  id="d-pause"  data-i18n="c_pause">⏸ Pause</button>
+        <button class="cbtn resume" id="d-resume" data-i18n="c_resume">▶ Resume</button>
+        <button class="cbtn stop"   id="d-stop"   data-i18n="c_stop">⏹ Stop</button>
+      </div>
+      <div class="instr">
+        <input type="text" id="d-instr" data-i18n-ph="c_instr_ph" placeholder="Send instruction to this agent…">
+        <button class="cbtn" id="d-send" data-i18n="c_send">Send ➤</button>
+      </div>
+      <div class="ctrl-note" data-i18n="c_note">Commands are queued via GitHub and executed by the brain laptop within ~30s.</div>
     </div>
+    <div class="dsec"><h4 data-i18n="d_current">Current task</h4><div class="cur" id="d-current">—</div></div>
+    <div class="dsec"><h4 data-i18n="d_status">Status</h4><div class="mono" id="d-status">—</div></div>
+    <div class="dsec"><h4 data-i18n="d_history">Recent history</h4><div id="d-history" class="mono">—</div></div>
+  </div>
+</aside>
 
-    <script>
-        const FEED_URL = './dashboard-feed.json';
-        const POLL_INTERVAL = 5000;
+<!-- ═══ TOKEN MODAL ═══ -->
+<div class="modal-wrap" id="modal-token">
+  <div class="modal">
+    <h3 data-i18n="t_title">⚿ CONTROL LINK AUTHORIZATION</h3>
+    <p data-i18n="t_p1">To control agents from this dashboard, it needs a GitHub token to write commands into the repo. The brain laptop picks them up and executes them.</p>
+    <ol>
+      <li data-i18n="t_s1">GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token</li>
+      <li data-i18n="t_s2">Repository access: only <b>lear-brain-live</b></li>
+      <li data-i18n="t_s3">Permissions: Contents → Read and write</li>
+      <li data-i18n="t_s4">Paste the token below. It is stored only in this browser.</li>
+    </ol>
+    <input type="password" id="token-input" placeholder="github_pat_…">
+    <div class="mrow">
+      <button class="hbtn" id="token-clear" data-i18n="t_clear">Clear</button>
+      <button class="hbtn" id="token-save"  data-i18n="t_save">Save</button>
+    </div>
+  </div>
+</div>
 
-        let currentLanguage = 'en';
-        let isVoicePlaying = false;
+<div id="toast"></div>
 
-        // Language toggle
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentLanguage = btn.dataset.lang;
-            });
+<script>
+'use strict';
+/* ═══════════════════ CONFIG ═══════════════════ */
+const GH_OWNER = 'pashajani98-star';
+const GH_REPO  = 'lear-brain-live';
+const GH_BRANCH= 'main';
+const FEED_URL   = './dashboard-feed.json';
+const STATUS_URL = './status.json';
+const CMDS_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/commands.json`;
+const POLL_MS    = 20000;
+const STALE_MS   = 2 * 60 * 1000;
+
+const ROSTER = [
+  { id:'lear-strategist',  label:'STRATEGIST',  role:'Strategy' },
+  { id:'lear-seo',         label:'SEO',         role:'Search operations' },
+  { id:'lear-ads',         label:'ADS',         role:'Paid media' },
+  { id:'lear-content',     label:'CONTENT',     role:'Content' },
+  { id:'lear-webdev',      label:'WEBDEV',      role:'Web systems' },
+  { id:'lear-reviews',     label:'REVIEWS',     role:'Reputation' },
+  { id:'lear-outreach',    label:'OUTREACH',    role:'B2B outreach' },
+  { id:'lear-social',      label:'SOCIAL',      role:'Social media' },
+  { id:'lear-competitors', label:'COMP-INTEL',  role:'Competitor intel' },
+  { id:'lear-reports',     label:'REPORTS',     role:'Documents' },
+  { id:'lear-monitor',     label:'MONITOR',     role:'Quality control' },
+];
+
+/* ═══════════════════ I18N ═══════════════════ */
+const I18N = {
+  en: {
+    subtitle:'// MISSION CONTROL', clock:'London', lastsync:'Last sync', uplink:'Uplink',
+    voice:'◈ Voice', resetlayout:'Layout ⟲', auth:'⚿ Auth',
+    metrics:'SYSTEM METRICS', m_ollama:'Ollama · local / free', m_haiku:'Haiku · cloud',
+    m_total:'Total tasks', m_cost:'Est. cost', queue:'TASK QUEUE', q_empty:'No active tasks',
+    activity:'ACTIVITY FEED', f_empty:'Waiting for activity…',
+    d_controls:'Controls', c_pause:'⏸ Pause', c_resume:'▶ Resume', c_stop:'⏹ Stop',
+    c_instr_ph:'Send instruction to this agent…', c_send:'Send ➤',
+    c_note:'Commands are queued via GitHub and executed by the brain laptop within ~30s.',
+    d_current:'Current task', d_status:'Status', d_history:'Recent history',
+    t_title:'⚿ CONTROL LINK AUTHORIZATION',
+    t_p1:'To control agents from this dashboard, it needs a GitHub token to write commands into the repo. The brain laptop picks them up and executes them.',
+    t_s1:'GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token',
+    t_s2:'Repository access: only lear-brain-live', t_s3:'Permissions: Contents → Read and write',
+    t_s4:'Paste the token below. It is stored only in this browser.',
+    t_clear:'Clear', t_save:'Save',
+    none:'standby — no task assigned', paused_banner:'⏸ FLEET PAUSED',
+    demo_banner:'◈ DEMO DATA — LIVE FEED UNREACHABLE ◈',
+    cmd_sent:'Command queued ✓ — the brain will pick it up shortly',
+    cmd_err:'Command failed', need_token:'Set a GitHub token first (⚿ Auth)',
+    core_standby:'STANDBY', core_active:'ACTIVE',
+  },
+  fa: {
+    subtitle:'// مرکز فرماندهی', clock:'لندن', lastsync:'آخرین همگام‌سازی', uplink:'اتصال',
+    voice:'◈ صدا', resetlayout:'چیدمان ⟲', auth:'⚿ احراز',
+    metrics:'شاخص‌های سیستم', m_ollama:'اولاما · محلی / رایگان', m_haiku:'هایکو · ابری',
+    m_total:'کل وظایف', m_cost:'هزینه تقریبی', queue:'صف وظایف', q_empty:'وظیفه فعالی نیست',
+    activity:'گزارش فعالیت', f_empty:'در انتظار فعالیت…',
+    d_controls:'کنترل‌ها', c_pause:'⏸ توقف', c_resume:'▶ ادامه', c_stop:'⏹ لغو',
+    c_instr_ph:'دستور به این ایجنت…', c_send:'ارسال ➤',
+    c_note:'دستورها از طریق گیت‌هاب صف می‌شوند و لپ‌تاپ مغز طی ~۳۰ ثانیه اجرا می‌کند.',
+    d_current:'وظیفه فعلی', d_status:'وضعیت', d_history:'تاریخچه اخیر',
+    t_title:'⚿ مجوز لینک کنترل',
+    t_p1:'برای کنترل ایجنت‌ها از این داشبورد، یک توکن گیت‌هاب لازم است تا دستورها در مخزن نوشته شوند. لپ‌تاپ مغز آن‌ها را اجرا می‌کند.',
+    t_s1:'GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token',
+    t_s2:'دسترسی مخزن: فقط lear-brain-live', t_s3:'مجوزها: Contents → Read and write',
+    t_s4:'توکن را اینجا وارد کنید. فقط در همین مرورگر ذخیره می‌شود.',
+    t_clear:'پاک کردن', t_save:'ذخیره',
+    none:'آماده‌باش — وظیفه‌ای ندارد', paused_banner:'⏸ ناوگان متوقف است',
+    demo_banner:'◈ داده نمایشی — فید زنده در دسترس نیست ◈',
+    cmd_sent:'دستور صف شد ✓ — مغز به‌زودی اجرا می‌کند',
+    cmd_err:'ارسال دستور ناموفق بود', need_token:'اول توکن گیت‌هاب را تنظیم کنید (⚿)',
+    core_standby:'آماده‌باش', core_active:'فعال',
+  }
+};
+let LANG = localStorage.getItem('lb_lang') || 'en';
+function t(k){ return (I18N[LANG] && I18N[LANG][k]) || I18N.en[k] || k; }
+function applyLang(){
+  document.body.classList.toggle('rtl', LANG==='fa');
+  document.getElementById('lang-en').classList.toggle('active', LANG==='en');
+  document.getElementById('lang-fa').classList.toggle('active', LANG==='fa');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.innerHTML = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  document.getElementById('banner-demo').textContent = t('demo_banner');
+  document.getElementById('banner-paused').textContent = t('paused_banner');
+  renderAll();
+}
+document.getElementById('lang-en').onclick = ()=>{ LANG='en'; localStorage.setItem('lb_lang','en'); applyLang(); };
+document.getElementById('lang-fa').onclick = ()=>{ LANG='fa'; localStorage.setItem('lb_lang','fa'); applyLang(); };
+
+/* ═══════════════════ STATE ═══════════════════ */
+let FEED = null;           // last good dashboard-feed.json
+let BRAIN_STATUS = null;   // status.json
+let DEMO = false;
+let lastFetchOk = 0;
+let pendingCmds = {};      // agentId -> true (locally queued, awaiting confirmation)
+let selectedAgent = null;
+let taskHourHistory = JSON.parse(localStorage.getItem('lb_spark')||'[]');
+
+const isMobile = ()=> window.innerWidth <= 820;
+
+/* ═══════════════════ DEMO DATA ═══════════════════ */
+function demoFeed(){
+  const now = Date.now();
+  const ag = {};
+  ROSTER.forEach((r,i)=>{ ag[r.id] = {
+    label:r.role, status: i===1||i===3 ? 'working' : (i===5?'error':'standby'),
+    current_task: i===1 ? 'Scanning Search Console for ranking shifts on 42 tracked keywords'
+                : i===3 ? 'Drafting blog post: "Why is my washing machine leaking?"' : null,
+    current_model: i===1 ? 'ollama' : 'haiku',
+    last_update: new Date(now - i*47000).toISOString(),
+    recent_activity: ['Completed weekly rank report','Checked GBP insights','Indexed 3 new pages'],
+  };});
+  return {
+    timestamp:new Date(now).toISOString(),
+    model_summary:{ ollama:14, haiku:6, total:20 },
+    current_tasks:[
+      { agent:'lear-seo', agent_label:'Search operations', task:'Scanning Search Console for ranking shifts on 42 tracked keywords', model:'ollama', status:'running', timestamp:new Date(now-340000).toISOString() },
+      { agent:'lear-content', agent_label:'Content', task:'Drafting blog post: "Why is my washing machine leaking?"', model:'haiku', status:'running', timestamp:new Date(now-120000).toISOString() },
+    ],
+    recent_activity:[
+      { timestamp:new Date(now-60000).toISOString(),  agent:'lear-seo',      description:'Pulled GSC data — 3 queries moved into top 10', type:'ok' },
+      { timestamp:new Date(now-540000).toISOString(), agent:'lear-content',  description:'Started blog draft from content calendar', type:'info' },
+      { timestamp:new Date(now-1200000).toISOString(),agent:'lear-reviews',  description:'Drafted reply to new 5★ Google review', type:'ok' },
+      { timestamp:new Date(now-2600000).toISOString(),agent:'lear-monitor',  description:'Fleet audit passed — no banned claims found', type:'ok' },
+      { timestamp:new Date(now-4000000).toISOString(),agent:'lear-outreach', description:'Follow-up email queued for 2 letting agents', type:'info' },
+    ],
+    total_tasks_logged:20,
+  };
+}
+
+/* ═══════════════════ FETCH LOOP ═══════════════════ */
+async function fetchJSON(url){
+  const r = await fetch(url + '?t=' + Date.now(), { cache:'no-store' });
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function poll(){
+  try {
+    const [feed, status] = await Promise.allSettled([fetchJSON(FEED_URL), fetchJSON(STATUS_URL)]);
+    if (feed.status === 'fulfilled'){ FEED = feed.value; DEMO = false; lastFetchOk = Date.now(); }
+    else if (!FEED){ FEED = demoFeed(); DEMO = true; }
+    if (status.status === 'fulfilled') BRAIN_STATUS = status.value;
+    document.getElementById('sync-time').textContent = new Date().toLocaleTimeString('en-GB');
+  } catch(e){ if(!FEED){ FEED = demoFeed(); DEMO = true; } }
+  fetchPendingCommands();
+  renderAll();
+}
+async function fetchPendingCommands(){
+  try {
+    const data = await fetchJSON('./commands.json');
+    pendingCmds = {};
+    (data.commands||[]).forEach(c=>{ if(c.status==='pending') pendingCmds[c.agent||'_fleet'] = true; });
+  } catch(e){ /* no commands.json yet — fine */ }
+}
+
+/* ═══════════════════ AGENT MODEL ═══════════════════ */
+function agentList(){
+  const feedAgents = (FEED && FEED.agents) || {};
+  return ROSTER.map(r=>{
+    const a = feedAgents[r.id] || {};
+    const status = (a.status==='working') ? 'WORKING'
+                 : (a.status==='error' || a.status==='failed') ? 'ERROR'
+                 : (a.status==='paused') ? 'PAUSED' : 'IDLE';
+    return {
+      id:r.id, name:r.label, role:a.label || r.role,
+      status: (BRAIN_STATUS && BRAIN_STATUS.paused && status!=='ERROR') ? 'PAUSED' : status,
+      task: a.current_task || null,
+      model: a.current_model || null,
+      progress: (typeof a.progress==='number') ? a.progress : null,
+      last: a.last_update || null,
+      history: a.recent_activity || [],
+    };
+  });
+}
+function agoStr(iso){
+  if(!iso) return '—';
+  const s = Math.max(0, (Date.now()-new Date(iso).getTime())/1000);
+  if (s<60) return Math.round(s)+'s';
+  if (s<3600) return Math.round(s/60)+'m';
+  if (s<86400) return Math.round(s/3600)+'h';
+  return Math.round(s/86400)+'d';
+}
+const esc = s => String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ═══════════════════ LAYOUT (positions) ═══════════════════ */
+const LAYOUT_KEY = 'lb_layout_v1';
+let layout = JSON.parse(localStorage.getItem(LAYOUT_KEY)||'{}');
+function saveLayout(){ localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); }
+function defaultPositions(){
+  const W = window.innerWidth, H = window.innerHeight - 52;
+  const cx = W/2, cy = H/2 + 52;
+  const pos = {};
+  // agents in an ellipse around the core
+  const n = ROSTER.length;
+  ROSTER.forEach((r,i)=>{
+    const ang = (i/n) * Math.PI*2 - Math.PI/2;
+    const rx = Math.min(W*0.33, 520), ry = Math.min(H*0.36, 330);
+    pos[r.id] = { x: cx + Math.cos(ang)*rx - 115, y: cy + Math.sin(ang)*ry - 60 };
+  });
+  pos['panel-metrics'] = { x: 14, y: 66 };
+  pos['panel-queue']   = { x: 14, y: 414 };
+  pos['panel-feed']    = { x: W - 448, y: H + 52 - 276 };
+  return pos;
+}
+function getPos(id){
+  if (layout[id]) return layout[id];
+  if (!getPos._def) getPos._def = defaultPositions();
+  return getPos._def[id] || {x:80,y:80};
+}
+document.getElementById('layout-btn').onclick = ()=>{
+  layout = {}; getPos._def = null; saveLayout();
+  document.querySelectorAll('.agent-card,.panel').forEach(el=>{
+    const p = getPos(el.dataset.posid || el.id);
+    el.style.left = p.x+'px'; el.style.top = p.y+'px';
+  });
+  drawLinks();
+  toast('Layout reset', 'ok');
+};
+
+/* drag engine (mouse only; disabled on mobile) */
+function makeDraggable(el, handle, posId){
+  const h = handle || el;
+  h.addEventListener('pointerdown', e=>{
+    if (isMobile() || e.button!==0) return;
+    if (e.target.closest('button,input,.pin')) return;
+    e.preventDefault();
+    const rect = el.getBoundingClientRect();
+    const floor = document.getElementById('floor').getBoundingClientRect();
+    const dx = e.clientX - rect.left, dy = e.clientY - rect.top;
+    el.classList.add('dragging');
+    el.setPointerCapture && h.setPointerCapture(e.pointerId);
+    function move(ev){
+      let x = ev.clientX - floor.left - dx;
+      let y = ev.clientY - floor.top  - dy;
+      x = Math.max(-40, Math.min(x, floor.width - 60));
+      y = Math.max(0,   Math.min(y, floor.height - 40));
+      el.style.left = x+'px'; el.style.top = y+'px';
+      layout[posId] = {x, y};
+      if (el.classList.contains('agent-card')) drawLinks();
+    }
+    function up(){
+      el.classList.remove('dragging');
+      saveLayout();
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    }
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  });
+}
+
+/* ═══════════════════ RENDER: AGENT CARDS ═══════════════════ */
+const floor = document.getElementById('floor');
+const cardEls = {};
+function buildCards(){
+  agentList().forEach(a=>{
+    const el = document.createElement('div');
+    el.className = 'agent-card';
+    el.dataset.posid = a.id;
+    el.innerHTML = `
+      <div class="ac-top"><span class="ac-name"><span class="ac-dot"></span>${esc(a.name)}</span><span class="badge IDLE" data-f="badge">IDLE</span></div>
+      <div class="ac-role" data-f="role"></div>
+      <div class="ac-task none" data-f="task"></div>
+      <div class="ac-bar" data-f="barwrap"><b data-f="bar" style="width:0%"></b></div>
+      <div class="ac-meta">
+        <span data-f="hb"></span>
+        <span data-f="model"></span>
+      </div>
+      <div class="hud-corners"><i></i><i></i><i></i><i></i></div>`;
+    const p = getPos(a.id);
+    el.style.left = p.x+'px'; el.style.top = p.y+'px';
+    el.addEventListener('click', ()=>{ if(!el.classList.contains('dragging')) openDrawer(a.id); });
+    makeDraggable(el, el, a.id);
+    floor.appendChild(el);
+    cardEls[a.id] = el;
+  });
+}
+function renderCards(){
+  agentList().forEach(a=>{
+    const el = cardEls[a.id]; if(!el) return;
+    el.classList.toggle('working', a.status==='WORKING');
+    el.classList.toggle('error',   a.status==='ERROR');
+    el.classList.toggle('pausedA', a.status==='PAUSED');
+    const q = pendingCmds[a.id] || pendingCmds['_fleet'];
+    const badge = el.querySelector('[data-f=badge]');
+    badge.className = 'badge ' + (q ? 'QUEUED' : a.status);
+    badge.textContent = q ? 'QUEUED' : a.status;
+    el.querySelector('[data-f=role]').textContent = a.role;
+    const taskEl = el.querySelector('[data-f=task]');
+    taskEl.textContent = a.task || t('none');
+    taskEl.classList.toggle('none', !a.task);
+    const bw = el.querySelector('[data-f=barwrap]');
+    bw.classList.toggle('show', a.progress!=null && a.status==='WORKING');
+    if (a.progress!=null) el.querySelector('[data-f=bar]').style.width = Math.round(a.progress*100)+'%';
+    el.querySelector('[data-f=hb]').textContent = '♥ ' + agoStr(a.last);
+    const m = el.querySelector('[data-f=model]');
+    m.innerHTML = a.model ? `<span class="mtag ${a.model==='ollama'?'local':'cloud'}">${a.model==='ollama'?'LOCAL/FREE':'CLOUD'}</span>` : '';
+  });
+  drawLinks();
+}
+
+/* neural links from working agents to core */
+function drawLinks(){
+  const svg = document.getElementById('linklayer');
+  if (isMobile()){ svg.innerHTML=''; return; }
+  const fr = floor.getBoundingClientRect();
+  const core = document.getElementById('core').getBoundingClientRect();
+  const cx = core.left - fr.left + core.width/2;
+  const cy = core.top  - fr.top  + core.height/2;
+  let html = `<defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38ef7d" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#00e5ff" stop-opacity="0.15"/>
+    </linearGradient></defs>`;
+  let anyWorking = false;
+  agentList().forEach(a=>{
+    if (a.status!=='WORKING') return;
+    anyWorking = true;
+    const el = cardEls[a.id]; if(!el) return;
+    const r = el.getBoundingClientRect();
+    const ax = r.left - fr.left + r.width/2;
+    const ay = r.top  - fr.top  + r.height/2;
+    const mx = (ax+cx)/2, my = (ay+cy)/2 - 40;
+    html += `<path d="M ${ax} ${ay} Q ${mx} ${my} ${cx} ${cy}" fill="none" stroke="url(#lg)" stroke-width="1.5" stroke-dasharray="6 7">
+      <animate attributeName="stroke-dashoffset" from="26" to="0" dur="1.1s" repeatCount="indefinite"/></path>
+      <circle cx="${ax}" cy="${ay}" r="3" fill="#38ef7d"><animate attributeName="r" values="3;5;3" dur="1.6s" repeatCount="indefinite"/></circle>`;
+  });
+  svg.innerHTML = html;
+  document.getElementById('core-sub').textContent = anyWorking ? t('core_active') : t('core_standby');
+}
+function positionCore(){
+  const c = document.getElementById('core');
+  const W = floor.clientWidth, H = floor.clientHeight;
+  c.style.left = (W/2 - 95)+'px'; c.style.top = (H/2 - 95)+'px';
+}
+
+/* ═══════════════════ RENDER: PANELS ═══════════════════ */
+function renderMetrics(){
+  const ms = (FEED && FEED.model_summary) || {ollama:0,haiku:0,total:0};
+  animNum('m-ollama', ms.ollama||0);
+  animNum('m-haiku', ms.haiku||0);
+  animNum('m-total', (ms.ollama||0)+(ms.haiku||0));
+  const cost = ((ms.haiku||0) * 0.0005 * 30).toFixed(2);
+  document.getElementById('m-cost').innerHTML = `$${cost}<span class="unit">/mo</span>`;
+  // sparkline of total tasks over time
+  const totalNow = (ms.ollama||0)+(ms.haiku||0);
+  const last = taskHourHistory[taskHourHistory.length-1];
+  if (!last || Date.now()-last.t > 10*60*1000){
+    taskHourHistory.push({t:Date.now(), v:totalNow});
+    taskHourHistory = taskHourHistory.slice(-40);
+    localStorage.setItem('lb_spark', JSON.stringify(taskHourHistory));
+  }
+  const svg = document.getElementById('spark');
+  if (taskHourHistory.length > 1){
+    const vs = taskHourHistory.map(p=>p.v);
+    const min = Math.min(...vs), max = Math.max(...vs, min+1);
+    const pts = taskHourHistory.map((p,i)=>{
+      const x = i/(taskHourHistory.length-1)*200;
+      const y = 30 - ((p.v-min)/(max-min))*26;
+      return `${x},${y}`;
+    }).join(' ');
+    svg.innerHTML = `<polyline points="${pts}" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.9"/>`;
+  }
+}
+const numState = {};
+function animNum(id, target){
+  const el = document.getElementById(id);
+  const from = numState[id]||0;
+  if (from===target){ el.textContent = target; return; }
+  numState[id] = target;
+  const steps = 14; let i=0;
+  const iv = setInterval(()=>{
+    i++;
+    el.textContent = Math.round(from + (target-from)*(i/steps));
+    if(i>=steps) clearInterval(iv);
+  }, 34);
+}
+function renderQueue(){
+  const body = document.getElementById('queue-body');
+  const tasks = (FEED && FEED.current_tasks) || [];
+  if (!tasks.length){ body.innerHTML = `<div class="qempty">${t('q_empty')}</div>`; return; }
+  body.innerHTML = tasks.map(task=>{
+    const started = task.timestamp ? agoStr(task.timestamp) : '—';
+    return `<div class="qitem">
+      <div class="q1"><span class="qa">${esc(task.agent_label||task.agent)}</span>
+      <span class="mtag ${task.model==='ollama'?'local':'cloud'}">${task.model==='ollama'?'LOCAL/FREE':'CLOUD'}</span></div>
+      <div class="qt">${esc(task.task)}</div>
+      <div class="qm"><span>${esc(task.status||'running').toUpperCase()}</span><span>⏱ ${started}</span></div>
+    </div>`;
+  }).join('');
+}
+function renderFeedLog(){
+  const body = document.getElementById('feed-body');
+  const entries = (FEED && FEED.recent_activity) || [];
+  if (!entries.length){ body.innerHTML = `<div class="qempty">${t('f_empty')}</div>`; return; }
+  body.innerHTML = entries.map(e=>{
+    const time = e.timestamp ? new Date(e.timestamp).toLocaleTimeString('en-GB') : '';
+    const lvl = (e.status==='failed'||e.type==='error') ? 'lv-err'
+              : (e.type==='warn') ? 'lv-warn'
+              : (e.status==='completed'||e.type==='ok') ? 'lv-ok' : '';
+    return `<div class="log-line ${lvl}"><span class="t">${time}</span><span class="a">${esc(e.agent||'system')}</span>${esc(e.description||e.type||'')}</div>`;
+  }).join('');
+}
+function renderBanners(){
+  document.getElementById('banner-demo').classList.toggle('show', DEMO);
+  const paused = BRAIN_STATUS && (BRAIN_STATUS.paused || BRAIN_STATUS.state==='paused');
+  document.getElementById('banner-paused').classList.toggle('show', !!paused);
+}
+function renderUplink(){
+  const ok = !DEMO && (Date.now()-lastFetchOk < STALE_MS);
+  document.getElementById('online-dot').classList.toggle('ok', ok);
+}
+function renderAll(){
+  renderCards(); renderMetrics(); renderQueue(); renderFeedLog(); renderBanners(); renderUplink();
+  if (selectedAgent) fillDrawer(selectedAgent);
+}
+
+/* ═══════════════════ DRAWER ═══════════════════ */
+function openDrawer(id){
+  selectedAgent = id;
+  fillDrawer(id);
+  document.getElementById('drawer').classList.add('open');
+}
+function fillDrawer(id){
+  const a = agentList().find(x=>x.id===id); if(!a) return;
+  document.getElementById('d-name').textContent = a.name;
+  document.getElementById('d-role').textContent = a.id + ' · ' + a.role;
+  document.getElementById('d-current').textContent = a.task || t('none');
+  const q = pendingCmds[a.id] || pendingCmds['_fleet'];
+  document.getElementById('d-status').innerHTML =
+    `STATE&nbsp;&nbsp;: ${q?'QUEUED → ':''}${a.status}<br>` +
+    `MODEL&nbsp;&nbsp;: ${a.model ? (a.model==='ollama'?'OLLAMA (LOCAL/FREE)':'HAIKU (CLOUD)') : '—'}<br>` +
+    `HEART&nbsp;&nbsp;: ${agoStr(a.last)} ago<br>` +
+    (a.progress!=null ? `PROG&nbsp;&nbsp;&nbsp;: ${Math.round(a.progress*100)}%` : '');
+  const h = document.getElementById('d-history');
+  h.innerHTML = a.history.length
+    ? a.history.map(x=>`<div class="hist-item">▸ ${esc(x)}</div>`).join('')
+    : '<span style="color:var(--text-dim)">—</span>';
+}
+document.getElementById('d-close').onclick = ()=>{ document.getElementById('drawer').classList.remove('open'); selectedAgent=null; };
+
+/* ═══════════════════ COMMANDS via GitHub API ═══════════════════ */
+function getToken(){ try { return localStorage.getItem('lb_gh_token')||''; } catch(e){ return ''; } }
+async function ghGetCommands(token){
+  const r = await fetch(CMDS_API + '?ref=' + GH_BRANCH + '&t=' + Date.now(), {
+    headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json' }
+  });
+  if (r.status===404) return { sha:null, data:{commands:[]} };
+  if (!r.ok) throw new Error('GitHub read failed: '+r.status);
+  const j = await r.json();
+  let data = {commands:[]};
+  try { data = JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,''))))); } catch(e){}
+  if (!Array.isArray(data.commands)) data.commands = [];
+  return { sha:j.sha, data };
+}
+async function ghPutCommands(token, sha, data){
+  const body = {
+    message: 'dashboard: queue command',
+    branch: GH_BRANCH,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
+  };
+  if (sha) body.sha = sha;
+  const r = await fetch(CMDS_API, {
+    method:'PUT',
+    headers:{ 'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json', 'Content-Type':'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error('GitHub write failed: '+r.status);
+}
+async function sendCommand(agent, action, payload){
+  const token = getToken();
+  if (!token){ openTokenModal(); toast(t('need_token'), 'err'); return; }
+  const cmd = {
+    id: 'cmd_' + Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+    agent, action, payload: payload||'',
+    ts: new Date().toISOString(), status:'pending', source:'dashboard'
+  };
+  try {
+    for (let attempt=0; attempt<2; attempt++){
+      try {
+        const { sha, data } = await ghGetCommands(token);
+        data.commands.push(cmd);
+        data.commands = data.commands.slice(-60);
+        await ghPutCommands(token, sha, data);
+        break;
+      } catch(e){
+        if (attempt===1) throw e;
+        await new Promise(r=>setTimeout(r, 800));
+      }
+    }
+    pendingCmds[agent||'_fleet'] = true;
+    renderCards(); if(selectedAgent) fillDrawer(selectedAgent);
+    toast(t('cmd_sent'), 'ok');
+  } catch(e){
+    console.error(e);
+    toast(t('cmd_err') + ' — ' + e.message, 'err');
+  }
+}
+document.getElementById('d-pause').onclick  = ()=> selectedAgent && sendCommand(selectedAgent, 'pause');
+document.getElementById('d-resume').onclick = ()=> selectedAgent && sendCommand(selectedAgent, 'resume');
+document.getElementById('d-stop').onclick   = ()=> selectedAgent && sendCommand(selectedAgent, 'stop');
+document.getElementById('d-send').onclick   = ()=> {
+  const v = document.getElementById('d-instr').value.trim();
+  if (!v || !selectedAgent) return;
+  sendCommand(selectedAgent, 'instruct', v);
+  document.getElementById('d-instr').value = '';
+};
+document.getElementById('d-instr').addEventListener('keydown', e=>{ if(e.key==='Enter') document.getElementById('d-send').click(); });
+
+/* token modal */
+function openTokenModal(){
+  document.getElementById('token-input').value = getToken();
+  document.getElementById('modal-token').classList.add('open');
+}
+document.getElementById('token-btn').onclick = openTokenModal;
+document.getElementById('token-save').onclick = ()=>{
+  try { localStorage.setItem('lb_gh_token', document.getElementById('token-input').value.trim()); } catch(e){}
+  document.getElementById('modal-token').classList.remove('open');
+  toast('Token saved ✓', 'ok');
+};
+document.getElementById('token-clear').onclick = ()=>{
+  try { localStorage.removeItem('lb_gh_token'); } catch(e){}
+  document.getElementById('token-input').value='';
+  toast('Token cleared', 'ok');
+};
+document.getElementById('modal-token').addEventListener('click', e=>{
+  if (e.target.id==='modal-token') e.target.classList.remove('open');
+});
+
+/* ═══════════════════ MISC UI ═══════════════════ */
+let toastTimer;
+function toast(msg, cls){
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.className = 'show ' + (cls||'');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ el.className=''; }, 3500);
+}
+/* clock */
+setInterval(()=>{
+  document.getElementById('clock').textContent =
+    new Date().toLocaleTimeString('en-GB', { timeZone:'Europe/London' });
+}, 1000);
+/* voice */
+document.getElementById('voice-btn').onclick = ()=>{
+  const audio = new Audio('./brief.mp3?t=' + Math.floor(Date.now()/3600000));
+  audio.play().catch(()=> toast('No voice brief available', 'err'));
+};
+/* panel collapse pins + dragging */
+document.querySelectorAll('.pin').forEach(pin=>{
+  pin.onclick = e=>{
+    e.stopPropagation();
+    const p = document.getElementById(pin.dataset.collapse);
+    p.classList.toggle('collapsed');
+    pin.textContent = p.classList.contains('collapsed') ? '▸' : '▾';
+  };
+});
+document.querySelectorAll('.panel').forEach(p=>{
+  p.dataset.posid = p.id;
+  const pos = getPos(p.id);
+  p.style.left = pos.x+'px'; p.style.top = pos.y+'px';
+  makeDraggable(p, p.querySelector('.panel-head'), p.id);
+});
+window.addEventListener('resize', ()=>{ positionCore(); drawLinks(); });
+
+/* ═══════════════════ BOOT ═══════════════════ */
+const bootLines = [
+  'initializing neural lattice .......... <span class="ok">OK</span>',
+  'linking agent fleet (11 units) ....... <span class="ok">OK</span>',
+  'establishing uplink: github pages .... <span class="ok">OK</span>',
+  'loading mission telemetry ............ <span class="ok">OK</span>',
+  'rendering heads-up display ........... <span class="ok">OK</span>',
+];
+function runBoot(){
+  const box = document.getElementById('boot-lines');
+  const bar = document.getElementById('boot-bar');
+  let i = 0;
+  const iv = setInterval(()=>{
+    if (i < bootLines.length){
+      box.innerHTML += '<div>&gt; ' + bootLines[i] + '</div>';
+      bar.style.width = ((i+1)/bootLines.length*100)+'%';
+      i++;
+    } else {
+      clearInterval(iv);
+      setTimeout(()=>{
+        document.getElementById('boot').classList.add('done');
+        document.querySelectorAll('.agent-card,.panel').forEach((el,j)=>{
+          el.classList.add('fx-in'); el.style.animationDelay = (j*60)+'ms';
         });
+      }, 350);
+    }
+  }, 260);
+}
 
-        // Voice button
-        document.getElementById('voice-btn').addEventListener('click', async () => {
-            const btn = document.getElementById('voice-btn');
-            if (isVoicePlaying) return;
-
-            isVoicePlaying = true;
-            btn.classList.add('loading');
-            btn.innerHTML = '<span class="loading"></span> <span>Generating...</span>';
-
-            try {
-                // In a real implementation, this would call a voice API
-                // For now, show the intention
-                const lang = currentLanguage === 'fa' ? 'Farsi' : 'English';
-
-                // Fetch voice file (would be generated by voice-updates.py)
-                // Simulating: we'd construct the filename based on timestamp
-                // In production, the bridge would generate these on demand
-
-                console.log(`Voice update requested in ${lang}`);
-
-                // Restore button
-                setTimeout(() => {
-                    isVoicePlaying = false;
-                    btn.classList.remove('loading');
-                    btn.innerHTML = '<span>🔊</span> <span>Voice Update</span>';
-                }, 2000);
-            } catch (e) {
-                console.error('Voice error:', e);
-                isVoicePlaying = false;
-                btn.classList.remove('loading');
-                btn.innerHTML = '<span>🔊</span> <span>Voice Update</span>';
-            }
-        });
-
-        // Fetch and display dashboard feed
-        async function fetchDashboard() {
-            try {
-                const response = await fetch(FEED_URL);
-                if (!response.ok) throw new Error('Feed not found');
-
-                const data = await response.json();
-                updateDashboard(data);
-
-                // Update timestamp
-                const now = new Date();
-                document.getElementById('last-update').textContent =
-                    now.toLocaleTimeString('en-GB');
-            } catch (e) {
-                console.error('Failed to fetch dashboard:', e);
-            }
-        }
-
-        function updateDashboard(data) {
-            // Update stats
-            const ollama = data.model_summary.ollama || 0;
-            const haiku = data.model_summary.haiku || 0;
-            const total = ollama + haiku;
-
-            document.getElementById('ollama-count').textContent = ollama;
-            document.getElementById('haiku-count').textContent = haiku;
-            document.getElementById('total-tasks').textContent = total;
-
-            // Estimate cost: ~$0.0005 per Haiku task
-            const estimatedCost = (haiku * 0.0005 * 30).toFixed(2);
-            document.getElementById('cost-estimate').textContent =
-                `~$${estimatedCost}/month`;
-
-            // Update current tasks
-            updateTasksGrid(data.current_tasks || []);
-
-            // Update agent nodes
-            updateAgentGrid(data.agents || {});
-
-            // Update ops log
-            updateOpsLog(data.recent_activity || []);
-        }
-
-        function updateTasksGrid(tasks) {
-            const grid = document.getElementById('tasks-grid');
-
-            if (tasks.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <div class="empty-state-icon">✅</div>
-                        <div>All agents on standby</div>
-                    </div>
-                `;
-                return;
-            }
-
-            grid.innerHTML = tasks.map(task => `
-                <div class="task-card">
-                    <div class="task-header">
-                        <div class="task-agent">${task.agent_label || task.agent}</div>
-                        <div class="task-model ${task.model === 'haiku' ? 'haiku' : ''}">
-                            ${task.model === 'haiku' ? '☁️ Haiku' : '💻 Ollama'}
-                        </div>
-                    </div>
-                    <div class="task-description">${task.task}</div>
-                    <div class="task-meta">
-                        <div class="task-status">
-                            <div class="status-dot"></div>
-                            <span>${task.status === 'running' ? 'Running' : 'Started'}</span>
-                        </div>
-                        <div>${new Date(task.timestamp).toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'})}</div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function updateAgentGrid(agents) {
-            const grid = document.getElementById('agents-grid');
-
-            const agentList = Object.entries(agents).map(([id, agent]) => ({
-                id,
-                ...agent
-            }));
-
-            grid.innerHTML = agentList.map(agent => `
-                <div class="agent-node ${agent.status === 'working' ? 'working' : ''}">
-                    <div class="agent-circle">
-                        ${agent.status === 'working' ? '⚡' : '✓'}
-                    </div>
-                    <div class="agent-label">${agent.label}</div>
-                    ${agent.current_task ? `
-                        <div class="agent-task">${agent.current_task}</div>
-                        <div class="agent-model-tag">
-                            ${agent.current_model === 'haiku' ? '☁️ Haiku' : '💻 Ollama'}
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-
-        function updateOpsLog(entries) {
-            const log = document.getElementById('ops-log');
-
-            if (entries.length === 0) {
-                log.innerHTML = '<div class="empty-state"><div>No recent activity</div></div>';
-                return;
-            }
-
-            log.innerHTML = entries.map(entry => {
-                const time = new Date(entry.timestamp).toLocaleTimeString('en-GB',
-                    {hour: '2-digit', minute: '2-digit', second: '2-digit'});
-                return `
-                    <div class="log-entry">
-                        <div class="log-time">${time}</div>
-                        <div>
-                            <span class="log-agent">${entry.agent}</span>
-                            <span class="log-action">${entry.description || entry.type}</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Poll for updates
-        setInterval(fetchDashboard, POLL_INTERVAL);
-        fetchDashboard();
-    </script>
+/* ═══════════════════ INIT ═══════════════════ */
+positionCore();
+buildCards();
+applyLang();
+runBoot();
+poll();
+setInterval(poll, POLL_MS);
+</script>
 </body>
 </html>
