@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T23:55:44Z",
+  "timestamp": "2026-10-13T23:57:52Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T00:55:22.906201",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "timestamp": "2026-10-14T00:57:38.005384",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -97,16 +97,16 @@
       "label": "Web systems",
       "recent_activity": [
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-        "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
+        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book"
       ],
-      "status": "working",
-      "current_task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:55:22Z"
+      "last_update": "2026-10-13T23:57:27Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -135,10 +135,10 @@
         "Failed: [Local: blog title ideas] Using the services and voice in BRAND.md, pr",
         "Failed: [Standing: FAQ gap from enquiries] From the Search Console query data "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:44:13Z"
+      "last_update": "2026-10-13T23:57:38Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:57:38Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:57:27Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T23:55:22Z",
       "agent": "lear-webdev",
@@ -253,20 +267,6 @@
       "agent": "lear-content",
       "type": "ok",
       "description": "Completed (haiku): [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:43:37Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:43:25Z",
-      "agent": "lear-social",
-      "type": "ok",
-      "description": "Completed (haiku): [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
       "status": "completed"
     }
   ],
