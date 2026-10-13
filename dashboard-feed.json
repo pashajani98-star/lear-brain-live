@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-13T23:08:10Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T00:08:06.000967",
-      "agent": "lear-competitors",
-      "agent_label": "Competitor intel",
-      "task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-13T23:08:45Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -53,12 +43,12 @@
         "Failed: [Standing: review themes] Read the latest public Google reviews for Lo",
         "Failed: [Standing: review themes] Read the latest public Google reviews for Lo",
         "Failed: [Standing: review themes] Read the latest public Google reviews for Lo",
-        "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli"
+        "Failed: [Standing: review themes] Read the latest public Google reviews for Lo"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:05:43Z"
+      "last_update": "2026-10-13T23:08:27Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -101,12 +91,12 @@
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
         "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
+        "Failed: [Standing: page speed and broken link check] Fetch the homepage, /book"
       ],
       "status": "error",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:05:56Z"
+      "last_update": "2026-10-13T23:08:42Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -149,12 +139,12 @@
         "Failed: [Standing: competitor pricing check] Check the published call-out and ",
         "Failed: [Standing: competitor pricing check] Check the published call-out and ",
         "Failed: [Standing: competitor pricing check] Check the published call-out and ",
-        "[Standing: competitor pricing check] Check the published call-out and price pages of the t"
+        "Failed: [Standing: competitor pricing check] Check the published call-out and "
       ],
-      "status": "working",
-      "current_task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
+      "status": "error",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:08:06Z"
+      "last_update": "2026-10-13T23:08:11Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -185,6 +175,41 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T23:08:42Z",
+      "agent": "lear-webdev",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:08:36Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:08:27Z",
+      "agent": "lear-reviews",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
+      "status": "failed"
+    },
+    {
+      "timestamp": "2026-10-13T23:08:21Z",
+      "agent": "lear-reviews",
+      "type": "info",
+      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T23:08:11Z",
+      "agent": "lear-competitors",
+      "type": "error",
+      "description": "Failed/stopped: [Standing: competitor pricing check] Check the published call-out and price pages of the t",
+      "status": "failed"
+    },
     {
       "timestamp": "2026-10-13T23:08:06Z",
       "agent": "lear-competitors",
@@ -233,41 +258,6 @@
       "type": "info",
       "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:11Z",
-      "agent": "lear-social",
-      "type": "error",
-      "description": "Failed/stopped: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:07:05Z",
-      "agent": "lear-social",
-      "type": "info",
-      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:06:55Z",
-      "agent": "lear-monitor",
-      "type": "error",
-      "description": "Failed/stopped: [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
-      "status": "failed"
-    },
-    {
-      "timestamp": "2026-10-13T23:06:50Z",
-      "agent": "lear-monitor",
-      "type": "info",
-      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:06:43Z",
-      "agent": "lear-codereview",
-      "type": "error",
-      "description": "Failed/stopped: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
-      "status": "failed"
     }
   ],
   "total_tasks_logged": 50,
