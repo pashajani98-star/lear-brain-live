@@ -103,6 +103,12 @@
     font-family:'Orbitron';font-weight:700;font-size:12px;letter-spacing:2px;color:#02222e;
     background:linear-gradient(180deg,#53eaff,#19b9dd);box-shadow:0 0 22px rgba(53,224,255,.45)}
   .hint{font-size:10px;color:#4e7d91;margin-top:10px;line-height:1.6;letter-spacing:.5px}
+  .brief{position:fixed;right:18px;bottom:64px;z-index:31;background:rgba(4,17,27,.7);border:1px solid var(--cy2);
+    color:var(--cy);font-family:'Orbitron';font-size:11px;letter-spacing:2px;padding:12px 18px;border-radius:4px;
+    cursor:pointer;box-shadow:0 0 14px rgba(53,224,255,.25);backdrop-filter:blur(4px)}
+  .brief:hover{border-color:var(--cy);box-shadow:0 0 24px rgba(53,224,255,.55)}
+  .brief.talking{animation:tk 1s infinite}
+  @keyframes tk{0%,100%{box-shadow:0 0 14px rgba(53,224,255,.3)}50%{box-shadow:0 0 30px rgba(53,224,255,.8)}}
 </style>
 </head>
 <body>
@@ -122,6 +128,8 @@
   <div class="obj" id="obj">▶ AWAITING FIRST OPERATION…</div>
   <div class="mnote" id="mnote"></div>
 </div>
+
+<button class="brief" id="briefBtn" onclick="speakBrief()">◉ BRIEF ME</button>
 
 <div class="panel" id="panel">
   <div class="ph">
@@ -171,8 +179,8 @@ function build(){
   s+=`<g class="ring1"><circle cx="${CX}" cy="${CY}" r="96" fill="none" stroke="#1e6a85" stroke-width="2" stroke-dasharray="20 14"/></g>`;
   s+=`<g class="ring2"><circle cx="${CX}" cy="${CY}" r="78" fill="none" stroke="#2a93b5" stroke-width="1.4" stroke-dasharray="4 9"/></g>`;
   s+=`<circle class="corepulse" cx="${CX}" cy="${CY}" r="58" fill="url(#cg)"/>`;
-  s+=`<circle cx="${CX}" cy="${CY}" r="34" fill="#061d2c" stroke="#35e0ff" stroke-width="1.6" filter="drop-shadow(0 0 16px rgba(53,224,255,.8))"/>`;
-  s+=`<text x="${CX}" y="${CY+5}" text-anchor="middle" style="font-family:Orbitron;font-weight:900;font-size:15px;fill:#d9f8ff;letter-spacing:2px">MGR</text>`;
+  s+=`<g onclick="speakBrief()" style="cursor:pointer"><circle cx="${CX}" cy="${CY}" r="34" fill="#061d2c" stroke="#35e0ff" stroke-width="1.6" filter="drop-shadow(0 0 16px rgba(53,224,255,.8))"/>`;
+  s+=`<text x="${CX}" y="${CY+5}" text-anchor="middle" style="font-family:Orbitron;font-weight:900;font-size:15px;fill:#d9f8ff;letter-spacing:2px">MGR</text></g>`;
   s+=`<text x="${CX}" y="${CY+134}" text-anchor="middle" style="font-family:Orbitron;font-size:11px;fill:#5fb6d2;letter-spacing:4px">MANAGER CORE</text>`;
   // nodes
   ROSTER.forEach((a,i)=>{const [x,y]=nodePos(i);
@@ -231,6 +239,38 @@ function refreshPanel(){const a=ROSTER.find(x=>x.id===CUR);if(!a)return;
 function mapName(a){return {SEO:'SEO',ADS:'Ads',CNT:'Content',DEV:'Web Dev',REV:'Reviews',OUT:'Outreach',SOC:'Social',CMP:'Competitors',RPT:'Reports',QC:'Monitor'}[a.code];}
 document.getElementById('pMsg').addEventListener('input',refreshPanel);
 function closePanel(){document.getElementById('panel').classList.remove('open');CUR=null;}
+
+// ---- voice briefing (tap the core or BRIEF ME) ----
+if('speechSynthesis' in window){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();}
+function pickVoice(){
+  const vs=speechSynthesis.getVoices();
+  return vs.find(v=>/Ryan/i.test(v.name)&&/en-GB|English/i.test(v.lang+v.name))
+      || vs.find(v=>/George|Daniel|Brian|James/i.test(v.name)&&/en/i.test(v.lang))
+      || vs.find(v=>/en-GB/i.test(v.lang))
+      || vs.find(v=>/UK English Male/i.test(v.name))
+      || vs.find(v=>/en/i.test(v.lang));
+}
+function speakBrief(){
+  if(!('speechSynthesis' in window)){alert('This browser has no speech support.');return;}
+  const act=STATUS.agents_active||[];
+  const names=act.map(id=>{const a=ROSTER.find(x=>x.id===id);return a?a.name.toLowerCase():id;});
+  const h=new Date().getHours();
+  const greet=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+  let st=STATUS.paused?'paused on your orders':STATUS.usage_limited?'waiting for the usage window to reset':(STATUS.state||'idle');
+  let t=`${greet}, sir. System status: ${st}. `;
+  t+=act.length?`${act.length} agent${act.length>1?'s are':' is'} engaged: ${names.join(', ')}. `:'All agents are on standby. ';
+  const o=(STATUS.objective||'').trim();
+  if(o) t+=`Current operation: ${o}. `;
+  if(STATUS.needs_pasha) t+='Sir, the manager requires your decision. Do check Telegram at your convenience. ';
+  else t+='Everything is in hand.';
+  const u=new SpeechSynthesisUtterance(t);
+  const v=pickVoice(); if(v)u.voice=v;
+  u.pitch=0.68;u.rate=0.96;u.volume=1;
+  const btn=document.getElementById('briefBtn');
+  btn.classList.add('talking');btn.textContent='◉ SPEAKING…';
+  u.onend=u.onerror=()=>{btn.classList.remove('talking');btn.textContent='◉ BRIEF ME';};
+  speechSynthesis.cancel();speechSynthesis.speak(u);
+}
 tick();setInterval(tick,10000);
 </script>
 </body>
