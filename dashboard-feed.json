@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T21:02:53Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T21:03:18Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T22:02:53.349426",
+      "agent": "lear-outreach",
+      "agent_label": "Outreach",
+      "task": "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick the 2 best next actions (new letting agents to co",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 13,
-    "total": 14
+    "haiku": 14,
+    "total": 15
   },
   "agents": {
     "lear-strategist": {
@@ -107,6 +117,15 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-13T20:59:44Z"
+    },
+    "lear-outreach": {
+      "id": "lear-outreach",
+      "label": "Outreach",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick the 2 best next actions (new letting agents to co",
+      "current_model": "haiku",
+      "last_update": "2026-10-13T21:02:53Z"
     }
   },
   "recent_activity": [
@@ -195,7 +214,7 @@
       "status": "completed"
     }
   ],
-  "total_tasks_logged": 14,
+  "total_tasks_logged": 15,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
