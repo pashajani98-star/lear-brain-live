@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-13T21:07:44Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-13T21:08:19Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-13T22:07:53.767863",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search Console, last 7 days vs prior 7; paid is LSA only, ",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 1,
-    "haiku": 15,
-    "total": 16
+    "haiku": 16,
+    "total": 17
   },
   "agents": {
     "lear-strategist": {
@@ -14,10 +24,10 @@
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last",
         "[GA4 and lead pulse] Using the GA4 API (property 536745696), report yesterday and the last"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search Console, last 7 days vs prior 7; paid is LSA only, ",
       "current_model": "haiku",
-      "last_update": "2026-10-13T20:07:08Z"
+      "last_update": "2026-10-13T21:07:53Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -123,6 +133,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-13T21:07:53Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from mission scheduler: [Weekly review and priorities] Produce LEAR's weekly review with real data (GA4 + Search Console, last 7 days vs prior 7",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-13T21:07:33Z",
       "agent": "lear-seo",
       "type": "ok",
@@ -198,16 +215,9 @@
       "type": "info",
       "description": "Task from mission scheduler: [Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post losing the most clicks/position. ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T20:50:40Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Indexing health check] Using Search Console, check indexing of the money pages (homepage,",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 16,
+  "total_tasks_logged": 17,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
