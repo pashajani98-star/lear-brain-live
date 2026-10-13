@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-13T22:47:22Z",
+  "timestamp": "2026-10-13T22:50:38Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-13T23:46:49.716932",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "timestamp": "2026-10-13T23:50:34.753614",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -13,8 +13,8 @@
   ],
   "model_summary": {
     "ollama": 2,
-    "haiku": 32,
-    "total": 34
+    "haiku": 33,
+    "total": 35
   },
   "agents": {
     "lear-strategist": {
@@ -88,12 +88,13 @@
       "label": "Web systems",
       "recent_activity": [
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Booking funnel check] Using GA4, analyse the path to /book/ over the last 7 days: arrival"
       ],
-      "status": "working",
-      "current_task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:46:49Z"
+      "last_update": "2026-10-13T22:50:25Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -115,10 +116,10 @@
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Content decay refresh] Using Search Console (28 days vs prior 28), find the blog post los"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
       "current_model": "haiku",
-      "last_update": "2026-10-13T22:40:18Z"
+      "last_update": "2026-10-13T22:50:34Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -158,6 +159,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-13T22:50:34Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-13T22:50:25Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-13T22:46:49Z",
       "agent": "lear-webdev",
@@ -227,23 +242,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:39:49Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T22:39:45Z",
-      "agent": "lear-social",
-      "type": "ok",
-      "description": "Completed (haiku): [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 34,
+  "total_tasks_logged": 35,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
