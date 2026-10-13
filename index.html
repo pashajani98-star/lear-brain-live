@@ -589,7 +589,7 @@ const I18N = {
     e_year:'This year', e_all:'All time', e_outstanding:'Outstanding', e_avg:'Avg job (month)',
     e_parts:'Parts mark-up (mo)', e_run:'RUN', e_err:'Earnings fetch failed — check the key',
     allowance:'Claude', al_ok:'OK', al_limited:'LIMITED → local',
-    none:'standby — no task assigned', paused_banner:'⏸ FLEET PAUSED',
+    none:'standby — no task assigned', last_done:'✔ last:', paused_banner:'⏸ FLEET PAUSED',
     demo_banner:'◈ DEMO DATA — LIVE FEED UNREACHABLE ◈',
     cmd_sent:'Command queued ✓ — the brain will pick it up shortly',
     cmd_err:'Command failed', need_token:'Set a GitHub token first (⚿ Auth)',
@@ -618,7 +618,7 @@ const I18N = {
     e_year:'امسال', e_all:'کل', e_outstanding:'وصول‌نشده', e_avg:'میانگین هر کار (ماه)',
     e_parts:'سود قطعات (ماه)', e_run:'اجرا', e_err:'دریافت درآمد ناموفق — کلید را بررسی کنید',
     allowance:'کلود', al_ok:'آزاد', al_limited:'محدود ← محلی',
-    none:'آماده‌باش — وظیفه‌ای ندارد', paused_banner:'⏸ ناوگان متوقف است',
+    none:'آماده‌باش — وظیفه‌ای ندارد', last_done:'✔ آخرین:', paused_banner:'⏸ ناوگان متوقف است',
     demo_banner:'◈ داده نمایشی — فید زنده در دسترس نیست ◈',
     cmd_sent:'دستور صف شد ✓ — مغز به‌زودی اجرا می‌کند',
     cmd_err:'ارسال دستور ناموفق بود', need_token:'اول توکن گیت‌هاب را تنظیم کنید (⚿)',
@@ -841,8 +841,16 @@ function renderCards(){
     badge.textContent = q ? 'QUEUED' : a.status;
     el.querySelector('[data-f=role]').textContent = a.role;
     const taskEl = el.querySelector('[data-f=task]');
-    taskEl.textContent = a.task || t('none');
-    taskEl.classList.toggle('none', !a.task);
+    if (a.task){
+      taskEl.textContent = a.task;
+      taskEl.classList.remove('none');
+    } else if (a.history && a.history.length){
+      taskEl.textContent = t('last_done') + ' ' + a.history[0];
+      taskEl.classList.add('none');
+    } else {
+      taskEl.textContent = t('none');
+      taskEl.classList.add('none');
+    }
     const bw = el.querySelector('[data-f=barwrap]');
     bw.classList.toggle('show', a.progress!=null && a.status==='WORKING');
     if (a.progress!=null) el.querySelector('[data-f=bar]').style.width = Math.round(a.progress*100)+'%';
