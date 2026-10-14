@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T00:30:01Z",
+  "timestamp": "2026-10-14T00:31:04Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T01:29:41.324789",
-      "agent": "lear-social",
-      "agent_label": "Social",
-      "task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
+      "timestamp": "2026-10-14T01:30:41.350050",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -83,14 +83,14 @@
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
-        "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
+        "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon",
         "Failed: [Local: GBP post draft] Write one Google Business Profile post for Lon"
       ],
-      "status": "working",
-      "current_task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:29:41Z"
+      "last_update": "2026-10-14T00:30:36Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -135,10 +135,10 @@
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:24:27Z"
+      "last_update": "2026-10-14T00:30:41Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T00:30:41Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T00:30:36Z",
+      "agent": "lear-social",
+      "type": "ok",
+      "description": "Completed (haiku): [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T00:29:41Z",
       "agent": "lear-social",
@@ -253,20 +267,6 @@
       "agent": "lear-webdev",
       "type": "ok",
       "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T00:15:41Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T00:15:30Z",
-      "agent": "lear-reviews",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
       "status": "completed"
     }
   ],
