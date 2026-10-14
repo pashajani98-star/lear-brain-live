@@ -792,21 +792,20 @@ const EARN_API   = 'https://londonemergencyappliancerepair.com/wp-json/lear/v1/e
 const WX_API     = 'https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current=temperature_2m,weather_code,wind_speed_10m&timezone=Europe%2FLondon';
 const POLL_MS    = 20000;
 const STALE_MS   = 3 * 60 * 1000;
-const VERSION    = '2.0';
+const VERSION    = '2.1';
 
+/* Roster after the 14 Oct 2026 agent review: six fleet agents + the explorer;
+   monitor is a quality gate. reviews+social live in content, competitors in
+   strategist, code review in security; reports/support/accounts are chat-only. */
 const ROSTER = [
-  { id:'lear-strategist',  label:'STRATEGIST',  role:'Strategy',          glyph:'♔', presets:['What should I focus on this week?','Give me a 3-line business review','Rank the top 3 growth levers right now'] },
-  { id:'lear-seo',         label:'SEO',         role:'Search operations', glyph:'⌕', presets:['Pull top 10 queries by clicks (28 days)','Which pages lost rankings this week?','Check indexing of the newest pages'] },
-  { id:'lear-security',    label:'SECURITY',    role:'Security & health', glyph:'⛨', presets:['Run a full health check now','Check the site is up and SSL valid','Scan plugins for known risks'] },
-  { id:'lear-content',     label:'CONTENT',     role:'Content',           glyph:'✎', presets:['Propose 5 blog titles','Draft an FAQ for washing machine leaks','Rewrite the homepage hero copy'] },
-  { id:'lear-webdev',      label:'WEBDEV',      role:'Web systems',       glyph:'⌘', presets:['Check page speed on the homepage','Find broken links','Audit the booking form'] },
-  { id:'lear-reviews',     label:'REVIEWS',     role:'Reputation',        glyph:'★', presets:['Check for new Google reviews','Draft replies to unanswered reviews','Summarise review themes'] },
-  { id:'lear-outreach',    label:'OUTREACH',    role:'B2B outreach',      glyph:'✉', presets:['Draft a letting-agent intro email','List follow-ups due this week','Find 5 new property managers to contact'] },
-  { id:'lear-social',      label:'SOCIAL',      role:'Social media',      glyph:'♯', presets:['Write today\'s GBP post','Plan next week\'s Instagram posts','Draft a TikTok script about oven faults'] },
-  { id:'lear-competitors', label:'COMP-INTEL',  role:'Competitor intel',  glyph:'⚔', presets:['Who outranks us for "washing machine repair London"?','Compare our call-out fee to top 5 rivals','Summarise competitor offers this month'] },
-  { id:'lear-reports',     label:'REPORTS',     role:'Documents',         glyph:'▤', presets:['Draft a BER report template','Prepare a landlord repair report','Write a formal quote letter'] },
-  { id:'lear-monitor',     label:'MONITOR',     role:'Quality control',   glyph:'◉', presets:['Audit the fleet for banned claims','Review the latest drafts before publishing','Check NAP consistency'] },
-  { id:'lear-codereview',  label:'CODE-REVIEW', role:'Code quality',      glyph:'⟨/⟩', presets:['Review the latest theme commit','Find bugs in the Engineer App','Check the GitHub workflows'] },
+  { id:'lear-strategist',  label:'STRATEGIST',  role:'Strategy & competitors', glyph:'♔', presets:['What should I focus on this week?','Who outranks us for "washing machine repair London"?','Rank the top 3 growth levers right now'] },
+  { id:'lear-seo',         label:'SEO',         role:'Search operations',      glyph:'⌕', presets:['Pull top 10 queries by clicks (28 days)','Which pages lost rankings this week?','Check indexing of the newest pages'] },
+  { id:'lear-content',     label:'CONTENT',     role:'Content & reputation',   glyph:'✎', presets:['Propose 5 blog titles','Draft a reply to this Google review: …','Write today\'s GBP post'] },
+  { id:'lear-webdev',      label:'WEBDEV',      role:'Web systems',            glyph:'⌘', presets:['Check page speed on the homepage','Find broken links','Audit the booking form'] },
+  { id:'lear-security',    label:'SECURITY',    role:'Security, health & code', glyph:'⛨', presets:['Run a full health check now','Check the site is up and SSL valid','Review the latest theme commit for bugs'] },
+  { id:'lear-outreach',    label:'OUTREACH',    role:'B2B outreach',           glyph:'✉', presets:['Draft a letting-agent intro email','List follow-ups due this week','Find 5 new property managers to contact'] },
+  { id:'lear-explorer',    label:'EXPLORER',    role:'New-revenue scout',      glyph:'✦', presets:['Pick your own research task now','What else could LEAR sell?','Revisit the best parked idea in the ledger'] },
+  { id:'lear-monitor',     label:'MONITOR',     role:'Quality gate',           glyph:'◉', presets:['Review the latest drafts before publishing','Audit the fleet for banned claims','Check NAP consistency'] },
 ];
 const ROSTER_BY_ID = Object.fromEntries(ROSTER.map(r=>[r.id,r]));
 
@@ -1031,17 +1030,13 @@ const isMobile = ()=> innerWidth <= 900;
 /* ═══════════════════════════ DEMO / SIMULATION DATA ═══════════════════════════ */
 const SIM_TASKS = {
   'lear-seo':['Scanning Search Console for ranking shifts on 42 tracked keywords','Checking indexing of 6 new area pages','Comparing CTR on top 20 queries vs last week'],
-  'lear-content':['Drafting blog post: "Why is my washing machine leaking?"','Writing FAQ: dishwasher not draining','Rewriting the oven repair page intro'],
-  'lear-reviews':['Drafting reply to new 5★ Google review','Summarising review themes for October'],
+  'lear-content':['Drafting blog post: "Why is my washing machine leaking?"','Drafting reply to new 5★ Google review','Writing today\'s Google Business Profile post'],
   'lear-webdev':['Running page-speed check on /book/','Scanning for broken links across 120 pages','Auditing the booking form on mobile'],
-  'lear-security':['Full health sweep: homepage, SSL, plugins','Static review of REST route auth'],
-  'lear-social':['Writing today\'s Google Business Profile post','Planning next week\'s Instagram carousel'],
+  'lear-security':['Full health sweep: homepage, SSL, plugins','Reviewing the latest theme commit for bugs'],
   'lear-outreach':['Drafting follow-up for 2 letting agents','Finding 5 property managers in Hackney'],
-  'lear-competitors':['Comparing call-out fees across top 5 rivals','Checking who outranks us for "fridge repair London"'],
-  'lear-strategist':['Weekly review: ranking the top 3 growth levers','Re-planning the task queue'],
-  'lear-monitor':['Auditing fleet drafts for banned claims','Checking NAP consistency across citations'],
-  'lear-codereview':['Reviewing the latest theme commit','Looking for bugs in the Engineer App routes'],
-  'lear-reports':['Preparing a landlord repair report','Drafting a BER report template'],
+  'lear-strategist':['Weekly review: ranking the top 3 growth levers','Comparing call-out fees across top 5 rivals'],
+  'lear-explorer':['Researching appliance disposal as an add-on service','Checking right-to-repair law changes'],
+  'lear-monitor':['Reviewing fleet drafts for banned claims','Checking NAP consistency across citations'],
 };
 function demoFeed(){
   const now = Date.now(); const ag = {};
@@ -1054,7 +1049,7 @@ function demoFeed(){
                     { agent:'lear-content', agent_label:'Content', task:SIM_TASKS['lear-content'][0], model:'haiku', status:'running', timestamp:new Date(now-120000).toISOString() } ],
     recent_activity:[ { timestamp:new Date(now-60000).toISOString(), agent:'lear-seo', description:'Pulled GSC data — 3 queries moved into top 10', type:'ok' },
       { timestamp:new Date(now-540000).toISOString(), agent:'lear-content', description:'Started blog draft from content calendar', type:'info' },
-      { timestamp:new Date(now-1200000).toISOString(), agent:'lear-reviews', description:'Drafted reply to new 5★ Google review', type:'ok' },
+      { timestamp:new Date(now-1200000).toISOString(), agent:'lear-content', description:'Drafted reply to new 5★ Google review', type:'ok' },
       { timestamp:new Date(now-2600000).toISOString(), agent:'lear-monitor', description:'Fleet audit passed — no banned claims found', type:'ok' },
       { timestamp:new Date(now-4000000).toISOString(), agent:'lear-outreach', description:'Follow-up email queued for 2 letting agents', type:'info' } ],
     total_tasks_logged:20, claude_allowance:{limited:false} };
