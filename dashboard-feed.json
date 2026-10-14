@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T18:49:22Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T18:53:52Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T19:53:47.311851",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Decide the replacement for the retired paid lever] Write a one-page decision memo, no spend and no campaign changes. Context: Lever 2 in GA",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 15,
-    "total": 15
+    "haiku": 16,
+    "total": 16
   },
   "agents": {
     "lear-strategist": {
@@ -18,10 +28,10 @@
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Decide the replacement for the retired paid lever] Write a one-page decision memo, no spend and no campaign changes. Context: Lever 2 in GA",
       "current_model": "haiku",
-      "last_update": "2026-10-14T10:38:46Z"
+      "last_update": "2026-10-14T18:53:47Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -116,6 +126,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T18:53:47Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from manager queue: [Decide the replacement for the retired paid lever] Write a one-page decision memo, no spend and no campaign changes. Co",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T18:09:52Z",
       "agent": "lear-reviews",
       "type": "ok",
@@ -191,16 +208,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Standing: GBP post draft] Write one Google Business Profile post for London Emergency App",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T14:35:59Z",
-      "agent": "lear-social",
-      "type": "info",
-      "description": "Task from standing work: [Standing: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of ",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 15,
+  "total_tasks_logged": 16,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
