@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T00:34:45Z",
+  "timestamp": "2026-10-14T00:35:48Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T01:34:26.418910",
-      "agent": "lear-competitors",
-      "agent_label": "Competitor intel",
-      "task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
+      "timestamp": "2026-10-14T01:35:26.438533",
+      "agent": "lear-reviews",
+      "agent_label": "Reputation",
+      "task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -55,10 +55,10 @@
         "Failed: [Standing: review themes] Read the latest public Google reviews for Lo",
         "Failed: [Standing: review themes] Read the latest public Google reviews for Lo"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:15:30Z"
+      "last_update": "2026-10-14T00:35:26Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -147,14 +147,14 @@
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
-        "Failed: [Standing: competitor pricing check] Check the published call-out and ",
+        "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "Failed: [Standing: competitor pricing check] Check the published call-out and ",
         "Failed: [Standing: competitor pricing check] Check the published call-out and "
       ],
-      "status": "working",
-      "current_task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:34:26Z"
+      "last_update": "2026-10-14T00:35:22Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T00:35:26Z",
+      "agent": "lear-reviews",
+      "type": "info",
+      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T00:35:22Z",
+      "agent": "lear-competitors",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T00:34:26Z",
       "agent": "lear-competitors",
@@ -253,20 +267,6 @@
       "agent": "lear-monitor",
       "type": "ok",
       "description": "Completed (haiku): [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T00:28:11Z",
-      "agent": "lear-monitor",
-      "type": "info",
-      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T00:28:07Z",
-      "agent": "lear-codereview",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
       "status": "completed"
     }
   ],
