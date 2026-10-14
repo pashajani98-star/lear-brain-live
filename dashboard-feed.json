@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T21:54:04Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T22:53:49.461684",
-      "agent": "lear-security",
-      "agent_label": "Security, health & code",
-      "task": "[Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ls and Read only, locate the latest run output or ",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T21:55:18Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 20,
@@ -37,14 +27,15 @@
       "id": "lear-security",
       "label": "Security & health",
       "recent_activity": [
+        "[Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ",
         "[Read-only check of payment webhook and price trust] Read-only static review. No edits and",
         "[Static check of Engineer App REST routes for auth] Read-only static security check of the",
         "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
       ],
-      "status": "working",
-      "current_task": "[Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ls and Read only, locate the latest run output or ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T21:53:49Z"
+      "last_update": "2026-10-14T21:55:09Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -127,6 +118,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T21:55:09Z",
+      "agent": "lear-security",
+      "type": "ok",
+      "description": "Completed (haiku): [Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T21:53:49Z",
       "agent": "lear-security",
       "type": "info",
@@ -201,13 +199,6 @@
       "agent": "lear-reviews",
       "type": "info",
       "description": "Task from manager queue: [Draft review-request messages for last 14 days of jobs] Work from the Job Manager data (lear-job-manager, /jobs-app/, t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T17:25:33Z",
-      "agent": "lear-monitor",
-      "type": "ok",
-      "description": "Completed (haiku): [Spot-check live phone, WhatsApp and booking paths] Read-only spot-check of the live site ",
       "status": "completed"
     }
   ],
