@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T12:19:34Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T12:21:19Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T13:20:49.529805",
+      "agent": "lear-webdev",
+      "agent_label": "Web systems",
+      "task": "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair.com. Repo: theme/ folder of the LEAR repo. Target",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 6,
-    "total": 6
+    "haiku": 7,
+    "total": 7
   },
   "agents": {
     "lear-strategist": {
@@ -95,10 +105,10 @@
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair.com. Repo: theme/ folder of the LEAR repo. Target",
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:41:37Z"
+      "last_update": "2026-10-14T12:20:49Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -180,6 +190,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T12:20:49Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from manager queue: [Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair.com. Repo: theme/ folder of t",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T11:08:41Z",
       "agent": "lear-security",
       "type": "ok",
@@ -255,16 +272,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Five first-touch letting-agent emails from tracker] Work the B2B agency tracker in C:\\Use",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T07:34:46Z",
-      "agent": "lear-outreach",
-      "type": "info",
-      "description": "Task from manager queue: [Five first-touch letting-agent emails from tracker] Work the B2B agency tracker in C:\\Users\\pasha\\london-emergency-appl",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 6,
+  "total_tasks_logged": 7,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
