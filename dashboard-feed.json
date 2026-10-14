@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T05:30:29Z",
+  "timestamp": "2026-10-14T05:33:35Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T06:30:01.778660",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "timestamp": "2026-10-14T06:33:16.877560",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -28,10 +28,10 @@
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "current_model": "haiku",
-      "last_update": "2026-10-14T05:16:44Z"
+      "last_update": "2026-10-14T05:33:16Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -128,17 +128,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
+        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "working",
-      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T05:30:01Z"
+      "last_update": "2026-10-14T05:33:11Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T05:33:16Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T05:33:11Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T05:30:01Z",
       "agent": "lear-content",
@@ -253,20 +267,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T05:22:16Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T05:22:15Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
       "status": "completed"
     }
   ],
