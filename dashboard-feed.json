@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T03:00:31Z",
+  "timestamp": "2026-10-14T03:02:10Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T04:00:28.911217",
-      "agent": "lear-codereview",
-      "agent_label": "Code review",
-      "task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "timestamp": "2026-10-14T04:01:58.934689",
+      "agent": "lear-monitor",
+      "agent_label": "Quality control",
+      "task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -119,10 +119,10 @@
         "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
         "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_"
       ],
-      "status": "working",
-      "current_task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T03:00:28Z"
+      "last_update": "2026-10-14T03:01:50Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -178,13 +178,27 @@
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
       "current_model": "haiku",
-      "last_update": "2026-10-14T02:46:13Z"
+      "last_update": "2026-10-14T03:01:58Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T03:01:58Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T03:01:50Z",
+      "agent": "lear-codereview",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T03:00:28Z",
       "agent": "lear-codereview",
@@ -253,20 +267,6 @@
       "agent": "lear-competitors",
       "type": "ok",
       "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:52:28Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:52:15Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
       "status": "completed"
     }
   ],
