@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T06:54:53Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T07:54:33.977121",
-      "agent": "lear-competitors",
-      "agent_label": "Competitor intel",
-      "task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T06:55:56Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -151,10 +141,10 @@
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t"
       ],
-      "status": "working",
-      "current_task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:54:33Z"
+      "last_update": "2026-10-14T06:55:41Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -185,6 +175,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T06:55:41Z",
+      "agent": "lear-competitors",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T06:54:33Z",
       "agent": "lear-competitors",
@@ -260,13 +257,6 @@
       "agent": "lear-monitor",
       "type": "info",
       "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:48:47Z",
-      "agent": "lear-codereview",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
       "status": "completed"
     }
   ],
