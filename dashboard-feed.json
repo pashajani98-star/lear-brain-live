@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T13:51:08Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T14:50:58.596770",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Rewrite title and meta for washer dryer query] Query 'are washer dryers any good' has 465 impressions in the last 7 days at average positio",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T13:52:58Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 9,
@@ -66,17 +56,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
+        "[Rewrite title and meta for washer dryer query] Query 'are washer dryers any good' has 465",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-        "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
-        "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap"
+        "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer"
       ],
-      "status": "working",
-      "current_task": "[Rewrite title and meta for washer dryer query] Query 'are washer dryers any good' has 465 impressions in the last 7 days at average positio",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T13:50:58Z"
+      "last_update": "2026-10-14T13:52:44Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -190,6 +180,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T13:52:44Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Rewrite title and meta for washer dryer query] Query 'are washer dryers any good' has 465",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T13:50:58Z",
       "agent": "lear-seo",
       "type": "info",
@@ -264,13 +261,6 @@
       "agent": "lear-outreach",
       "type": "info",
       "description": "Task from manager queue: [Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in the outreach/ folder. Find ever",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T09:07:25Z",
-      "agent": "lear-security",
-      "type": "ok",
-      "description": "Completed (haiku): [Static check of Engineer App REST routes for auth] Read-only static security check of the",
       "status": "completed"
     }
   ],
