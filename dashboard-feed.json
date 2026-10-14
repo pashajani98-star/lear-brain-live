@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T20:25:43Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T21:08:59Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T22:08:49.174476",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemergencyappliancerepair.com, last 7 days, page and qu",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 18,
-    "total": 18
+    "haiku": 19,
+    "total": 19
   },
   "agents": {
     "lear-strategist": {
@@ -47,10 +57,10 @@
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemergencyappliancerepair.com, last 7 days, page and qu",
       "current_model": "haiku",
-      "last_update": "2026-10-14T15:55:08Z"
+      "last_update": "2026-10-14T21:08:49Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -116,6 +126,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T21:08:49Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemergencyappliancerepair.com, last",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T20:25:28Z",
       "agent": "lear-outreach",
@@ -192,16 +209,9 @@
       "type": "ok",
       "description": "Completed (haiku): [GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend.",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T16:38:46Z",
-      "agent": "lear-reports",
-      "type": "info",
-      "description": "Task from manager queue: [GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property pro",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 18,
+  "total_tasks_logged": 19,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
