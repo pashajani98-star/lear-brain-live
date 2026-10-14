@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T06:21:09Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T06:21:42Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T07:21:18.227182",
+      "agent": "lear-reviews",
+      "agent_label": "Reputation",
+      "task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -45,10 +55,10 @@
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:05:04Z"
+      "last_update": "2026-10-14T06:21:18Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -176,6 +186,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T06:21:18Z",
+      "agent": "lear-reviews",
+      "type": "info",
+      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T06:21:05Z",
       "agent": "lear-competitors",
       "type": "ok",
@@ -250,13 +267,6 @@
       "agent": "lear-monitor",
       "type": "ok",
       "description": "Completed (haiku): [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:12:48Z",
-      "agent": "lear-monitor",
-      "type": "info",
-      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
       "status": "completed"
     }
   ],
