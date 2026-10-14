@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T01:00:07Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T01:00:39Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T02:00:11.815012",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy",
+      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -18,10 +28,10 @@
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:42:10Z"
+      "last_update": "2026-10-14T01:00:11Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -176,6 +186,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T01:00:11Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T00:59:57Z",
       "agent": "lear-content",
       "type": "ok",
@@ -250,13 +267,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T00:46:26Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
       "status": "completed"
     }
   ],
