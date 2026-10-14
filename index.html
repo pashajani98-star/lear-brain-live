@@ -485,6 +485,7 @@ body.has-mouse.no-reticle #reticle{ opacity:0; }
   <div class="hstat optional"><span class="lbl" data-i18n="date">Date</span><span class="val ltr" id="date">—</span></div>
   <div class="hstat"><span class="lbl" data-i18n="uplink">Uplink</span><span class="val"><span class="sig s4" id="sig"><i></i><i></i><i></i><i></i></span> <span id="sync-ago" style="font-size:11px;color:var(--text-dim)">—</span></span></div>
   <div class="hstat"><span class="lbl" data-i18n="fleet">Fleet</span><span class="val" id="h-fleet">—</span></div>
+  <div class="hstat"><span class="lbl" data-i18n="jobs">Jobs today</span><span class="val" id="h-jobs">—</span></div>
   <div class="hstat"><span class="lbl" data-i18n="health">Health</span><span class="val" id="h-health">—</span></div>
   <div class="hstat optional"><span class="lbl" data-i18n="allowance">Claude</span><span class="val" id="allowance">—</span></div>
   <div class="hstat optional"><span class="lbl" data-i18n="weather">London wx</span><span class="val" id="h-weather">—</span></div>
@@ -569,6 +570,12 @@ body.has-mouse.no-reticle #reticle{ opacity:0; }
     <section class="panel money-hidden" id="panel-earnings" style="height:420px">
       <div class="phead"><h3 data-i18n="earnings">💷 EARNINGS</h3><button class="pbtn" data-collapse="panel-earnings">▾</button></div>
       <div class="pbody">
+        <div id="day-wrap" style="display:none">
+          <div class="dayhead"><span class="dh-l" data-i18n="j_today">TODAY</span><span class="dh-v" id="day-sum">…</span></div>
+          <div class="daybar" id="day-bar"></div>
+          <div id="day-jobs"></div>
+          <button class="reveal-btn" id="day-speak" style="margin-top:8px" data-i18n="j_speak">◈ Speak today's update</button>
+        </div>
         <div class="qempty" id="earn-nokey" data-i18n="e_nokey">Paste your earnings key in ⚿ Auth to link the Engineer App.</div>
         <div id="earn-wrap" style="display:none">
           <button class="reveal-btn" id="earn-reveal" data-i18n="e_reveal">👁 Reveal figures</button>
@@ -823,7 +830,7 @@ const I18N = {
     t_s2:'Repository access: only <b>lear-brain-live</b>', t_s3:'Permissions: Contents → Read and write', t_s4:'Paste the token below. It is stored only in this browser.',
     t_clear:'Clear', t_save:'Save',
     t_p2:'Earnings key (optional) — links the Engineer App\'s money figures. While logged into the site as owner, open <a href="https://londonemergencyappliancerepair.com/wp-json/lear/v1/earnings-key" target="_blank" rel="noopener">/wp-json/lear/v1/earnings-key</a> and paste the key here:',
-    earnings:'💷 EARNINGS', e_nokey:'Paste your earnings key in ⚿ Auth to link the Engineer App.', e_reveal:'👁 Reveal figures', e_hide:'🙈 Hide figures',
+    earnings:'💷 ENGINEER APP', jobs:'Jobs today', j_today:'TODAY', j_jobs:'jobs', j_done:'done', j_togo:'to go', j_none:'No jobs booked today', j_speak:'◈ Speak today\'s update', e_nokey:'Paste your earnings key in ⚿ Auth to link the Engineer App.', e_reveal:'👁 Reveal figures', e_hide:'🙈 Hide figures',
     e_today:'Today', e_week:'This week', e_month:'This month', e_lastmonth:'Last month', e_year:'This year', e_all:'All time', e_outstanding:'Outstanding',
     e_avg:'Avg job (month)', e_parts:'Parts mark-up (mo)', e_run:'RUN', e_err:'Earnings fetch failed — check the key',
     s_title:'⚙ SETTINGS', s_theme:'Theme', s_sound:'UI sounds', s_announce:'Spoken announcements (browser voice)', s_notify:'Browser notifications on new activity',
@@ -856,7 +863,7 @@ const I18N = {
     t_s2:'دسترسی مخزن: فقط lear-brain-live', t_s3:'مجوزها: Contents → Read and write', t_s4:'توکن را اینجا وارد کنید. فقط در همین مرورگر ذخیره می‌شود.',
     t_clear:'پاک کردن', t_save:'ذخیره',
     t_p2:'کلید درآمد (اختیاری) — ارقام مالی اپ مهندس را وصل می‌کند. در حالی که به‌عنوان مالک وارد سایت هستید <a href="https://londonemergencyappliancerepair.com/wp-json/lear/v1/earnings-key" target="_blank" rel="noopener">این آدرس</a> را باز کنید و کلید را اینجا بچسبانید:',
-    earnings:'💷 درآمد', e_nokey:'برای اتصال اپ مهندس، کلید درآمد را در ⚿ وارد کنید.', e_reveal:'👁 نمایش ارقام', e_hide:'🙈 پنهان کردن',
+    earnings:'💷 اپ مهندس', jobs:'کارهای امروز', j_today:'امروز', j_jobs:'کار', j_done:'انجام شده', j_togo:'مانده', j_none:'امروز کاری رزرو نشده', j_speak:'◈ گزارش امروز را بگو', e_nokey:'برای اتصال اپ مهندس، کلید درآمد را در ⚿ وارد کنید.', e_reveal:'👁 نمایش ارقام', e_hide:'🙈 پنهان کردن',
     e_today:'امروز', e_week:'این هفته', e_month:'این ماه', e_lastmonth:'ماه قبل', e_year:'امسال', e_all:'کل', e_outstanding:'وصول‌نشده',
     e_avg:'میانگین هر کار (ماه)', e_parts:'سود قطعات (ماه)', e_run:'اجرا', e_err:'دریافت درآمد ناموفق — کلید را بررسی کنید',
     s_title:'⚙ تنظیمات', s_theme:'تم', s_sound:'صداهای رابط', s_announce:'اعلام گفتاری (صدای مرورگر)', s_notify:'اعلان مرورگر برای فعالیت جدید',
@@ -950,14 +957,23 @@ function sfx(kind){
 }
 let userGestured = false;
 ['pointerdown','keydown','touchstart'].forEach(ev=> window.addEventListener(ev, ()=>{ userGestured = true; ac(); }, {once:true, passive:true}));
-function say(text){
-  if (!SETTINGS.announce || !('speechSynthesis' in window)) return;
+function pickVoice(){
+  const voices = speechSynthesis.getVoices(); const want = LANG==='fa' ? 'fa' : 'en-GB';
+  return voices.find(v=> v.lang.replace('_','-').toLowerCase().startsWith(want.toLowerCase()) && /Google|Microsoft|Daniel|Ryan|Sonia|Libby|Farid|Dilara/i.test(v.name))
+      || voices.find(v=> v.lang.replace('_','-').toLowerCase().startsWith(want.toLowerCase()))
+      || voices.find(v=> v.lang.toLowerCase().startsWith('en')) || null;
+}
+function say(text, force){
+  if ((!force && !SETTINGS.announce) || !('speechSynthesis' in window)) return;
   try {
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = LANG==='fa' ? 'fa-IR' : 'en-GB'; u.rate = 1.02; u.pitch = 0.9;
-    const voices = speechSynthesis.getVoices();
-    const v = voices.find(v=> v.lang===u.lang && /Google|Microsoft|Daniel|Ryan/i.test(v.name)) || voices.find(v=> v.lang.startsWith(LANG==='fa'?'fa':'en-GB')) || voices.find(v=> v.lang.startsWith('en'));
-    if (v) u.voice = v;
+    u.lang = LANG==='fa' ? 'fa-IR' : 'en-GB'; u.rate = 1.0; u.pitch = 0.95;
+    const v = pickVoice(); if (v) u.voice = v;
+    if (force && LANG==='fa' && !(v && v.lang.toLowerCase().startsWith('fa'))) toast('No Persian voice installed in this browser — using English voice', 'warn');
+    const reactor = $('core').querySelector('.reactor'); let pulse = 0;
+    u.onboundary = ()=>{ reactor.style.transform = 'scale(1.35)'; clearTimeout(pulse); pulse = setTimeout(()=> reactor.style.transform = '', 140); };
+    u.onend = u.onerror = ()=>{ reactor.style.transform = ''; $('voice-btn').classList.remove('active'); };
+    if (force) $('voice-btn').classList.add('active');
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   } catch(e){}
 }
@@ -1383,6 +1399,17 @@ $('d-close').onclick = closeDrawer;
 </script>
 <style>
 @media (max-width:900px){ #view-orbit .panel{ display:none; } }
+.dayhead{ display:flex; justify-content:space-between; align-items:baseline; font-family:var(--f-mono); font-size:10px; letter-spacing:.2em; color:var(--text-dim); margin-bottom:6px; }
+.dayhead .dh-v{ color:var(--text); font-size:12px; letter-spacing:.05em; }
+.daybar{ display:flex; height:6px; border-radius:3px; overflow:hidden; background:rgba(var(--acc-rgb),.12); margin-bottom:8px; }
+.daybar i{ display:block; height:100%; transition:width .6s; } .daybar .done{ background:var(--ok); box-shadow:0 0 8px var(--ok); } .daybar .prog{ background:var(--acc2); animation:blink 1.2s steps(2) infinite; } .daybar .todo{ background:rgba(var(--acc-rgb),.45); }
+.djob{ display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:center; padding:5px 0; border-bottom:1px dashed rgba(var(--acc-rgb),.12); font-size:12px; }
+.djob .dt{ font-family:var(--f-mono); font-size:10px; color:var(--acc); white-space:nowrap; min-width:34px; }
+.djob .dd{ color:var(--text); } .djob .dd small{ color:var(--text-dim); }
+.djob .ds{ font-family:var(--f-mono); font-size:9px; letter-spacing:.1em; padding:1px 6px; border:1px solid var(--text-mute); border-radius:2px; color:var(--text-dim); white-space:nowrap; }
+.djob.Completed .ds{ color:var(--ok); border-color:var(--ok); } .djob.Progress .ds{ color:var(--acc2); border-color:var(--acc2); animation:blink 1.2s steps(2) infinite; } .djob.Awaiting .ds{ color:var(--warn); border-color:var(--warn); } .djob.Cancelled{ opacity:.45; }
+.djob.Completed .dd{ text-decoration:line-through; color:var(--text-dim); }
+#day-jobs{ max-height:150px; overflow:auto; margin-bottom:4px; }
 </style>
 <script>
 'use strict';
@@ -1454,13 +1481,13 @@ $('d-mic').onclick = ()=>{
 /* ═══════════════════════════ TOKEN MODAL ═══════════════════════════ */
 function openTokenModal(){ $('token-input').value = getToken(); $('earnkey-input').value = getEarnKey(); $('modal-token').classList.add('open'); }
 $('token-btn').onclick = ()=>{ openTokenModal(); sfx('open'); };
-$('token-save').onclick = ()=>{ lsSet('lb_gh_token', $('token-input').value.trim()); lsSet('lb_earn_key', $('earnkey-input').value.trim()); $('modal-token').classList.remove('open'); toast('Saved ✓', 'ok'); sfx('ok'); renderEarningsGate(); fetchEarnings(true); };
+$('token-save').onclick = ()=>{ lsSet('lb_gh_token', $('token-input').value.trim()); lsSet('lb_earn_key', $('earnkey-input').value.trim()); $('modal-token').classList.remove('open'); toast('Saved ✓', 'ok'); sfx('ok'); renderEarningsGate(); fetchEarnings(true); fetchDayBrief(true); };
 $('token-clear').onclick = ()=>{ lsDel('lb_gh_token'); lsDel('lb_earn_key'); $('token-input').value=''; $('earnkey-input').value=''; toast('Cleared', 'ok'); renderEarningsGate(); };
 
 /* ═══════════════════════════ EARNINGS (Engineer App) ═══════════════════════════ */
 let EARN = null, earnRevealed = false, earnHideTimer = null, earnLastFetch = 0;
 function getEarnKey(){ return lsGet('lb_earn_key')||''; }
-function renderEarningsGate(){ const has = !!getEarnKey(); $('earn-nokey').style.display = has ? 'none' : ''; $('earn-wrap').style.display = has ? '' : 'none'; }
+function renderEarningsGate(){ const has = !!getEarnKey(); $('earn-nokey').style.display = has ? 'none' : ''; $('earn-wrap').style.display = has ? '' : 'none'; if (typeof renderDayBrief==='function') renderDayBrief(); }
 function gbp(n){ return '£' + (Math.round((n||0)*100)/100).toLocaleString('en-GB', {minimumFractionDigits:2, maximumFractionDigits:2}); }
 async function fetchEarnings(force){
   const key = getEarnKey(); if (!key) return;
@@ -1506,8 +1533,79 @@ async function fetchWeather(){
 }
 
 /* ═══════════════════════════ VOICE BRIEF (edge-tts mp3 from the brain) ═══════════════════════════ */
+/* ═══════════════════════════ ENGINEER APP · DAY BRIEF (live jobs) ═══════════════════════════ */
+const DAY_API = 'https://londonemergencyappliancerepair.com/wp-json/lear/v1/day-brief';
+let DAY = null, dayLastFetch = 0, daySnap = null, dayError = '';
+async function fetchDayBrief(force){
+  const key = getEarnKey(); if (!key) return null;
+  if (!force && Date.now()-dayLastFetch < 60*1000) return DAY;
+  try {
+    const r = await fetch(DAY_API + '?key=' + encodeURIComponent(key) + '&t=' + Date.now(), {cache:'no-store'});
+    if (!r.ok) throw new Error(r.status===404 ? 'day-brief endpoint not live yet (needs Engineer App v1.49.0)' : r.status===403 ? 'bad earnings key' : 'HTTP '+r.status);
+    DAY = await r.json(); dayLastFetch = Date.now(); dayError = ''; detectDayChanges(); renderDayBrief(); return DAY;
+  } catch(e){ dayError = e.message; renderDayBrief(); if (force) toast('Engineer App: ' + e.message, 'err'); return null; }
+}
+function jobWhat(j){ return (j.appliance || (LANG==='fa'?'کار':'job')) + (j.area ? (LANG==='fa' ? ' در ' : ' in ') + j.area : ''); }
+function detectDayChanges(){
+  if (!DAY) return; const snap = {}; (DAY.jobs||[]).forEach(j=> snap[j.id] = j.status);
+  if (daySnap && DAY.is_today){
+    const left = DAY.counts.remaining;
+    (DAY.jobs||[]).forEach(j=>{ const was = daySnap[j.id]; if (!was || was===j.status) return; const what = jobWhat(j);
+      if (j.status==='Completed'){ sfx('ok'); toast(`✔ Job completed: ${what} · ${left} to go`, 'ok'); say((LANG==='fa' ? 'کار تمام شد: ' : 'Job completed: ') + what + '. ' + (LANG==='fa' ? `${left} کار مانده.` : `${left} to go.`)); }
+      else if (j.status==='Progress'){ sfx('ping'); toast(`▶ In progress: ${what}`); say((LANG==='fa' ? 'شروع کار: ' : 'Job started: ') + what); }
+      else if (j.status==='Cancelled'){ sfx('alert'); toast(`✖ Cancelled: ${what}`, 'warn'); say((LANG==='fa' ? 'کار لغو شد: ' : 'Job cancelled: ') + what); }
+      else if (j.status==='Awaiting'){ sfx('alert'); toast(`⏳ Awaiting parts: ${what}`, 'warn'); say((LANG==='fa' ? 'منتظر قطعه: ' : 'Waiting for parts: ') + what); }
+    });
+    const added = Object.keys(snap).filter(id=> !(id in daySnap)).length;
+    if (added){ sfx('ping'); toast(`+${added} new job${added>1?'s':''} booked for today`, 'ok'); say(LANG==='fa' ? 'کار جدید برای امروز رزرو شد' : (added>1 ? added+' new jobs booked for today' : 'New job booked for today')); }
+  }
+  daySnap = snap;
+}
+function renderDayBrief(){
+  const has = !!getEarnKey(); $('day-wrap').style.display = has ? '' : 'none';
+  const hj = $('h-jobs');
+  if (!has){ hj.textContent = '—'; hj.className = 'val'; return; }
+  if (!DAY){ $('day-sum').textContent = dayError ? '—' : '…'; $('day-bar').innerHTML = ''; $('day-jobs').innerHTML = `<div class="qempty">${esc(dayError || 'loading…')}</div>`; hj.textContent = '—'; return; }
+  const c = DAY.counts || {};
+  $('day-sum').textContent = c.total ? `${c.total} ${t('j_jobs')} · ${c.completed} ${t('j_done')} · ${c.remaining} ${t('j_togo')}` : t('j_none');
+  const tot = Math.max(1, (c.total||0) - (c.cancelled||0));
+  $('day-bar').innerHTML = `<i class="done" style="width:${(c.completed||0)/tot*100}%"></i><i class="prog" style="width:${(c.progress||0)/tot*100}%"></i><i class="todo" style="width:${Math.max(0,(c.remaining||0)-(c.progress||0))/tot*100}%"></i>`;
+  $('day-jobs').innerHTML = (DAY.jobs||[]).map(j=>`<div class="djob ${esc(j.status)}"><span class="dt">${esc(j.time||'—')}</span><span class="dd">${esc(j.appliance||'Job')} <small>· ${esc(j.area||'')} · ${esc(j.engineer||'')}${j.paid?' · PAID':''}</small></span><span class="ds">${esc(j.status_label||j.status)}</span></div>`).join('') || `<div class="qempty">${t('j_none')}</div>`;
+  hj.textContent = c.total ? `${c.completed}/${c.total}` : '0'; hj.className = 'val ' + (c.remaining ? 'acc' : 'ok');
+}
+function dayBriefText(){
+  const c = DAY.counts || {}; const h = new Date().getHours(); const fa = LANG==='fa'; const p = [];
+  p.push(fa ? (h<12 ? 'صبح بخیر پاشا.' : h<18 ? 'ظهر بخیر پاشا.' : 'عصر بخیر پاشا.') : (h<12 ? 'Good morning, Pasha.' : h<18 ? 'Good afternoon, Pasha.' : 'Good evening, Pasha.'));
+  if (!c.total) p.push(fa ? 'امروز هیچ کاری رزرو نشده.' : 'There are no jobs booked for today.');
+  else {
+    p.push(fa ? `امروز ${c.total} کار دارید.` : `Today you have ${c.total} job${c.total>1?'s':''}.`);
+    if (c.completed && !c.remaining) p.push(fa ? 'همه انجام شده. عالی.' : 'All of them are done. Nice work.');
+    else p.push(fa ? `${c.completed} انجام شده، ${c.remaining} مانده.` : `${c.completed} completed, ${c.remaining} to go.`);
+    if (c.progress) p.push(fa ? `${c.progress} کار در حال انجام است.` : `${c.progress} in progress right now.`);
+    if (c.awaiting) p.push(fa ? `${c.awaiting} کار امروز منتظر قطعه است.` : `${c.awaiting} of today's jobs ${c.awaiting>1?'are':'is'} waiting for parts.`);
+    if (c.cancelled) p.push(fa ? `${c.cancelled} لغو شده.` : `${c.cancelled} cancelled.`);
+    if (DAY.next) p.push(fa ? `کار بعدی: ${jobWhat(DAY.next)}، ${DAY.next.window||''}، با ${DAY.next.engineer||'تیم'}.` : `Next up: ${jobWhat(DAY.next)}, ${DAY.next.window||''}, with ${DAY.next.engineer||'the team'}.`);
+  }
+  if (DAY.tomorrow) p.push(fa ? `فردا ${DAY.tomorrow.total} کار رزرو شده.` : `Tomorrow: ${DAY.tomorrow.total} job${DAY.tomorrow.total===1?'':'s'} booked.`);
+  if (earnRevealed && DAY.money){ const m = DAY.money; p.push(fa ? `امروز ${Math.round(m.collected)} پوند وصول شده${m.due ? `، ${Math.round(m.due)} پوند مانده` : ''}.` : `Collected today: ${Math.round(m.collected)} pounds${m.due ? `, with ${Math.round(m.due)} pounds still due` : ''}.`); }
+  const w = STATE.working; p.push(fa ? (w ? `${w} ایجنت مغز در حال کار هستند.` : 'همه ایجنت‌های مغز در آماده‌باش.') : (w ? `${w} brain agent${w>1?'s are':' is'} working.` : 'All brain agents on standby.'));
+  return p.join(' ');
+}
+async function playBrief(){
+  if ('speechSynthesis' in window && speechSynthesis.speaking){ speechSynthesis.cancel(); $('voice-btn').classList.remove('active'); return; }
+  if (briefAudio && !briefAudio.paused){ playFleetMp3(); return; }
+  if (getEarnKey()){
+    const d = DAY || await fetchDayBrief(true);
+    if (d){ const text = dayBriefText(); say(text, true); termLog('🗣 ' + text, 'sys'); toast(LANG==='fa' ? '▶ گزارش امروز' : '▶ Today\'s update', 'ok'); return; }
+  }
+  playFleetMp3();
+}
+$('day-speak').onclick = playBrief;
+setInterval(()=> fetchDayBrief(false), 60*1000);
+
+/* fleet status mp3 generated by the brain (fallback when no Engineer App key) */
 let briefAudio = null, briefRaf = 0;
-function playBrief(){
+function playFleetMp3(){
   if (briefAudio && !briefAudio.paused){ briefAudio.pause(); briefAudio = null; cancelAnimationFrame(briefRaf); $('core').querySelector('.reactor').style.transform=''; $('voice-btn').classList.remove('active'); return; }
   const file = RAW_BASE + (LANG === 'fa' ? 'brief-fa.mp3' : 'brief.mp3') + '?t=' + Math.floor(Date.now()/600000);
   const a = new Audio(); a.crossOrigin = 'anonymous'; a.src = file; briefAudio = a; $('voice-btn').classList.add('active');
@@ -1537,7 +1635,7 @@ async function runTerm(line){
   const m = raw.match(/^(\S+)\s*(.*)$/); const cmd = m[1].toLowerCase(); const rest = (m[2]||'').trim();
   const tgt = s=>{ if (/^(all|fleet|\*)$/i.test(s)) return '_fleet'; const a = findAgent(s); return a ? a.id : null; };
   switch(cmd){
-    case 'help': ['help · status · agents · tasks · log [n]', 'pause <agent|all> · resume <agent|all> · stop <agent|all>', 'tell <agent> <instruction>   (alias: instruct, run)', 'open <agent> · close', 'view orbit|grid|timeline|console', 'theme lear|cyan|red|amber|green|violet · lang en|fa', 'sim on|off · sound on|off · announce on|off', 'voice · weather · health · refresh · clear · version'].forEach(l=> termLog('  '+l, 'dim')); break;
+    case 'help': ['help · status · agents · tasks · log [n]', 'pause <agent|all> · resume <agent|all> · stop <agent|all>', 'tell <agent> <instruction>   (alias: instruct, run)', 'open <agent> · close', 'view orbit|grid|timeline|console', 'theme lear|cyan|red|amber|green|violet · lang en|fa', 'sim on|off · sound on|off · announce on|off', 'voice (today\'s update) · brief fleet · jobs · weather · health · refresh · clear · version'].forEach(l=> termLog('  '+l, 'dim')); break;
     case 'status': case 'st': { const ag = agentList(); termLog(`fleet: ${STATE.working} working · ${STATE.errors} errors · ${STATE.paused} paused · health ${STATE.health}% · ${DEMO?'DEMO':SIM?'SIM':'LIVE'} · feed ${FEED&&FEED.timestamp?agoStr(FEED.timestamp)+' old':'—'}`, 'ok');
       ag.filter(a=>a.status!=='IDLE').forEach(a=> termLog(`  ${a.name.padEnd(12)} ${a.status.padEnd(8)} ${a.task||''}`, a.status==='ERROR'?'err':a.status==='WORKING'?'ok':'warn')); break; }
     case 'agents': case 'ls': agentList().forEach(a=> termLog(`  ${a.name.padEnd(12)} ${a.status.padEnd(8)} ${(a.model||'—').padEnd(7)} last ${agoStr(a.last).padEnd(4)} ${a.role}`, a.status==='WORKING'?'ok':a.status==='ERROR'?'err':'dim')); break;
@@ -1555,7 +1653,10 @@ async function runTerm(line){
     case 'sim': setSim(rest!=='off'); termLog('  simulation '+(SIM?'ON':'OFF'), SIM?'warn':'ok'); break;
     case 'sound': SETTINGS.sound = rest!=='off'; saveSettings(); termLog('  sound '+(SETTINGS.sound?'on':'off'), 'ok'); break;
     case 'announce': SETTINGS.announce = rest!=='off'; saveSettings(); termLog('  announce '+(SETTINGS.announce?'on':'off'), 'ok'); break;
-    case 'voice': case 'brief': playBrief(); termLog('  playing brief', 'ok'); break;
+    case 'voice': case 'brief': if (rest==='fleet'){ playFleetMp3(); termLog('  playing fleet brief (mp3)', 'ok'); } else playBrief(); break;
+    case 'jobs': case 'today': { const d = DAY || await fetchDayBrief(true); if (!d){ termLog('  Engineer App not linked — ' + (dayError || 'set the earnings key in Auth'), 'warn'); break; }
+      const c = d.counts; termLog(`  ${d.date}: ${c.total} jobs · ${c.completed} done · ${c.progress} in progress · ${c.remaining} to go · ${c.cancelled} cancelled · tomorrow ${d.tomorrow.total}`, 'ok');
+      (d.jobs||[]).forEach(j=> termLog(`  ${(j.time||'—').padEnd(5)} ${(j.status_label||j.status).padEnd(14)} ${j.appliance||'Job'} · ${j.area||''} · ${j.engineer||''}${j.paid?' · PAID':''}`, j.status==='Completed'?'ok':j.status==='Progress'?'warn':'dim')); break; }
     case 'say': say(rest); termLog('  🗣 '+rest, 'ok'); break;
     case 'weather': case 'wx': WX.ts = 0; await fetchWeather(); termLog('  London: ' + (WX.text||'unavailable'), 'ok'); break;
     case 'health': termLog(`  fleet health ${STATE.health}% — errors ${STATE.errors}, paused ${STATE.paused}, allowance ${(FEED&&FEED.claude_allowance&&FEED.claude_allowance.limited)?'LIMITED':'ok'}, link ${DEMO?'DOWN':'ok'}`, STATE.health>=80?'ok':'warn'); break;
@@ -1633,7 +1734,8 @@ function paletteItems(){
   items.push({ico:'⏹', lb:'Stop all running tasks', hint:'command · confirm', run:()=> $('fleet-stop').click()});
   ['orbit','grid','timeline','console'].forEach(v=> items.push({ico:'◉', lb:`View: ${v}`, hint:'navigate', run:()=> setView(v)}));
   THEMES.forEach(th=> items.push({ico:'◐', lb:`Theme: ${th}`, hint:'appearance', run:()=> setTheme(th)}));
-  items.push({ico:'◈', lb:'Play voice brief', hint:'V', run:playBrief});
+  items.push({ico:'◈', lb:'Speak today\'s update (Engineer App)', hint:'V', run:playBrief});
+  items.push({ico:'◈', lb:'Play fleet status brief (mp3)', hint:'console: brief fleet', run:()=> playFleetMp3()});
   items.push({ico:'◈', lb: SIM ? 'Stop simulation' : 'Start simulation mode', hint:'S · demo only', run:()=> setSim(!SIM)});
   items.push({ico:'⛶', lb:'Presentation mode', hint:'F', run:togglePresent});
   items.push({ico:'♪', lb:'Toggle UI sounds', hint:'M', run:()=> $('sound-btn').click()});
@@ -1743,7 +1845,7 @@ applyLang();
 renderEarningsGate();
 layoutNodes(); applyLayout();
 termBanner();
-fetchEarnings(false); fetchWeather();
+fetchEarnings(false); fetchWeather(); fetchDayBrief(false);
 runBoot();
 (()=>{ const saved = lsGet('lb2_view'); setView(isMobile() && (!saved || saved==='orbit') ? 'grid' : (saved || 'orbit')); })();
 poll(); setInterval(poll, POLL_MS); setInterval(fetchWeather, 15*60*1000);
