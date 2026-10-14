@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T06:50:09Z",
+  "timestamp": "2026-10-14T06:50:41Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T07:50:03.883527",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
+      "timestamp": "2026-10-14T07:50:33.903568",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -71,10 +71,10 @@
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:37:40Z"
+      "last_update": "2026-10-14T06:50:33Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -128,17 +128,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
+        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
+        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
       ],
-      "status": "working",
-      "current_task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:50:03Z"
+      "last_update": "2026-10-14T06:50:27Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T06:50:33Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T06:50:27Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T06:50:03Z",
       "agent": "lear-content",
@@ -253,20 +267,6 @@
       "agent": "lear-content",
       "type": "ok",
       "description": "Completed (haiku): [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:41:48Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance ques",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:41:37Z",
-      "agent": "lear-webdev",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
       "status": "completed"
     }
   ],
