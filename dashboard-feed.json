@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T00:00:45Z",
+  "timestamp": "2026-10-14T00:04:04Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T01:00:23.079987",
-      "agent": "lear-strategist",
-      "agent_label": "Strategy",
-      "task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
+      "timestamp": "2026-10-14T01:03:54.581643",
+      "agent": "lear-codereview",
+      "agent_label": "Code review",
+      "task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -23,15 +23,15 @@
       "recent_activity": [
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
-        "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 ",
+        "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 ",
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 ",
         "Failed: [Standing: this week's three priorities] Using GA4 property 536745696 "
       ],
-      "status": "working",
-      "current_task": "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the three highest-value a",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:00:23Z"
+      "last_update": "2026-10-14T00:03:51Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -119,10 +119,10 @@
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain",
         "Failed: [Standing: code review rotation] Review one area of the telegram-brain"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for real bugs only: cra",
       "current_model": "haiku",
-      "last_update": "2026-10-13T23:41:07Z"
+      "last_update": "2026-10-14T00:03:54Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T00:03:54Z",
+      "agent": "lear-codereview",
+      "type": "info",
+      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T00:03:51Z",
+      "agent": "lear-strategist",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T00:00:23Z",
       "agent": "lear-strategist",
@@ -253,20 +267,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:50:07Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:49:53Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
       "status": "completed"
     }
   ],
