@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T16:39:07Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T17:38:46.170904",
-      "agent": "lear-reports",
-      "agent_label": "Reports",
-      "task": "[GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property properties/536745696, c",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T16:40:48Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 13,
@@ -190,14 +180,23 @@
     "lear-reports": {
       "id": "lear-reports",
       "label": "Reports",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property properties/536745696, c",
+      "recent_activity": [
+        "[GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend."
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T16:38:46Z"
+      "last_update": "2026-10-14T16:40:37Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T16:40:37Z",
+      "agent": "lear-reports",
+      "type": "ok",
+      "description": "Completed (haiku): [GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend.",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T16:38:46Z",
       "agent": "lear-reports",
@@ -273,13 +272,6 @@
       "agent": "lear-content",
       "type": "info",
       "description": "Task from manager queue: [Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the-london-engineers-guide-to-you",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T12:22:52Z",
-      "agent": "lear-webdev",
-      "type": "ok",
-      "description": "Completed (haiku): [Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
       "status": "completed"
     }
   ],
