@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T13:06:00Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T14:05:51.057379",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the-london-engineers-guide-to-your-cooker/, the top l",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T13:08:58Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 8,
@@ -130,17 +120,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
+        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "working",
-      "current_task": "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the-london-engineers-guide-to-your-cooker/, the top l",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T13:05:51Z"
+      "last_update": "2026-10-14T13:08:31Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -189,6 +179,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T13:08:31Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T13:05:51Z",
       "agent": "lear-content",
@@ -264,13 +261,6 @@
       "agent": "lear-security",
       "type": "info",
       "description": "Task from manager queue: [Static check of Engineer App REST routes for auth] Read-only static security check of the Engineer App REST layer. In l",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T08:20:24Z",
-      "agent": "lear-reviews",
-      "type": "ok",
-      "description": "Completed (haiku): [New reviews check] Check for new Google reviews for London Emergency Appliance Repair (pu",
       "status": "completed"
     }
   ],
