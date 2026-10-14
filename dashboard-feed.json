@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T10:38:56Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T11:07:37Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T12:07:33.704355",
+      "agent": "lear-security",
+      "agent_label": "Security & health",
+      "task": "[Read-only check of payment webhook and price trust] Read-only static review. No edits and no live requests. Open theme/inc/lear-book.php an",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -30,10 +40,10 @@
         "[Static check of Engineer App REST routes for auth] Read-only static security check of the",
         "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Read-only check of payment webhook and price trust] Read-only static review. No edits and no live requests. Open theme/inc/lear-book.php an",
       "current_model": "haiku",
-      "last_update": "2026-10-14T09:07:25Z"
+      "last_update": "2026-10-14T11:07:33Z"
     },
     "lear-reviews": {
       "id": "lear-reviews",
@@ -179,6 +189,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T11:07:33Z",
+      "agent": "lear-security",
+      "type": "info",
+      "description": "Task from manager queue: [Read-only check of payment webhook and price trust] Read-only static review. No edits and no live requests. Open theme/",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T10:38:46Z",
       "agent": "lear-strategist",
       "type": "ok",
@@ -253,13 +270,6 @@
       "agent": "lear-competitors",
       "type": "ok",
       "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:54:33Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
       "status": "completed"
     }
   ],
