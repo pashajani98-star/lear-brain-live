@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T01:03:52Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T01:04:24Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T02:03:56.899347",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -125,10 +135,10 @@
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would search for, each wit",
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:59:57Z"
+      "last_update": "2026-10-14T01:03:56Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -175,6 +185,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T01:03:56Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowner would ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T01:03:45Z",
       "agent": "lear-social",
@@ -250,13 +267,6 @@
       "agent": "lear-webdev",
       "type": "ok",
       "description": "Completed (haiku): [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T00:52:41Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
       "status": "completed"
     }
   ],
