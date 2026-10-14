@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cyan">
+<html lang="en" data-theme="lear">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#030810">
+<meta name="theme-color" content="#0A1626">
 <meta name="description" content="LEAR BRAIN — mission control for the London Emergency Appliance Repair AI agent fleet.">
 <title>LEAR BRAIN // MISSION CONTROL</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%2300e5ff' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%2300e5ff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%232563EB' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%23F47B20'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -24,6 +24,16 @@
   --f-display:'Orbitron','Rajdhani',sans-serif; --f-ui:'Rajdhani','Segoe UI',sans-serif; --f-mono:'Share Tech Mono','Consolas',monospace;
   --hud-h:56px; --view-h:44px; --ticker-h:30px;
 }
+/* LEAR brand: navy #0E1A2B · blue #2563EB/#60A5FA · orange #F47B20 · mint #10D9B0 · amber #FFB020 (theme/style.css tokens) */
+html[data-theme="lear"]{ --acc:#60A5FA; --acc-rgb:96,165,250; --acc2:#F47B20; --acc2-rgb:244,123,32; --ok:#10D9B0; --ok-rgb:16,217,176; --warn:#FFB020; --warn-rgb:255,176,32; --bg:#0A1626; --bg2:#0E1A2B; --panel:rgba(14,26,43,.78); --panel-2:rgba(18,49,90,.82); --text:#F6F8FB; --text-dim:#8494AB; --text-mute:#4B5A70; }
+html[data-theme="lear"] .brand .logo{ border-color:#2563EB; box-shadow:0 0 14px rgba(37,99,235,.7), inset 0 0 8px rgba(37,99,235,.5); } html[data-theme="lear"] .brand .logo::after{ background:#F47B20; box-shadow:0 0 10px #F47B20; }
+html[data-theme="lear"] .core .ring.r4{ border-top-color:#F47B20; } html[data-theme="lear"] .core .reactor{ background:radial-gradient(circle, #fff 0%, #FF9A4D 14%, rgba(244,123,32,.85) 26%, rgba(37,99,235,.45) 50%, transparent 70%); box-shadow:0 0 40px rgba(244,123,32,.75), 0 0 100px rgba(37,99,235,.5); }
+html[data-theme="lear"] .core.active .reactor{ box-shadow:0 0 60px rgba(244,123,32,.95), 0 0 150px rgba(37,99,235,.6); }
+html[data-theme="lear"] .tab.active, html[data-theme="lear"] .phead h3, html[data-theme="lear"] .boot-title{ color:#FF9A4D; text-shadow:0 0 12px rgba(244,123,32,.6); } html[data-theme="lear"] .tab.active{ border-bottom-color:#F47B20; }
+html[data-theme="lear"] .panel::before{ background:linear-gradient(90deg, #F47B20, #2563EB 60%, transparent); } html[data-theme="lear"] .boot-bar b{ background:linear-gradient(90deg,#2563EB,#F47B20); box-shadow:0 0 12px #F47B20; }
+html[data-theme="lear"] .node.WORKING .hex{ color:#FF9A4D; background:rgba(244,123,32,.22); box-shadow:0 0 26px rgba(244,123,32,.6); } html[data-theme="lear"] .node.WORKING .st{ color:#FF9A4D; border-color:#F47B20; background:rgba(244,123,32,.12); }
+html[data-theme="lear"] #linklayer line.work{ stroke:rgba(244,123,32,.8); filter:drop-shadow(0 0 4px rgba(244,123,32,.8)); } html[data-theme="lear"] #linklayer circle.pkt{ filter:drop-shadow(0 0 6px #F47B20); }
+html[data-theme="lear"] .card.WORKING::before{ background:#F47B20; box-shadow:0 0 10px #F47B20; } html[data-theme="lear"] .stat .v{ color:#FF9A4D; }
 html[data-theme="red"]{ --acc:#ff2d55; --acc-rgb:255,45,85; --acc2:#ff9f0a; --acc2-rgb:255,159,10; --bg:#0c0306; --bg2:#180710; --panel:rgba(26,6,12,.74); --panel-2:rgba(36,8,16,.88); --text:#ffe4ea; --text-dim:#a86f7f; --text-mute:#6b3a48; }
 html[data-theme="amber"]{ --acc:#ffb300; --acc-rgb:255,179,0; --acc2:#ff5722; --acc2-rgb:255,87,34; --bg:#0b0702; --bg2:#1a1003; --panel:rgba(26,16,4,.74); --panel-2:rgba(36,22,6,.88); --text:#fff3d6; --text-dim:#a8906f; --text-mute:#6b5a3a; }
 html[data-theme="green"]{ --acc:#39ff14; --acc-rgb:57,255,20; --acc2:#00e5ff; --acc2-rgb:0,229,255; --bg:#020a03; --bg2:#051608; --panel:rgba(4,20,8,.74); --panel-2:rgba(6,30,12,.88); --text:#dcffe0; --text-dim:#6fa87a; --text-mute:#3a6b44; }
@@ -695,6 +705,7 @@ body.has-mouse.no-reticle #reticle{ opacity:0; }
     <h3 data-i18n="s_title">⚙ SETTINGS</h3>
     <p data-i18n="s_theme">Theme</p>
     <div class="themes" id="theme-swatches">
+      <div class="sw" data-theme="lear" style="background:linear-gradient(135deg,#2563EB 50%,#F47B20 50%);color:#F47B20" title="LEAR brand"></div>
       <div class="sw" data-theme="cyan" style="background:#00e5ff;color:#00e5ff" title="Cyan"></div>
       <div class="sw" data-theme="red" style="background:#ff2d55;color:#ff2d55" title="Red alert"></div>
       <div class="sw" data-theme="amber" style="background:#ffb300;color:#ffb300" title="Amber"></div>
@@ -884,11 +895,13 @@ $('lang-en').onclick = ()=>{ LANG='en'; lsSet('lb_lang','en'); applyLang(); sfx(
 $('lang-fa').onclick = ()=>{ LANG='fa'; lsSet('lb_lang','fa'); applyLang(); sfx('click'); };
 
 /* ═══════════════════════════ SETTINGS ═══════════════════════════ */
-const SETTINGS = Object.assign({ theme:'cyan', sound:true, announce:false, notify:false, particles:true, reticle:true, reduced:false },
+const SETTINGS = Object.assign({ theme:'lear', sound:true, announce:false, notify:false, particles:true, reticle:true, reduced:false },
   JSON.parse(lsGet('lb2_settings')||'{}'));
 if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches && lsGet('lb2_settings')===null) SETTINGS.reduced = true;
+// one-off migration to the LEAR brand theme for browsers that saved the old cyan default
+if (!SETTINGS.brandV1){ SETTINGS.theme = 'lear'; SETTINGS.brandV1 = true; lsSet('lb2_settings', JSON.stringify(SETTINGS)); }
 function saveSettings(){ lsSet('lb2_settings', JSON.stringify(SETTINGS)); applySettings(); }
-const THEMES = ['cyan','red','amber','green','violet'];
+const THEMES = ['lear','cyan','red','amber','green','violet'];
 function applySettings(){
   document.documentElement.dataset.theme = SETTINGS.theme;
   document.body.classList.toggle('reduced', !!SETTINGS.reduced);
@@ -897,7 +910,7 @@ function applySettings(){
   $('announce-btn').classList.toggle('active', !!SETTINGS.announce);
   document.querySelectorAll('.switch[data-set]').forEach(sw=> sw.classList.toggle('on', !!SETTINGS[sw.dataset.set]));
   document.querySelectorAll('.sw[data-theme]').forEach(sw=> sw.classList.toggle('active', sw.dataset.theme===SETTINGS.theme));
-  const meta = document.querySelector('meta[name=theme-color]'); if (meta) meta.content = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#030810';
+  const meta = document.querySelector('meta[name=theme-color]'); if (meta) meta.content = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#0A1626';
 }
 function setTheme(name){ if(!THEMES.includes(name)) return false; SETTINGS.theme = name; saveSettings(); toast('Theme: '+name.toUpperCase(), 'ok'); sfx('ok'); return true; }
 document.querySelectorAll('.switch[data-set]').forEach(sw=> sw.onclick = ()=>{ SETTINGS[sw.dataset.set] = !SETTINGS[sw.dataset.set]; saveSettings(); sfx('click');
@@ -1524,7 +1537,7 @@ async function runTerm(line){
   const m = raw.match(/^(\S+)\s*(.*)$/); const cmd = m[1].toLowerCase(); const rest = (m[2]||'').trim();
   const tgt = s=>{ if (/^(all|fleet|\*)$/i.test(s)) return '_fleet'; const a = findAgent(s); return a ? a.id : null; };
   switch(cmd){
-    case 'help': ['help · status · agents · tasks · log [n]', 'pause <agent|all> · resume <agent|all> · stop <agent|all>', 'tell <agent> <instruction>   (alias: instruct, run)', 'open <agent> · close', 'view orbit|grid|timeline|console', 'theme cyan|red|amber|green|violet · lang en|fa', 'sim on|off · sound on|off · announce on|off', 'voice · weather · health · refresh · clear · version'].forEach(l=> termLog('  '+l, 'dim')); break;
+    case 'help': ['help · status · agents · tasks · log [n]', 'pause <agent|all> · resume <agent|all> · stop <agent|all>', 'tell <agent> <instruction>   (alias: instruct, run)', 'open <agent> · close', 'view orbit|grid|timeline|console', 'theme lear|cyan|red|amber|green|violet · lang en|fa', 'sim on|off · sound on|off · announce on|off', 'voice · weather · health · refresh · clear · version'].forEach(l=> termLog('  '+l, 'dim')); break;
     case 'status': case 'st': { const ag = agentList(); termLog(`fleet: ${STATE.working} working · ${STATE.errors} errors · ${STATE.paused} paused · health ${STATE.health}% · ${DEMO?'DEMO':SIM?'SIM':'LIVE'} · feed ${FEED&&FEED.timestamp?agoStr(FEED.timestamp)+' old':'—'}`, 'ok');
       ag.filter(a=>a.status!=='IDLE').forEach(a=> termLog(`  ${a.name.padEnd(12)} ${a.status.padEnd(8)} ${a.task||''}`, a.status==='ERROR'?'err':a.status==='WORKING'?'ok':'warn')); break; }
     case 'agents': case 'ls': agentList().forEach(a=> termLog(`  ${a.name.padEnd(12)} ${a.status.padEnd(8)} ${(a.model||'—').padEnd(7)} last ${agoStr(a.last).padEnd(4)} ${a.role}`, a.status==='WORKING'?'ok':a.status==='ERROR'?'err':'dim')); break;
