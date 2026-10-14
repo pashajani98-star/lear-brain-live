@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T15:08:57Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T16:08:45.576634",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshed page for /lamona-oven-symbols-the-london-enginee",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T15:13:12Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 11,
@@ -130,17 +120,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
         "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
+        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
       ],
-      "status": "working",
-      "current_task": "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshed page for /lamona-oven-symbols-the-london-enginee",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T15:08:45Z"
+      "last_update": "2026-10-14T15:12:42Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -189,6 +179,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T15:12:42Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T15:08:45Z",
       "agent": "lear-content",
@@ -264,13 +261,6 @@
       "agent": "lear-security",
       "type": "info",
       "description": "Task from manager queue: [Read-only check of payment webhook and price trust] Read-only static review. No edits and no live requests. Open theme/",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T10:38:46Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
       "status": "completed"
     }
   ],
