@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T20:24:00Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T21:23:48.938359",
-      "agent": "lear-outreach",
-      "agent_label": "Outreach",
-      "task": "[Draft first-touch emails for 10 NW/N London letting agents] Open the newest agency tracker in C:\\Users\\pasha\\london-emergency-appliance-rep",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T20:25:43Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 18,
@@ -98,14 +88,15 @@
       "id": "lear-outreach",
       "label": "Outreach",
       "recent_activity": [
+        "[Draft first-touch emails for 10 NW/N London letting agents] Open the newest agency tracke",
         "[Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in t",
         "[Five first-touch letting-agent emails from tracker] Work the B2B agency tracker in C:\\Use",
         "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick"
       ],
-      "status": "working",
-      "current_task": "[Draft first-touch emails for 10 NW/N London letting agents] Open the newest agency tracker in C:\\Users\\pasha\\london-emergency-appliance-rep",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T20:23:48Z"
+      "last_update": "2026-10-14T20:25:28Z"
     },
     "lear-monitor": {
       "id": "lear-monitor",
@@ -125,6 +116,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T20:25:28Z",
+      "agent": "lear-outreach",
+      "type": "ok",
+      "description": "Completed (haiku): [Draft first-touch emails for 10 NW/N London letting agents] Open the newest agency tracke",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T20:23:48Z",
       "agent": "lear-outreach",
@@ -200,13 +198,6 @@
       "agent": "lear-reports",
       "type": "info",
       "description": "Task from manager queue: [GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property pro",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T15:55:08Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from ",
       "status": "completed"
     }
   ],
