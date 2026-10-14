@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T15:13:12Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T15:53:52Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T16:53:45.798317",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from 8 clicks to 4 week on week, while average position",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 11,
-    "total": 11
+    "haiku": 12,
+    "total": 12
   },
   "agents": {
     "lear-strategist": {
@@ -63,10 +73,10 @@
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from 8 clicks to 4 week on week, while average position",
       "current_model": "haiku",
-      "last_update": "2026-10-14T13:52:44Z"
+      "last_update": "2026-10-14T15:53:45Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -180,6 +190,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T15:53:45Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from 8 clicks to 4 week on week, wh",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T15:12:42Z",
       "agent": "lear-content",
       "type": "ok",
@@ -255,16 +272,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Read-only check of payment webhook and price trust] Read-only static review. No edits and",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T11:07:33Z",
-      "agent": "lear-security",
-      "type": "info",
-      "description": "Task from manager queue: [Read-only check of payment webhook and price trust] Read-only static review. No edits and no live requests. Open theme/",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 11,
+  "total_tasks_logged": 12,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
