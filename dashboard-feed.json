@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T01:59:59Z",
+  "timestamp": "2026-10-14T02:02:04Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T02:59:57.876661",
-      "agent": "lear-competitors",
-      "agent_label": "Competitor intel",
-      "task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
+      "timestamp": "2026-10-14T03:01:42.900534",
+      "agent": "lear-reviews",
+      "agent_label": "Reputation",
+      "task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -55,10 +55,10 @@
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
       "current_model": "haiku",
-      "last_update": "2026-10-14T01:46:16Z"
+      "last_update": "2026-10-14T02:01:42Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -151,10 +151,10 @@
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t"
       ],
-      "status": "working",
-      "current_task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T01:59:57Z"
+      "last_update": "2026-10-14T02:01:34Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T02:01:42Z",
+      "agent": "lear-reviews",
+      "type": "info",
+      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T02:01:34Z",
+      "agent": "lear-competitors",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T01:59:57Z",
       "agent": "lear-competitors",
@@ -253,20 +267,6 @@
       "agent": "lear-monitor",
       "type": "ok",
       "description": "Completed (haiku): [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T01:54:12Z",
-      "agent": "lear-monitor",
-      "type": "info",
-      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T01:54:07Z",
-      "agent": "lear-codereview",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
       "status": "completed"
     }
   ],
