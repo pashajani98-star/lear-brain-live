@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T14:36:07Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T15:35:59.515940",
-      "agent": "lear-social",
-      "agent_label": "Social",
-      "task": "[Standing: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a se",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T14:36:54Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 10,
@@ -82,17 +72,17 @@
       "id": "lear-social",
       "label": "Social",
       "recent_activity": [
-        "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
+        "[Standing: GBP post draft] Write one Google Business Profile post for London Emergency App",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia"
       ],
-      "status": "working",
-      "current_task": "[Standing: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a se",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T14:35:59Z"
+      "last_update": "2026-10-14T14:36:45Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -190,6 +180,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T14:36:45Z",
+      "agent": "lear-social",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: GBP post draft] Write one Google Business Profile post for London Emergency App",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T14:35:59Z",
       "agent": "lear-social",
       "type": "info",
@@ -264,13 +261,6 @@
       "agent": "lear-strategist",
       "type": "info",
       "description": "Task from standing work: [Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it.",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T09:50:30Z",
-      "agent": "lear-outreach",
-      "type": "ok",
-      "description": "Completed (haiku): [Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in t",
       "status": "completed"
     }
   ],
