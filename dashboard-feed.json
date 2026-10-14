@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T09:07:42Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T09:49:55Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T10:49:47.802285",
+      "agent": "lear-outreach",
+      "agent_label": "Outreach",
+      "task": "[Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in the outreach/ folder. Find every row with status 'f",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -154,10 +164,10 @@
         "[Five first-touch letting-agent emails from tracker] Work the B2B agency tracker in C:\\Use",
         "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in the outreach/ folder. Find every row with status 'f",
       "current_model": "haiku",
-      "last_update": "2026-10-14T07:36:47Z"
+      "last_update": "2026-10-14T09:49:47Z"
     },
     "lear-monitor": {
       "id": "lear-monitor",
@@ -177,6 +187,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T09:49:47Z",
+      "agent": "lear-outreach",
+      "type": "info",
+      "description": "Task from manager queue: [Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in the outreach/ folder. Find ever",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T09:07:25Z",
       "agent": "lear-security",
@@ -252,13 +269,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:50:33Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
       "status": "completed"
     }
   ],
