@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T00:05:59Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T01:05:40.490405",
-      "agent": "lear-monitor",
-      "agent_label": "Quality control",
-      "task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T00:06:32Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -173,18 +163,25 @@
       "recent_activity": [
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
-        "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
+        "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr",
         "Failed: [Local: fleet activity review] Review the recent agent activity log pr"
       ],
-      "status": "working",
-      "current_task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T00:05:40Z"
+      "last_update": "2026-10-14T00:06:25Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T00:06:25Z",
+      "agent": "lear-monitor",
+      "type": "ok",
+      "description": "Completed (haiku): [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T00:05:40Z",
       "agent": "lear-monitor",
@@ -260,13 +257,6 @@
       "agent": "lear-reviews",
       "type": "info",
       "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-13T23:54:23Z",
-      "agent": "lear-competitors",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
       "status": "completed"
     }
   ],
