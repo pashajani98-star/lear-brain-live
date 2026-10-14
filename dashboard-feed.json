@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T02:31:40Z",
+  "timestamp": "2026-10-14T02:33:14Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T03:31:13.398367",
+      "timestamp": "2026-10-14T03:32:58.429861",
       "agent": "lear-seo",
       "agent_label": "Search operations",
-      "task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
+      "task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -64,17 +64,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
-        "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
-        "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap"
+        "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
+        "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer"
       ],
       "status": "working",
-      "current_task": "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find 3 queries w",
+      "current_task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
       "current_model": "haiku",
-      "last_update": "2026-10-14T02:31:13Z"
+      "last_update": "2026-10-14T02:32:58Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -186,6 +186,20 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T02:32:58Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from standing work: [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T02:32:49Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T02:31:13Z",
       "agent": "lear-seo",
       "type": "info",
@@ -253,20 +267,6 @@
       "agent": "lear-strategist",
       "type": "ok",
       "description": "Completed (haiku): [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:25:13Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from standing work: [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console for the last 7 days, name the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:25:02Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
       "status": "completed"
     }
   ],
