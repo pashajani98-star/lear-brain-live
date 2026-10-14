@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T19:38:54Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T20:38:48.683783",
-      "agent": "lear-content",
-      "agent_label": "Content & reputation",
-      "task": "[Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the URL starts /beko-fridge-freezer-guide-an-engineer",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T19:40:42Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 17,
@@ -82,17 +72,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the",
         "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
         "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
+        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "working",
-      "current_task": "[Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the URL starts /beko-fridge-freezer-guide-an-engineer",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T19:38:48Z"
+      "last_update": "2026-10-14T19:40:35Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -125,6 +115,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T19:40:35Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T19:38:48Z",
       "agent": "lear-content",
@@ -200,13 +197,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from manager queue: [Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from 8 clicks to 4 week on week, wh",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T15:12:42Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
       "status": "completed"
     }
   ],
