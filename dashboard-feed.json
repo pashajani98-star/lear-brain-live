@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T06:12:42Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T06:13:15Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T07:12:48.012796",
+      "agent": "lear-monitor",
+      "agent_label": "Quality control",
+      "task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -168,13 +178,20 @@
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually dubious or risky (cla",
       "current_model": "haiku",
-      "last_update": "2026-10-14T05:56:50Z"
+      "last_update": "2026-10-14T06:12:48Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T06:12:48Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from standing work: [Local: fleet activity review] Review the recent agent activity log provided below. Flag anything off-brand, factually d",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T06:12:38Z",
       "agent": "lear-codereview",
@@ -250,13 +267,6 @@
       "agent": "lear-competitors",
       "type": "ok",
       "description": "Completed (haiku): [Standing: competitor pricing check] Check the published call-out and price pages of the t",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:03:02Z",
-      "agent": "lear-competitors",
-      "type": "info",
-      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
       "status": "completed"
     }
   ],
