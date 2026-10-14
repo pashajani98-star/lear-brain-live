@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T02:17:22Z",
+  "timestamp": "2026-10-14T02:18:57Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T03:17:13.147081",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
+      "timestamp": "2026-10-14T03:18:43.173859",
+      "agent": "lear-competitors",
+      "agent_label": "Competitor intel",
+      "task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -64,17 +64,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
-        "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
-        "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer"
+        "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
+        "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap"
       ],
-      "status": "working",
-      "current_task": "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 days), find the ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T02:17:13Z"
+      "last_update": "2026-10-14T02:18:29Z"
     },
     "lear-social": {
       "id": "lear-social",
@@ -151,10 +151,10 @@
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t",
         "[Standing: competitor pricing check] Check the published call-out and price pages of the t"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair competitors that rank",
       "current_model": "haiku",
-      "last_update": "2026-10-14T02:01:34Z"
+      "last_update": "2026-10-14T02:18:43Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -185,6 +185,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T02:18:43Z",
+      "agent": "lear-competitors",
+      "type": "info",
+      "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T02:18:29Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T02:17:13Z",
       "agent": "lear-seo",
@@ -253,20 +267,6 @@
       "agent": "lear-codereview",
       "type": "ok",
       "description": "Completed (haiku): [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:11:43Z",
-      "agent": "lear-codereview",
-      "type": "info",
-      "description": "Task from standing work: [Standing: code review rotation] Review one area of the telegram-brain scripts (dashboard_publisher.py or bridge.py) for",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:11:40Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
       "status": "completed"
     }
   ],
