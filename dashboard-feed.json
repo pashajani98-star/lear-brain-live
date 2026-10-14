@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T15:55:32Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T16:39:07Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T17:38:46.170904",
+      "agent": "lear-reports",
+      "agent_label": "Reports",
+      "task": "[GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property properties/536745696, c",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 12,
-    "total": 12
+    "haiku": 13,
+    "total": 13
   },
   "agents": {
     "lear-strategist": {
@@ -176,9 +186,25 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-14T06:49:14Z"
+    },
+    "lear-reports": {
+      "id": "lear-reports",
+      "label": "Reports",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property properties/536745696, c",
+      "current_model": "haiku",
+      "last_update": "2026-10-14T16:38:46Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T16:38:46Z",
+      "agent": "lear-reports",
+      "type": "info",
+      "description": "Task from manager queue: [GA4 conversion drop breakdown, 7d vs prior 7d] Read-only analysis, no edits and no spend. Use the GA4 API (property pro",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T15:55:08Z",
       "agent": "lear-seo",
@@ -255,16 +281,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T12:20:49Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from manager queue: [Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair.com. Repo: theme/ folder of t",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 12,
+  "total_tasks_logged": 13,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
