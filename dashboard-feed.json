@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-14T02:13:35Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T02:14:12Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T03:13:43.083140",
+      "agent": "lear-social",
+      "agent_label": "Social",
+      "task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -77,10 +87,10 @@
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
         "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRAND.md, about a seaso",
       "current_model": "haiku",
-      "last_update": "2026-10-14T01:55:28Z"
+      "last_update": "2026-10-14T02:13:43Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -176,6 +186,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T02:13:43Z",
+      "agent": "lear-social",
+      "type": "info",
+      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T02:13:31Z",
       "agent": "lear-monitor",
       "type": "ok",
@@ -250,13 +267,6 @@
       "agent": "lear-reviews",
       "type": "ok",
       "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T02:01:42Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from standing work: [Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the rec",
       "status": "completed"
     }
   ],
