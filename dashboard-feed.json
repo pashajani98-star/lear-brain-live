@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T12:47:46Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-14T13:06:00Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-14T14:05:51.057379",
+      "agent": "lear-content",
+      "agent_label": "Content",
+      "task": "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the-london-engineers-guide-to-your-cooker/, the top l",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 7,
-    "total": 7
+    "haiku": 8,
+    "total": 8
   },
   "agents": {
     "lear-strategist": {
@@ -127,10 +137,10 @@
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the-london-engineers-guide-to-your-cooker/, the top l",
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:50:27Z"
+      "last_update": "2026-10-14T13:05:51Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -179,6 +189,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T13:05:51Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from manager queue: [Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the-london-engineers-guide-to-you",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T12:22:52Z",
       "agent": "lear-webdev",
@@ -255,16 +272,9 @@
       "type": "ok",
       "description": "Completed (haiku): [New reviews check] Check for new Google reviews for London Emergency Appliance Repair (pu",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T08:19:46Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from mission scheduler: [New reviews check] Check for new Google reviews for London Emergency Appliance Repair (public profile if no API). If th",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 7,
+  "total_tasks_logged": 8,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
