@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T01:31:50Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T02:31:27.360780",
-      "agent": "lear-content",
-      "agent_label": "Content",
-      "task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T01:33:55Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -128,17 +118,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
+        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "working",
-      "current_task": "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days, list 5 common appliance questions that the site ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T01:31:27Z"
+      "last_update": "2026-10-14T01:33:47Z"
     },
     "lear-competitors": {
       "id": "lear-competitors",
@@ -185,6 +175,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-14T01:33:47Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T01:31:27Z",
       "agent": "lear-content",
@@ -260,13 +257,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from standing work: [Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyappliancerepair.com, last 28 day",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T01:21:32Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
       "status": "completed"
     }
   ],
