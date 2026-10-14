@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-14T06:04:48Z",
+  "timestamp": "2026-10-14T06:05:21Z",
   "current_tasks": [
     {
-      "timestamp": "2026-10-14T07:04:32.806818",
-      "agent": "lear-reviews",
-      "agent_label": "Reputation",
-      "task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
+      "timestamp": "2026-10-14T07:05:17.838417",
+      "agent": "lear-webdev",
+      "agent_label": "Web systems",
+      "task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
       "model": "haiku",
       "status": "running",
       "elapsed": 0
@@ -55,10 +55,10 @@
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
         "[Standing: review themes] Read the latest public Google reviews for London Emergency Appli"
       ],
-      "status": "working",
-      "current_task": "[Standing: review themes] Read the latest public Google reviews for London Emergency Appliance Repair. Summarise the recurring praise and co",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T06:04:32Z"
+      "last_update": "2026-10-14T06:05:04Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -103,10 +103,10 @@
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancerepair.com. Report HT",
       "current_model": "haiku",
-      "last_update": "2026-10-14T05:46:17Z"
+      "last_update": "2026-10-14T06:05:17Z"
     },
     "lear-codereview": {
       "id": "lear-codereview",
@@ -186,6 +186,20 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T06:05:17Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from standing work: [Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service pages of londonemergencyappliancer",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-14T06:05:04Z",
+      "agent": "lear-reviews",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: review themes] Read the latest public Google reviews for London Emergency Appli",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T06:04:32Z",
       "agent": "lear-reviews",
       "type": "info",
@@ -253,20 +267,6 @@
       "agent": "lear-social",
       "type": "ok",
       "description": "Completed (haiku): [Local: GBP post draft] Write one Google Business Profile post for London Emergency Applia",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T05:57:02Z",
-      "agent": "lear-social",
-      "type": "info",
-      "description": "Task from standing work: [Local: GBP post draft] Write one Google Business Profile post for London Emergency Appliance Repair in the voice of BRA",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T05:56:50Z",
-      "agent": "lear-monitor",
-      "type": "ok",
-      "description": "Completed (haiku): [Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
       "status": "completed"
     }
   ],
