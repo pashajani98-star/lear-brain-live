@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-14T10:35:07Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-14T11:34:48.292267",
-      "agent": "lear-strategist",
-      "agent_label": "Strategy",
-      "task": "[Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it. Produce ONE concret",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-14T10:38:56Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -21,17 +11,17 @@
       "id": "lear-strategist",
       "label": "Strategy",
       "recent_activity": [
-        "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
+        "[Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
       ],
-      "status": "working",
-      "current_task": "[Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it. Produce ONE concret",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-14T10:34:48Z"
+      "last_update": "2026-10-14T10:38:46Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -189,6 +179,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-14T10:38:46Z",
+      "agent": "lear-strategist",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-14T10:34:48Z",
       "agent": "lear-strategist",
       "type": "info",
@@ -263,13 +260,6 @@
       "agent": "lear-competitors",
       "type": "info",
       "description": "Task from standing work: [Standing: competitor pricing check] Check the published call-out and price pages of the top 3 London appliance repair c",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T06:54:29Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
       "status": "completed"
     }
   ],
