@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T18:31:53Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T19:16:12Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T20:15:43.963100",
+      "agent": "lear-webdev",
+      "agent_label": "Web systems",
+      "task": "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts for the last 14 days (property 536745696) for form",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 37,
-    "total": 37
+    "haiku": 38,
+    "total": 38
   },
   "agents": {
     "lear-strategist": {
@@ -66,10 +76,10 @@
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts for the last 14 days (property 536745696) for form",
       "current_model": "haiku",
-      "last_update": "2026-10-15T11:16:20Z"
+      "last_update": "2026-10-15T19:15:43Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -131,6 +141,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T19:15:43Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from manager queue: [Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts for the last 14 days (property",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T18:31:14Z",
       "agent": "lear-content",
@@ -207,16 +224,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Verify homepage conversions before doubling down] Read-only analysis, no edits and no spe",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T14:15:11Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from manager queue: [Verify homepage conversions before doubling down] Read-only analysis, no edits and no spend. GA4 (last 7 days) shows th",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 37,
+  "total_tasks_logged": 38,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
