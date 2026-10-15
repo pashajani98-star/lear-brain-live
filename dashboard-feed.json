@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T19:16:12Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T20:15:43.963100",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts for the last 14 days (property 536745696) for form",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T19:16:53Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 38,
@@ -69,17 +59,17 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [
+        "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts ",
         "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
         "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
         "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "working",
-      "current_task": "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts for the last 14 days (property 536745696) for form",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T19:15:43Z"
+      "last_update": "2026-10-15T19:16:42Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -141,6 +131,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T19:16:42Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T19:15:43Z",
       "agent": "lear-webdev",
@@ -216,13 +213,6 @@
       "agent": "lear-security",
       "type": "info",
       "description": "Task from manager queue: [Check plugin versions for published CVEs] Read-only security check, no edits. In the repo C:\\Users\\pasha\\london-emergen",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T14:16:34Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Verify homepage conversions before doubling down] Read-only analysis, no edits and no spe",
       "status": "completed"
     }
   ],
