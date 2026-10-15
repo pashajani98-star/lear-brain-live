@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T12:01:20Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T12:45:38Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T13:45:10.767250",
+      "agent": "lear-content",
+      "agent_label": "Content & reputation",
+      "task": "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. There is no GBP API, so ",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 29,
-    "total": 29
+    "haiku": 30,
+    "total": 30
   },
   "agents": {
     "lear-strategist": {
@@ -82,10 +92,10 @@
         "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. There is no GBP API, so ",
       "current_model": "haiku",
-      "last_update": "2026-10-14T19:40:35Z"
+      "last_update": "2026-10-15T12:45:10Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -120,6 +130,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T12:45:10Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from manager queue: [Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. Ther",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T12:01:00Z",
       "agent": "lear-strategist",
@@ -196,16 +213,9 @@
       "type": "ok",
       "description": "Completed (haiku): [CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T08:15:08Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from manager queue: [CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch only if a gap is confirmed. Th",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 29,
+  "total_tasks_logged": 30,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
