@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T11:15:17Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T12:15:10.198846",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (property 536745696, via brain/ga4-pulse.py or the P",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T11:16:29Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 28,
@@ -69,17 +59,17 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [
+        "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
         "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
         "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "working",
-      "current_task": "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (property 536745696, via brain/ga4-pulse.py or the P",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T11:15:10Z"
+      "last_update": "2026-10-15T11:16:20Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -130,6 +120,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T11:16:20Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T11:15:10Z",
       "agent": "lear-webdev",
@@ -205,13 +202,6 @@
       "agent": "lear-strategist",
       "type": "info",
       "description": "Task from manager queue: [Read-only competitor check for 'appliance repair london' map pack] Read-only competitor check; no edits. Using WebSearc",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T06:47:50Z",
-      "agent": "lear-security",
-      "type": "ok",
-      "description": "Completed (haiku): [Read-only code review of booking payment path] Read-only code review; do NOT edit any fil",
       "status": "completed"
     }
   ],
