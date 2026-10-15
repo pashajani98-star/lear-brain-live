@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T21:40:41Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T22:40:15.000761",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. Step 1: using the GA4 Data API (property 536745696",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T21:41:25Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 42,
@@ -69,17 +59,17 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [
+        "[Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. ",
         "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts ",
         "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
         "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
         "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "working",
-      "current_task": "[Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. Step 1: using the GA4 Data API (property 536745696",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T21:40:15Z"
+      "last_update": "2026-10-15T21:41:06Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -143,6 +133,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T21:41:06Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T21:40:15Z",
       "agent": "lear-webdev",
@@ -218,13 +215,6 @@
       "agent": "lear-content",
       "type": "info",
       "description": "Task from manager queue: [Draft review-request texts for last week's completed jobs] Goal: close the gap to 140 Google reviews by 31 Oct (125 now",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T17:06:38Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-d",
       "status": "completed"
     }
   ],
