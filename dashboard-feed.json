@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T20:53:50Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T21:53:44.663782",
-      "agent": "lear-outreach",
-      "agent_label": "Outreach",
-      "task": "[Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch emails for NW/N London letting agents. Open the outre",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T20:54:30Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 41,
@@ -101,16 +91,17 @@
       "id": "lear-outreach",
       "label": "Outreach",
       "recent_activity": [
+        "[Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch ema",
         "[Follow up agencies with no reply after 7 days] Open the newest agency tracker in outreach",
         "[Draft first-touch emails for 10 NW/N London letting agents] Open the newest agency tracke",
         "[Draft follow-ups to letting agents with no reply] Work the B2B letting-agent tracker in t",
         "[Five first-touch letting-agent emails from tracker] Work the B2B agency tracker in C:\\Use",
         "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick"
       ],
-      "status": "working",
-      "current_task": "[Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch emails for NW/N London letting agents. Open the outre",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T20:53:44Z"
+      "last_update": "2026-10-15T20:54:18Z"
     },
     "lear-monitor": {
       "id": "lear-monitor",
@@ -142,6 +133,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T20:54:18Z",
+      "agent": "lear-outreach",
+      "type": "ok",
+      "description": "Completed (haiku): [Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch ema",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T20:53:44Z",
       "agent": "lear-outreach",
@@ -217,13 +215,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from manager queue: [Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-domain:londonemergencyappliance",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T16:30:34Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog",
       "status": "completed"
     }
   ],
