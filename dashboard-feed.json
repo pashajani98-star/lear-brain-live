@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T16:30:38Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T17:05:55Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T18:05:42.901887",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-domain:londonemergencyappliancerepair.com, webmaste",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 35,
-    "total": 35
+    "haiku": 36,
+    "total": 36
   },
   "agents": {
     "lear-strategist": {
@@ -50,10 +60,10 @@
         "[Rewrite title and meta for washer dryer query] Query 'are washer dryers any good' has 465",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-domain:londonemergencyappliancerepair.com, webmaste",
       "current_model": "haiku",
-      "last_update": "2026-10-15T09:01:31Z"
+      "last_update": "2026-10-15T17:05:42Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -132,6 +142,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T17:05:42Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-domain:londonemergencyappliance",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T16:30:34Z",
       "agent": "lear-content",
       "type": "ok",
@@ -207,16 +224,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Pro",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T12:45:10Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from manager queue: [Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. Ther",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 35,
+  "total_tasks_logged": 36,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
