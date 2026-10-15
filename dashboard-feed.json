@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T12:46:20Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T13:30:41Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T14:30:11.070771",
+      "agent": "lear-explorer",
+      "agent_label": "Explorer (new revenue)",
+      "task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 30,
-    "total": 30
+    "haiku": 31,
+    "total": 31
   },
   "agents": {
     "lear-strategist": {
@@ -117,9 +127,25 @@
       "current_task": null,
       "current_model": "haiku",
       "last_update": "2026-10-14T17:25:33Z"
+    },
+    "lear-explorer": {
+      "id": "lear-explorer",
+      "label": "Explorer (new revenue)",
+      "recent_activity": [],
+      "status": "working",
+      "current_task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
+      "current_model": "haiku",
+      "last_update": "2026-10-15T13:30:11Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T13:30:11Z",
+      "agent": "lear-explorer",
+      "type": "info",
+      "description": "Task from mission scheduler: [Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choo",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T12:46:19Z",
       "agent": "lear-content",
@@ -196,16 +222,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machin",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T09:00:09Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from manager queue: [Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machine error codes' is at position ",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 30,
+  "total_tasks_logged": 31,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
