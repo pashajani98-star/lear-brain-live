@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T08:15:13Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T09:15:08.895134",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch only if a gap is confirmed. The pages are /bosch-t",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T08:18:28Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 24,
@@ -68,17 +58,17 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [
+        "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
         "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "working",
-      "current_task": "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch only if a gap is confirmed. The pages are /bosch-t",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T08:15:08Z"
+      "last_update": "2026-10-15T08:18:15Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -128,6 +118,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T08:18:15Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T08:15:08Z",
       "agent": "lear-webdev",
@@ -203,13 +200,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from manager queue: [Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemergencyappliancerepair.com, last",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T20:25:28Z",
-      "agent": "lear-outreach",
-      "type": "ok",
-      "description": "Completed (haiku): [Draft first-touch emails for 10 NW/N London letting agents] Open the newest agency tracke",
       "status": "completed"
     }
   ],
