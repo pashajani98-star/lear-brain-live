@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T06:45:11Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T07:45:07.618594",
-      "agent": "lear-security",
-      "agent_label": "Security, health & code",
-      "task": "[Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing logic. Review theme/in",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T06:47:55Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 22,
@@ -37,15 +27,16 @@
       "id": "lear-security",
       "label": "Security & health",
       "recent_activity": [
+        "[Read-only code review of booking payment path] Read-only code review; do NOT edit any fil",
         "[Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ",
         "[Read-only check of payment webhook and price trust] Read-only static review. No edits and",
         "[Static check of Engineer App REST routes for auth] Read-only static security check of the",
         "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
       ],
-      "status": "working",
-      "current_task": "[Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing logic. Review theme/in",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T06:45:07Z"
+      "last_update": "2026-10-15T06:47:50Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -128,6 +119,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T06:47:50Z",
+      "agent": "lear-security",
+      "type": "ok",
+      "description": "Completed (haiku): [Read-only code review of booking payment path] Read-only code review; do NOT edit any fil",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T06:45:07Z",
       "agent": "lear-security",
       "type": "info",
@@ -202,13 +200,6 @@
       "agent": "lear-content",
       "type": "info",
       "description": "Task from manager queue: [Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the URL starts /beko-fridge-freez",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T18:55:29Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Decide the replacement for the retired paid lever] Write a one-page decision memo, no spe",
       "status": "completed"
     }
   ],
