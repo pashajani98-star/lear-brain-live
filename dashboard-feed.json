@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T08:18:28Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T09:00:38Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T10:00:09.286869",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machine error codes' is at position 8.1 with 105 impress",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 24,
-    "total": 24
+    "haiku": 25,
+    "total": 25
   },
   "agents": {
     "lear-strategist": {
@@ -49,10 +59,10 @@
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer",
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machine error codes' is at position 8.1 with 105 impress",
       "current_model": "haiku",
-      "last_update": "2026-10-15T06:01:24Z"
+      "last_update": "2026-10-15T09:00:09Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -118,6 +128,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T09:00:09Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machine error codes' is at position ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T08:18:15Z",
       "agent": "lear-webdev",
@@ -194,16 +211,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemer",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T21:08:49Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from manager queue: [Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemergencyappliancerepair.com, last",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 24,
+  "total_tasks_logged": 25,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
