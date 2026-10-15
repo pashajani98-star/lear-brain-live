@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T14:16:50Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T15:00:29Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T16:00:11.648446",
+      "agent": "lear-security",
+      "agent_label": "Security, health & code",
+      "task": "[Check plugin versions for published CVEs] Read-only security check, no edits. In the repo C:\\Users\\pasha\\london-emergency-appliance-repair,",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 32,
-    "total": 32
+    "haiku": 33,
+    "total": 33
   },
   "agents": {
     "lear-strategist": {
@@ -34,10 +44,10 @@
         "[Static check of Engineer App REST routes for auth] Read-only static security check of the",
         "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Check plugin versions for published CVEs] Read-only security check, no edits. In the repo C:\\Users\\pasha\\london-emergency-appliance-repair,",
       "current_model": "haiku",
-      "last_update": "2026-10-15T10:31:24Z"
+      "last_update": "2026-10-15T15:00:11Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -132,6 +142,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T15:00:11Z",
+      "agent": "lear-security",
+      "type": "info",
+      "description": "Task from manager queue: [Check plugin versions for published CVEs] Read-only security check, no edits. In the repo C:\\Users\\pasha\\london-emergen",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T14:16:34Z",
       "agent": "lear-strategist",
       "type": "ok",
@@ -207,16 +224,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and n",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T10:30:09Z",
-      "agent": "lear-security",
-      "type": "info",
-      "description": "Task from manager queue: [Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and no spend. The Priority Service ",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 32,
+  "total_tasks_logged": 33,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
