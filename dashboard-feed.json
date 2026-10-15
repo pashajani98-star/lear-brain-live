@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T10:31:27Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T11:15:17Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T12:15:10.198846",
+      "agent": "lear-webdev",
+      "agent_label": "Web systems",
+      "task": "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (property 536745696, via brain/ga4-pulse.py or the P",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 27,
-    "total": 27
+    "haiku": 28,
+    "total": 28
   },
   "agents": {
     "lear-strategist": {
@@ -66,10 +76,10 @@
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page",
         "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (property 536745696, via brain/ga4-pulse.py or the P",
       "current_model": "haiku",
-      "last_update": "2026-10-15T08:18:15Z"
+      "last_update": "2026-10-15T11:15:10Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -120,6 +130,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T11:15:10Z",
+      "agent": "lear-webdev",
+      "type": "info",
+      "description": "Task from manager queue: [Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (property 536745696, via brain/g",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T10:31:24Z",
       "agent": "lear-security",
@@ -196,16 +213,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Read-only code review of booking payment path] Read-only code review; do NOT edit any fil",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T06:45:07Z",
-      "agent": "lear-security",
-      "type": "info",
-      "description": "Task from manager queue: [Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing lo",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 27,
+  "total_tasks_logged": 28,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
