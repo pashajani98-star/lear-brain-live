@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T13:30:41Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T14:30:11.070771",
-      "agent": "lear-explorer",
-      "agent_label": "Explorer (new revenue)",
-      "task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T13:31:22Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 31,
@@ -131,14 +121,23 @@
     "lear-explorer": {
       "id": "lear-explorer",
       "label": "Explorer (new revenue)",
-      "recent_activity": [],
-      "status": "working",
-      "current_task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
+      "recent_activity": [
+        "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/"
+      ],
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T13:30:11Z"
+      "last_update": "2026-10-15T13:30:50Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T13:30:50Z",
+      "agent": "lear-explorer",
+      "type": "ok",
+      "description": "Completed (haiku): [Explorer: daily research run] Pick your own task per your agent instructions. Read brain/",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T13:30:11Z",
       "agent": "lear-explorer",
@@ -214,13 +213,6 @@
       "agent": "lear-outreach",
       "type": "info",
       "description": "Task from manager queue: [Follow up agencies with no reply after 7 days] Open the newest agency tracker in outreach/ and filter for rows with sta",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T09:01:31Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machin",
       "status": "completed"
     }
   ],
