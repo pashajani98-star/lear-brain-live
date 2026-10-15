@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T11:16:29Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T12:00:37Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T13:00:10.483985",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy & planning",
+      "task": "[Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intelligence using WebSearch (standard mode) for: 'appli",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 28,
-    "total": 28
+    "haiku": 29,
+    "total": 29
   },
   "agents": {
     "lear-strategist": {
@@ -18,10 +28,10 @@
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intelligence using WebSearch (standard mode) for: 'appli",
       "current_model": "haiku",
-      "last_update": "2026-10-15T07:31:08Z"
+      "last_update": "2026-10-15T12:00:10Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -121,6 +131,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T12:00:10Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from manager queue: [Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intelligence using WebSearch (standa",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T11:16:20Z",
       "agent": "lear-webdev",
       "type": "ok",
@@ -196,16 +213,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Read-only competitor check for 'appliance repair london' map pack] Read-only competitor c",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T07:30:08Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from manager queue: [Read-only competitor check for 'appliance repair london' map pack] Read-only competitor check; no edits. Using WebSearc",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 28,
+  "total_tasks_logged": 29,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
