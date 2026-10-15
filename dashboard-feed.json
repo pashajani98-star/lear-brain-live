@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T19:16:53Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T20:01:03Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T21:00:44.274852",
+      "agent": "lear-explorer",
+      "agent_label": "Explorer (new revenue)",
+      "task": "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane wi",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 38,
-    "total": 38
+    "haiku": 39,
+    "total": 39
   },
   "agents": {
     "lear-strategist": {
@@ -124,13 +134,20 @@
       "recent_activity": [
         "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane wi",
       "current_model": "haiku",
-      "last_update": "2026-10-15T13:30:50Z"
+      "last_update": "2026-10-15T20:00:44Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T20:00:44Z",
+      "agent": "lear-explorer",
+      "type": "info",
+      "description": "Task from standing work: [Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T19:16:42Z",
       "agent": "lear-webdev",
@@ -207,16 +224,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Check plugin versions for published CVEs] Read-only security check, no edits. In the repo",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T15:00:11Z",
-      "agent": "lear-security",
-      "type": "info",
-      "description": "Task from manager queue: [Check plugin versions for published CVEs] Read-only security check, no edits. In the repo C:\\Users\\pasha\\london-emergen",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 38,
+  "total_tasks_logged": 39,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
