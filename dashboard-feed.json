@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T20:09:08Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T21:08:44.360087",
-      "agent": "lear-strategist",
-      "agent_label": "Strategy & planning",
-      "task": "[Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope the replacement for retired Lever 2: paid traffic se",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T20:10:12Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 40,
@@ -21,17 +11,17 @@
       "id": "lear-strategist",
       "label": "Strategy",
       "recent_activity": [
+        "[Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope th",
         "[Verify homepage conversions before doubling down] Read-only analysis, no edits and no spe",
         "[Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intell",
         "[Read-only competitor check for 'appliance repair london' map pack] Read-only competitor c",
         "[Decide the replacement for the retired paid lever] Write a one-page decision memo, no spe",
-        "[Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
-        "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
+        "[Standing: force a re-plan] The task queue has been empty long enough that the normal plan"
       ],
-      "status": "working",
-      "current_task": "[Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope the replacement for retired Lever 2: paid traffic se",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T20:08:44Z"
+      "last_update": "2026-10-15T20:10:01Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -143,6 +133,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T20:10:01Z",
+      "agent": "lear-strategist",
+      "type": "ok",
+      "description": "Completed (haiku): [Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope th",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T20:08:44Z",
       "agent": "lear-strategist",
       "type": "info",
@@ -217,13 +214,6 @@
       "agent": "lear-content",
       "type": "info",
       "description": "Task from standing work: [Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowne",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T15:46:22Z",
-      "agent": "lear-monitor",
-      "type": "ok",
-      "description": "Completed (haiku): [Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced s",
       "status": "completed"
     }
   ],
