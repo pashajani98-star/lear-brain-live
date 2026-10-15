@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T20:10:12Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T20:53:50Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T21:53:44.663782",
+      "agent": "lear-outreach",
+      "agent_label": "Outreach",
+      "task": "[Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch emails for NW/N London letting agents. Open the outre",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 40,
-    "total": 40
+    "haiku": 41,
+    "total": 41
   },
   "agents": {
     "lear-strategist": {
@@ -97,10 +107,10 @@
         "[Five first-touch letting-agent emails from tracker] Work the B2B agency tracker in C:\\Use",
         "[B2B outreach batch] Review the agency/outreach tracker in the LEAR repo (outreach/). Pick"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch emails for NW/N London letting agents. Open the outre",
       "current_model": "haiku",
-      "last_update": "2026-10-15T09:45:32Z"
+      "last_update": "2026-10-15T20:53:44Z"
     },
     "lear-monitor": {
       "id": "lear-monitor",
@@ -132,6 +142,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T20:53:44Z",
+      "agent": "lear-outreach",
+      "type": "info",
+      "description": "Task from manager queue: [Chase stale first-touch letting-agent batch status] Do NOT redraft the 10 first-touch emails for NW/N London letting ag",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T20:10:01Z",
       "agent": "lear-strategist",
@@ -208,16 +225,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T16:30:12Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from standing work: [Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowne",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 40,
+  "total_tasks_logged": 41,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
