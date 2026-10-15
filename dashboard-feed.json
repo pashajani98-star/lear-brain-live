@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T10:30:11Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T11:30:09.913642",
-      "agent": "lear-security",
-      "agent_label": "Security, health & code",
-      "task": "[Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and no spend. The Priority Service Plan (care plan) and",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T10:31:27Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 27,
@@ -37,16 +27,17 @@
       "id": "lear-security",
       "label": "Security & health",
       "recent_activity": [
+        "[Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and n",
         "[Read-only code review of booking payment path] Read-only code review; do NOT edit any fil",
         "[Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ",
         "[Read-only check of payment webhook and price trust] Read-only static review. No edits and",
         "[Static check of Engineer App REST routes for auth] Read-only static security check of the",
         "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
       ],
-      "status": "working",
-      "current_task": "[Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and no spend. The Priority Service Plan (care plan) and",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T10:30:09Z"
+      "last_update": "2026-10-15T10:31:24Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -130,6 +121,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T10:31:24Z",
+      "agent": "lear-security",
+      "type": "ok",
+      "description": "Completed (haiku): [Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and n",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T10:30:09Z",
       "agent": "lear-security",
       "type": "info",
@@ -204,13 +202,6 @@
       "agent": "lear-security",
       "type": "info",
       "description": "Task from manager queue: [Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing lo",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T06:01:24Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search ",
       "status": "completed"
     }
   ],
