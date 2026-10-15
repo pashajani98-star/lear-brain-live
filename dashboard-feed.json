@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T20:01:03Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T21:00:44.274852",
-      "agent": "lear-explorer",
-      "agent_label": "Explorer (new revenue)",
-      "task": "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane wi",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T20:01:45Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 39,
@@ -132,15 +122,23 @@
       "id": "lear-explorer",
       "label": "Explorer (new revenue)",
       "recent_activity": [
+        "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read ",
         "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/"
       ],
-      "status": "working",
-      "current_task": "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane wi",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T20:00:44Z"
+      "last_update": "2026-10-15T20:01:27Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T20:01:27Z",
+      "agent": "lear-explorer",
+      "type": "ok",
+      "description": "Completed (haiku): [Explorer: self-chosen research run] Pick your own task per your agent instructions. Read ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T20:00:44Z",
       "agent": "lear-explorer",
@@ -216,13 +214,6 @@
       "agent": "lear-monitor",
       "type": "info",
       "description": "Task from mission scheduler: [Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced since your last run (provided b",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T15:02:10Z",
-      "agent": "lear-security",
-      "type": "ok",
-      "description": "Completed (haiku): [Check plugin versions for published CVEs] Read-only security check, no edits. In the repo",
       "status": "completed"
     }
   ],
