@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T15:45:33Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T16:45:11.937158",
-      "agent": "lear-monitor",
-      "agent_label": "Quality gate",
-      "task": "[Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced since your last run (provided below: content files,",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T15:46:46Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 34,
@@ -116,17 +106,17 @@
       "id": "lear-monitor",
       "label": "Quality control",
       "recent_activity": [
+        "[Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced s",
         "[Spot-check live phone, WhatsApp and booking paths] Read-only spot-check of the live site ",
-        "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a"
       ],
-      "status": "working",
-      "current_task": "[Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced since your last run (provided below: content files,",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T15:45:11Z"
+      "last_update": "2026-10-15T15:46:22Z"
     },
     "lear-explorer": {
       "id": "lear-explorer",
@@ -141,6 +131,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T15:46:22Z",
+      "agent": "lear-monitor",
+      "type": "ok",
+      "description": "Completed (haiku): [Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced s",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T15:45:11Z",
       "agent": "lear-monitor",
@@ -216,13 +213,6 @@
       "agent": "lear-strategist",
       "type": "info",
       "description": "Task from manager queue: [Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intelligence using WebSearch (standa",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T11:16:20Z",
-      "agent": "lear-webdev",
-      "type": "ok",
-      "description": "Completed (haiku): [Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
       "status": "completed"
     }
   ],
