@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-10-15T15:46:46Z",
+  "timestamp": "2026-10-15T16:30:38Z",
   "current_tasks": [],
   "model_summary": {
     "ollama": 0,
-    "haiku": 34,
-    "total": 34
+    "haiku": 35,
+    "total": 35
   },
   "agents": {
     "lear-strategist": {
@@ -75,17 +75,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog",
         "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Pro",
         "[Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the",
         "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
         "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
+        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
       "status": "standby",
       "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T12:46:19Z"
+      "last_update": "2026-10-15T16:30:34Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -131,6 +131,20 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T16:30:34Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog",
+      "status": "completed"
+    },
+    {
+      "timestamp": "2026-10-15T16:30:12Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from standing work: [Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post titles a London homeowne",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T15:46:22Z",
       "agent": "lear-monitor",
@@ -200,23 +214,9 @@
       "type": "info",
       "description": "Task from manager queue: [Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. Ther",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T12:01:00Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intell",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T12:00:10Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from manager queue: [Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intelligence using WebSearch (standa",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 34,
+  "total_tasks_logged": 35,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
