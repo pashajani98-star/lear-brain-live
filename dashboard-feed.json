@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T06:01:34Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T06:45:11Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T07:45:07.618594",
+      "agent": "lear-security",
+      "agent_label": "Security, health & code",
+      "task": "[Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing logic. Review theme/in",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 21,
-    "total": 21
+    "haiku": 22,
+    "total": 22
   },
   "agents": {
     "lear-strategist": {
@@ -32,10 +42,10 @@
         "[Static check of Engineer App REST routes for auth] Read-only static security check of the",
         "[Broken-bits sweep] Hunt for broken bits across LEAR: fetch homepage, main service pages, "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing logic. Review theme/in",
       "current_model": "haiku",
-      "last_update": "2026-10-14T21:55:09Z"
+      "last_update": "2026-10-15T06:45:07Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -118,6 +128,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T06:45:07Z",
+      "agent": "lear-security",
+      "type": "info",
+      "description": "Task from manager queue: [Read-only code review of booking payment path] Read-only code review; do NOT edit any file and do not change pricing lo",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T06:01:24Z",
       "agent": "lear-seo",
       "type": "ok",
@@ -193,16 +210,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Decide the replacement for the retired paid lever] Write a one-page decision memo, no spe",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T18:53:47Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from manager queue: [Decide the replacement for the retired paid lever] Write a one-page decision memo, no spend and no campaign changes. Co",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 21,
+  "total_tasks_logged": 22,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
