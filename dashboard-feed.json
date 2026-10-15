@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T17:06:43Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T18:31:12Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T19:30:43.639443",
+      "agent": "lear-content",
+      "agent_label": "Content & reputation",
+      "task": "[Draft review-request texts for last week's completed jobs] Goal: close the gap to 140 Google reviews by 31 Oct (125 now). Open the Job Mana",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 36,
-    "total": 36
+    "haiku": 37,
+    "total": 37
   },
   "agents": {
     "lear-strategist": {
@@ -82,10 +92,10 @@
         "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Draft review-request texts for last week's completed jobs] Goal: close the gap to 140 Google reviews by 31 Oct (125 now). Open the Job Mana",
       "current_model": "haiku",
-      "last_update": "2026-10-15T16:30:34Z"
+      "last_update": "2026-10-15T18:30:43Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -131,6 +141,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T18:30:43Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from manager queue: [Draft review-request texts for last week's completed jobs] Goal: close the gap to 140 Google reviews by 31 Oct (125 now",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T17:06:38Z",
       "agent": "lear-seo",
@@ -207,16 +224,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Explorer: daily research run] Pick your own task per your agent instructions. Read brain/",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T13:30:11Z",
-      "agent": "lear-explorer",
-      "type": "info",
-      "description": "Task from mission scheduler: [Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choo",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 36,
+  "total_tasks_logged": 37,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
