@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T06:47:55Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T07:30:09Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T08:30:08.337057",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy & planning",
+      "task": "[Read-only competitor check for 'appliance repair london' map pack] Read-only competitor check; no edits. Using WebSearch in standard mode, ",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 22,
-    "total": 22
+    "haiku": 23,
+    "total": 23
   },
   "agents": {
     "lear-strategist": {
@@ -18,10 +28,10 @@
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f",
         "[Standing: this week's three priorities] Using GA4 property 536745696 and Search Console f"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Read-only competitor check for 'appliance repair london' map pack] Read-only competitor check; no edits. Using WebSearch in standard mode, ",
       "current_model": "haiku",
-      "last_update": "2026-10-14T18:55:29Z"
+      "last_update": "2026-10-15T07:30:08Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -119,6 +129,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-15T07:30:08Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from manager queue: [Read-only competitor check for 'appliance repair london' map pack] Read-only competitor check; no edits. Using WebSearc",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-15T06:47:50Z",
       "agent": "lear-security",
       "type": "ok",
@@ -194,16 +211,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T19:38:48Z",
-      "agent": "lear-content",
-      "type": "info",
-      "description": "Task from manager queue: [Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the URL starts /beko-fridge-freez",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 22,
+  "total_tasks_logged": 23,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
