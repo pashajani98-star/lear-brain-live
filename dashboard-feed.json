@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-14T21:55:18Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T06:00:50Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T07:00:07.373839",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search Console for sc-domain:londonemergencyappliancerepa",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 20,
-    "total": 20
+    "haiku": 21,
+    "total": 21
   },
   "agents": {
     "lear-strategist": {
@@ -48,10 +58,10 @@
         "[Standing: keyword cluster gaps] Using the Search Console API (sc-domain:londonemergencyap",
         "[Standing: title and snippet CTR check] Using the Search Console API (sc-domain:londonemer"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search Console for sc-domain:londonemergencyappliancerepa",
       "current_model": "haiku",
-      "last_update": "2026-10-14T21:09:27Z"
+      "last_update": "2026-10-15T06:00:07Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -117,6 +127,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T06:00:07Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search Console for sc-domain:londonem",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-14T21:55:09Z",
       "agent": "lear-security",
@@ -193,16 +210,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Draft review-request messages for last 14 days of jobs] Work from the Job Manager data (l",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-14T18:08:46Z",
-      "agent": "lear-reviews",
-      "type": "info",
-      "description": "Task from manager queue: [Draft review-request messages for last 14 days of jobs] Work from the Job Manager data (lear-job-manager, /jobs-app/, t",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 20,
+  "total_tasks_logged": 21,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
