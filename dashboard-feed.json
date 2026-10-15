@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-15T15:02:11Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-15T15:45:33Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-15T16:45:11.937158",
+      "agent": "lear-monitor",
+      "agent_label": "Quality gate",
+      "task": "[Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced since your last run (provided below: content files,",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 33,
-    "total": 33
+    "haiku": 34,
+    "total": 34
   },
   "agents": {
     "lear-strategist": {
@@ -113,10 +123,10 @@
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a",
         "[Local: fleet activity review] Review the recent agent activity log provided below. Flag a"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced since your last run (provided below: content files,",
       "current_model": "haiku",
-      "last_update": "2026-10-14T17:25:33Z"
+      "last_update": "2026-10-15T15:45:11Z"
     },
     "lear-explorer": {
       "id": "lear-explorer",
@@ -131,6 +141,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T15:45:11Z",
+      "agent": "lear-monitor",
+      "type": "info",
+      "description": "Task from mission scheduler: [Fleet quality audit] Pre-flight review of the customer-facing drafts the fleet produced since your last run (provided b",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T15:02:10Z",
       "agent": "lear-security",
@@ -207,16 +224,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T11:15:10Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from manager queue: [Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (property 536745696, via brain/g",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 33,
+  "total_tasks_logged": 34,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
