@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-15T12:45:38Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-15T13:45:10.767250",
-      "agent": "lear-content",
-      "agent_label": "Content & reputation",
-      "task": "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. There is no GBP API, so ",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-15T12:46:20Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 30,
@@ -85,17 +75,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Pro",
         "[Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the",
         "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
         "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the",
         "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti",
-        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days",
-        "[Local: blog title ideas] Using the services and voice in BRAND.md, propose 5 blog post ti"
+        "[Standing: FAQ gap from enquiries] From the Search Console query data for the last 28 days"
       ],
-      "status": "working",
-      "current_task": "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Profile posts for next week. There is no GBP API, so ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-15T12:45:10Z"
+      "last_update": "2026-10-15T12:46:19Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -130,6 +120,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-15T12:46:19Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Pro",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-15T12:45:10Z",
       "agent": "lear-content",
@@ -205,13 +202,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from manager queue: [Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machine error codes' is at position ",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T08:18:15Z",
-      "agent": "lear-webdev",
-      "type": "ok",
-      "description": "Completed (haiku): [CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
       "status": "completed"
     }
   ],
