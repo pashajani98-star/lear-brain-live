@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-16T06:45:08Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-16T07:45:03.126065",
-      "agent": "lear-security",
-      "agent_label": "Security, health & code",
-      "task": "[Read-only check: retired care-plan code still live?] Read-only security review, no edits and no commits. The Priority Service Plan (care pl",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-16T06:46:21Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 44,
@@ -37,17 +27,17 @@
       "id": "lear-security",
       "label": "Security & health",
       "recent_activity": [
+        "[Read-only check: retired care-plan code still live?] Read-only security review, no edits ",
         "[Check plugin versions for published CVEs] Read-only security check, no edits. In the repo",
         "[Check care-plan teardown left no payment or portal gaps] Read-only review, no edits and n",
         "[Read-only code review of booking payment path] Read-only code review; do NOT edit any fil",
         "[Verify last 24h brain sync and backup ran] Read-only check of the always-on brain. Using ",
-        "[Read-only check of payment webhook and price trust] Read-only static review. No edits and",
-        "[Static check of Engineer App REST routes for auth] Read-only static security check of the"
+        "[Read-only check of payment webhook and price trust] Read-only static review. No edits and"
       ],
-      "status": "working",
-      "current_task": "[Read-only check: retired care-plan code still live?] Read-only security review, no edits and no commits. The Priority Service Plan (care pl",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-16T06:45:03Z"
+      "last_update": "2026-10-16T06:46:09Z"
     },
     "lear-seo": {
       "id": "lear-seo",
@@ -144,6 +134,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-16T06:46:09Z",
+      "agent": "lear-security",
+      "type": "ok",
+      "description": "Completed (haiku): [Read-only check: retired care-plan code still live?] Read-only security review, no edits ",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-16T06:45:03Z",
       "agent": "lear-security",
       "type": "info",
@@ -218,13 +215,6 @@
       "agent": "lear-explorer",
       "type": "info",
       "description": "Task from standing work: [Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T19:16:42Z",
-      "agent": "lear-webdev",
-      "type": "ok",
-      "description": "Completed (haiku): [Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts ",
       "status": "completed"
     }
   ],
