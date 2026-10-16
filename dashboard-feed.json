@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-16T10:30:37Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-16T11:30:19.790626",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Find ranking URL for 'appliance repair' and fix meta] Read-only data pull, then a meta-only draft. Using the Search Console API (sc-domain:",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-16T10:31:53Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 49,
@@ -53,17 +43,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
+        "[Find ranking URL for 'appliance repair' and fix meta] Read-only data pull, then a meta-on",
         "[Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console",
         "[Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query ",
         "[Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-d",
         "[Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machin",
-        "[Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search ",
-        "[Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemer"
+        "[Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search "
       ],
-      "status": "working",
-      "current_task": "[Find ranking URL for 'appliance repair' and fix meta] Read-only data pull, then a meta-only draft. Using the Search Console API (sc-domain:",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-16T10:30:19Z"
+      "last_update": "2026-10-16T10:31:32Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -144,6 +134,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-16T10:31:32Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Find ranking URL for 'appliance repair' and fix meta] Read-only data pull, then a meta-on",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-16T10:30:19Z",
       "agent": "lear-seo",
       "type": "info",
@@ -218,13 +215,6 @@
       "agent": "lear-security",
       "type": "info",
       "description": "Task from manager queue: [Read-only check: retired care-plan code still live?] Read-only security review, no edits and no commits. The Priority S",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-16T06:01:05Z",
-      "agent": "lear-seo",
-      "type": "ok",
-      "description": "Completed (haiku): [Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query ",
       "status": "completed"
     }
   ],
