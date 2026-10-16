@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-16T09:31:40Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-16T10:31:19.319389",
-      "agent": "lear-content",
-      "agent_label": "Content & reputation",
-      "task": "[Two Google Business Profile posts for this week] Draft two Google Business Profile posts for London Emergency Appliance Repair, using BRAND",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-16T09:32:21Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 48,
@@ -85,17 +75,17 @@
       "id": "lear-content",
       "label": "Content",
       "recent_activity": [
+        "[Two Google Business Profile posts for this week] Draft two Google Business Profile posts ",
         "[Draft review-request texts for last week's completed jobs] Goal: close the gap to 140 Goo",
         "[Standing: next blog title ideas] Using the services and voice in BRAND.md, propose 5 blog",
         "[Draft two GBP posts on washer dryers and Bosch error codes] Draft two Google Business Pro",
         "[Add Beko fault section to fridge freezer guide] Target the Beko fridge freezer guide (the",
-        "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
-        "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the"
+        "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe"
       ],
-      "status": "working",
-      "current_task": "[Two Google Business Profile posts for this week] Draft two Google Business Profile posts for London Emergency Appliance Repair, using BRAND",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-16T09:31:19Z"
+      "last_update": "2026-10-16T09:31:56Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -143,6 +133,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-16T09:31:56Z",
+      "agent": "lear-content",
+      "type": "ok",
+      "description": "Completed (haiku): [Two Google Business Profile posts for this week] Draft two Google Business Profile posts ",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-16T09:31:19Z",
       "agent": "lear-content",
@@ -218,13 +215,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from manager queue: [Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query 'lamona oven symbols' (GSC cli",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T21:41:06Z",
-      "agent": "lear-webdev",
-      "type": "ok",
-      "description": "Completed (haiku): [Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. ",
       "status": "completed"
     }
   ],
