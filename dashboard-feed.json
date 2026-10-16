@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-16T07:30:08Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-16T08:30:03.431296",
-      "agent": "lear-strategist",
-      "agent_label": "Strategy & planning",
-      "task": "[Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it. Produce ONE concret",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-16T07:31:19Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 45,
@@ -21,17 +11,17 @@
       "id": "lear-strategist",
       "label": "Strategy",
       "recent_activity": [
+        "[Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
         "[Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope th",
         "[Verify homepage conversions before doubling down] Read-only analysis, no edits and no spe",
         "[Competitor watch on map-pack and organic 'appliance repair london'] Run competitor intell",
         "[Read-only competitor check for 'appliance repair london' map pack] Read-only competitor c",
-        "[Decide the replacement for the retired paid lever] Write a one-page decision memo, no spe",
-        "[Standing: force a re-plan] The task queue has been empty long enough that the normal plan"
+        "[Decide the replacement for the retired paid lever] Write a one-page decision memo, no spe"
       ],
-      "status": "working",
-      "current_task": "[Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it. Produce ONE concret",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-16T07:30:03Z"
+      "last_update": "2026-10-16T07:30:51Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -144,6 +134,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-16T07:30:51Z",
+      "agent": "lear-strategist",
+      "type": "ok",
+      "description": "Completed (haiku): [Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-16T07:30:03Z",
       "agent": "lear-strategist",
       "type": "info",
@@ -218,13 +215,6 @@
       "agent": "lear-strategist",
       "type": "info",
       "description": "Task from manager queue: [Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope the replacement for retired Leve",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T20:01:27Z",
-      "agent": "lear-explorer",
-      "type": "ok",
-      "description": "Completed (haiku): [Explorer: self-chosen research run] Pick your own task per your agent instructions. Read ",
       "status": "completed"
     }
   ],
