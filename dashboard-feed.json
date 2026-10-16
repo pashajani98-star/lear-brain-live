@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-16T06:00:10Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-16T07:00:02.814728",
-      "agent": "lear-seo",
-      "agent_label": "Search operations",
-      "task": "[Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query 'lamona oven symbols' (GSC clicks 43 → 35 week on ",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-16T06:01:30Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 43,
@@ -53,17 +43,17 @@
       "id": "lear-seo",
       "label": "Search operations",
       "recent_activity": [
+        "[Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query ",
         "[Striking-distance meta for 'are washer dryers any good'] Use the Search Console API (sc-d",
         "[Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machin",
         "[Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search ",
         "[Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemer",
-        "[Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from ",
-        "[Rewrite title and meta for washer dryer query] Query 'are washer dryers any good' has 465"
+        "[Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from "
       ],
-      "status": "working",
-      "current_task": "[Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query 'lamona oven symbols' (GSC clicks 43 → 35 week on ",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-16T06:00:02Z"
+      "last_update": "2026-10-16T06:01:05Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -144,6 +134,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-16T06:01:05Z",
+      "agent": "lear-seo",
+      "type": "ok",
+      "description": "Completed (haiku): [Lamona oven symbols: diagnose drop and fix title/meta] Goal: stop the slide on the query ",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-16T06:00:02Z",
       "agent": "lear-seo",
       "type": "info",
@@ -218,13 +215,6 @@
       "agent": "lear-webdev",
       "type": "info",
       "description": "Task from manager queue: [Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts for the last 14 days (property",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T18:31:14Z",
-      "agent": "lear-content",
-      "type": "ok",
-      "description": "Completed (haiku): [Draft review-request texts for last week's completed jobs] Goal: close the gap to 140 Goo",
       "status": "completed"
     }
   ],
