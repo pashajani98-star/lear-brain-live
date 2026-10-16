@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-16T07:31:19Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-16T08:01:45Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-16T09:01:18.689760",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console API (property sc-domain:londonemergencyappliancer",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 45,
-    "total": 45
+    "haiku": 46,
+    "total": 46
   },
   "agents": {
     "lear-strategist": {
@@ -50,10 +60,10 @@
         "[Rewrite title and meta for 'appliance repair london' page] Pull GSC (sc-domain:londonemer",
         "[Diagnose brand-query click drop] The query 'london emergency appliance repair' fell from "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console API (property sc-domain:londonemergencyappliancer",
       "current_model": "haiku",
-      "last_update": "2026-10-16T06:01:05Z"
+      "last_update": "2026-10-16T08:01:18Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -134,6 +144,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-16T08:01:18Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console API (property sc-domain:londo",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-16T07:30:51Z",
       "agent": "lear-strategist",
       "type": "ok",
@@ -209,16 +226,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope th",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T20:08:44Z",
-      "agent": "lear-strategist",
-      "type": "info",
-      "description": "Task from manager queue: [Scope paid booking campaign with ads-plan, no spend] Load the ads-plan skill and scope the replacement for retired Leve",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 45,
+  "total_tasks_logged": 46,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
