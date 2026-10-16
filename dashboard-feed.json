@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-16T06:46:21Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-16T07:30:08Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-16T08:30:03.431296",
+      "agent": "lear-strategist",
+      "agent_label": "Strategy & planning",
+      "task": "[Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it. Produce ONE concret",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 44,
-    "total": 44
+    "haiku": 45,
+    "total": 45
   },
   "agents": {
     "lear-strategist": {
@@ -18,10 +28,10 @@
         "[Decide the replacement for the retired paid lever] Write a one-page decision memo, no spe",
         "[Standing: force a re-plan] The task queue has been empty long enough that the normal plan"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it. Produce ONE concret",
       "current_model": "haiku",
-      "last_update": "2026-10-15T20:10:01Z"
+      "last_update": "2026-10-16T07:30:03Z"
     },
     "lear-security": {
       "id": "lear-security",
@@ -134,6 +144,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-16T07:30:03Z",
+      "agent": "lear-strategist",
+      "type": "info",
+      "description": "Task from standing work: [Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it.",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-16T06:46:09Z",
       "agent": "lear-security",
       "type": "ok",
@@ -209,16 +226,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Explorer: self-chosen research run] Pick your own task per your agent instructions. Read ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T20:00:44Z",
-      "agent": "lear-explorer",
-      "type": "info",
-      "description": "Task from standing work: [Explorer: self-chosen research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 44,
+  "total_tasks_logged": 45,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
