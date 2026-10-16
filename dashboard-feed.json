@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-16T08:48:16Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-16T09:31:40Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-16T10:31:19.319389",
+      "agent": "lear-content",
+      "agent_label": "Content & reputation",
+      "task": "[Two Google Business Profile posts for this week] Draft two Google Business Profile posts for London Emergency Appliance Repair, using BRAND",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 47,
-    "total": 47
+    "haiku": 48,
+    "total": 48
   },
   "agents": {
     "lear-strategist": {
@@ -82,10 +92,10 @@
         "[Lamona oven symbols full draft (WordPress draft, not live)] Produce the COMPLETE refreshe",
         "[Refresh Lamona oven symbols guide for top-traffic query] Refresh /lamona-oven-symbols-the"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Two Google Business Profile posts for this week] Draft two Google Business Profile posts for London Emergency Appliance Repair, using BRAND",
       "current_model": "haiku",
-      "last_update": "2026-10-15T18:31:14Z"
+      "last_update": "2026-10-16T09:31:19Z"
     },
     "lear-outreach": {
       "id": "lear-outreach",
@@ -133,6 +143,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-16T09:31:19Z",
+      "agent": "lear-content",
+      "type": "info",
+      "description": "Task from manager queue: [Two Google Business Profile posts for this week] Draft two Google Business Profile posts for London Emergency Appliance",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-16T08:47:55Z",
       "agent": "lear-security",
@@ -209,16 +226,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-15T21:40:15Z",
-      "agent": "lear-webdev",
-      "type": "info",
-      "description": "Task from manager queue: [Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. Step 1: using the GA4 Data API",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 47,
+  "total_tasks_logged": 48,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
