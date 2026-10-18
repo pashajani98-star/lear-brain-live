@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-18T21:13:17Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-18T21:56:10Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-18T22:55:51.138240",
+      "agent": "lear-seo",
+      "agent_label": "Search operations",
+      "task": "[Striking-distance meta for 'fridge repair near me'] Striking-distance title and meta for the query 'fridge repair near me'. Step 1 (read-on",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -50,10 +60,10 @@
         "[Striking-distance meta for Bosch washing machine error codes] Query 'bosch washing machin",
         "[Beko fridge freezer guide title and meta for 'beko fridge freezer problems'] Pull Search "
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Striking-distance meta for 'fridge repair near me'] Striking-distance title and meta for the query 'fridge repair near me'. Step 1 (read-on",
       "current_model": "haiku",
-      "last_update": "2026-10-16T10:31:32Z"
+      "last_update": "2026-10-18T21:55:51Z"
     },
     "lear-webdev": {
       "id": "lear-webdev",
@@ -135,6 +145,13 @@
   },
   "recent_activity": [
     {
+      "timestamp": "2026-10-18T21:55:51Z",
+      "agent": "lear-seo",
+      "type": "info",
+      "description": "Task from manager queue: [Striking-distance meta for 'fridge repair near me'] Striking-distance title and meta for the query 'fridge repair near ",
+      "status": "completed"
+    },
+    {
       "timestamp": "2026-10-18T21:12:49Z",
       "agent": "lear-webdev",
       "type": "ok",
@@ -209,13 +226,6 @@
       "agent": "lear-seo",
       "type": "ok",
       "description": "Completed (haiku): [Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-16T08:01:18Z",
-      "agent": "lear-seo",
-      "type": "info",
-      "description": "Task from manager queue: [Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console API (property sc-domain:londo",
       "status": "completed"
     }
   ],
