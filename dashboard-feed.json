@@ -1,10 +1,20 @@
 {
-  "timestamp": "2026-10-16T10:31:53Z",
-  "current_tasks": [],
+  "timestamp": "2026-10-18T20:26:04Z",
+  "current_tasks": [
+    {
+      "timestamp": "2026-10-18T21:25:42.883708",
+      "agent": "lear-explorer",
+      "agent_label": "Explorer (new revenue)",
+      "task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
+      "model": "haiku",
+      "status": "running",
+      "elapsed": 0
+    }
+  ],
   "model_summary": {
     "ollama": 0,
-    "haiku": 49,
-    "total": 49
+    "haiku": 50,
+    "total": 50
   },
   "agents": {
     "lear-strategist": {
@@ -126,13 +136,20 @@
         "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read ",
         "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/"
       ],
-      "status": "standby",
-      "current_task": null,
+      "status": "working",
+      "current_task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
       "current_model": "haiku",
-      "last_update": "2026-10-15T20:01:27Z"
+      "last_update": "2026-10-18T20:25:44Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-18T20:25:47Z",
+      "agent": "lear-explorer",
+      "type": "info",
+      "description": "Task from mission scheduler: [Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choo",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-16T10:31:32Z",
       "agent": "lear-seo",
@@ -209,16 +226,9 @@
       "type": "ok",
       "description": "Completed (haiku): [Read-only check: retired care-plan code still live?] Read-only security review, no edits ",
       "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-16T06:45:03Z",
-      "agent": "lear-security",
-      "type": "info",
-      "description": "Task from manager queue: [Read-only check: retired care-plan code still live?] Read-only security review, no edits and no commits. The Priority S",
-      "status": "completed"
     }
   ],
-  "total_tasks_logged": 49,
+  "total_tasks_logged": 50,
   "claude_allowance": {
     "limited": false,
     "retry_at": null
