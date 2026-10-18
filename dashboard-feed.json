@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-18T21:11:01Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-18T22:10:50.446827",
-      "agent": "lear-webdev",
-      "agent_label": "Web systems",
-      "task": "[Diagnose 37% conversion drop by event and page] Read-only: no edits, no commits. GA4 conversions fell 37% in the last 7 days vs the prior 7",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-18T21:13:17Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -69,17 +59,17 @@
       "id": "lear-webdev",
       "label": "Web systems",
       "recent_activity": [
+        "[Diagnose 37% conversion drop by event and page] Read-only: no edits, no commits. GA4 conv",
         "[Read-only: trace the '(not set)' landing-page sessions] Read-only, no edits, no commits. ",
         "[Verify lead events fire on live site] Read-only, no edits. Step 1: pull GA4 event counts ",
         "[Trace the (not set) landing-page sessions in GA4] Read-only, no edits. Use the GA4 API (p",
         "[CTA audit on four zero-conversion troubleshooting guides] Read-only first, then a branch ",
-        "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair",
-        "[Standing: page speed and broken link check] Fetch the homepage, /book/ and 3 service page"
+        "[Add booking CTA to four dryer troubleshooting pages] Site: londonemergencyappliancerepair"
       ],
-      "status": "working",
-      "current_task": "[Diagnose 37% conversion drop by event and page] Read-only: no edits, no commits. GA4 conversions fell 37% in the last 7 days vs the prior 7",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-18T21:10:50Z"
+      "last_update": "2026-10-18T21:12:49Z"
     },
     "lear-content": {
       "id": "lear-content",
@@ -144,6 +134,13 @@
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-18T21:12:49Z",
+      "agent": "lear-webdev",
+      "type": "ok",
+      "description": "Completed (haiku): [Diagnose 37% conversion drop by event and page] Read-only: no edits, no commits. GA4 conv",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-18T21:10:50Z",
       "agent": "lear-webdev",
@@ -219,13 +216,6 @@
       "agent": "lear-seo",
       "type": "info",
       "description": "Task from manager queue: [Diagnose branded-query click drop (9 to 4)] Read-only, no edits. Using the Search Console API (property sc-domain:londo",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-16T07:30:51Z",
-      "agent": "lear-strategist",
-      "type": "ok",
-      "description": "Completed (haiku): [Standing: force a re-plan] The task queue has been empty long enough that the normal plan",
       "status": "completed"
     }
   ],
