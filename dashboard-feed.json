@@ -1,16 +1,6 @@
 {
-  "timestamp": "2026-10-18T20:26:04Z",
-  "current_tasks": [
-    {
-      "timestamp": "2026-10-18T21:25:42.883708",
-      "agent": "lear-explorer",
-      "agent_label": "Explorer (new revenue)",
-      "task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
-      "model": "haiku",
-      "status": "running",
-      "elapsed": 0
-    }
-  ],
+  "timestamp": "2026-10-18T20:28:59Z",
+  "current_tasks": [],
   "model_summary": {
     "ollama": 0,
     "haiku": 50,
@@ -133,16 +123,24 @@
       "id": "lear-explorer",
       "label": "Explorer (new revenue)",
       "recent_activity": [
+        "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/",
         "[Explorer: self-chosen research run] Pick your own task per your agent instructions. Read ",
         "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/"
       ],
-      "status": "working",
-      "current_task": "[Explorer: daily research run] Pick your own task per your agent instructions. Read brain/explorer-ledger.md first, choose the lane with the",
+      "status": "standby",
+      "current_task": null,
       "current_model": "haiku",
-      "last_update": "2026-10-18T20:25:44Z"
+      "last_update": "2026-10-18T20:28:58Z"
     }
   },
   "recent_activity": [
+    {
+      "timestamp": "2026-10-18T20:28:58Z",
+      "agent": "lear-explorer",
+      "type": "ok",
+      "description": "Completed (haiku): [Explorer: daily research run] Pick your own task per your agent instructions. Read brain/",
+      "status": "completed"
+    },
     {
       "timestamp": "2026-10-18T20:25:47Z",
       "agent": "lear-explorer",
@@ -218,13 +216,6 @@
       "agent": "lear-strategist",
       "type": "info",
       "description": "Task from standing work: [Standing: force a re-plan] The task queue has been empty long enough that the normal planner cycle has not refilled it.",
-      "status": "completed"
-    },
-    {
-      "timestamp": "2026-10-16T06:46:09Z",
-      "agent": "lear-security",
-      "type": "ok",
-      "description": "Completed (haiku): [Read-only check: retired care-plan code still live?] Read-only security review, no edits ",
       "status": "completed"
     }
   ],
